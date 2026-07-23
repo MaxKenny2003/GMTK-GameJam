@@ -133,7 +133,7 @@ mesh = SubResource("BoxMesh_n7wbk")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1015132653]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.44125196, 1.953711, -1.7308838)
 script = ExtResource("2_sivyo")
-target_pos = Vector3(10, 10, 10)
+target_pos = Vector3(10, 10, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1520748531]
 transform = Transform3D(-1, -8.7422784e-08, 7.2805065e-15, 9.372041e-10, -0.010720282, 0.99994254, -8.741775e-08, 0.99994254, 0.010720282, 0, 8.58327, 0)
