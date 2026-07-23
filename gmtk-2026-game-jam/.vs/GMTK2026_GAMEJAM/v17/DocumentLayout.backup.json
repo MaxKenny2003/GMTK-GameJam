@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|d:\\personalprojects\\01_games\\gmtk-gamejam\\gmtk-2026-game-jam\\scripts\\testscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|solutionrelative:scripts\\testscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|d:\\personalprojects\\01_games\\gmtk-gamejam\\gmtk-2026-game-jam\\scripts\\main_menu\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|solutionrelative:scripts\\main_menu\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "testScript.cs",
-              "DocumentMoniker": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\testScript.cs",
-              "RelativeDocumentMoniker": "scripts\\testScript.cs",
-              "ToolTip": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\testScript.cs",
-              "RelativeToolTip": "scripts\\testScript.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\main_menu\\MainMenu.cs",
+              "RelativeDocumentMoniker": "scripts\\main_menu\\MainMenu.cs",
+              "ToolTip": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\main_menu\\MainMenu.cs",
+              "RelativeToolTip": "scripts\\main_menu\\MainMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-23T06:41:36.859Z",
+              "WhenOpened": "2026-07-23T07:33:46.265Z",
               "EditorCaption": ""
             }
           ]

@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://sflnr7lxlhpp"]
 
+[ext_resource type="Script" uid="uid://cyffo7ivvms6a" path="res://scripts/office_level/OfficeLevel.cs" id="1_iiahc"]
+[ext_resource type="Script" uid="uid://hgieabivobrd" path="res://scenes/office_level/Camera3d.cs" id="2_sivyo"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_hxyb1"]
 size = Vector3(20, 0.2, 20)
 
@@ -16,6 +19,7 @@ size = Vector3(2.5, 0.1, 1.25)
 size = Vector3(0.1, 1.7021484, 1.25)
 
 [node name="Office_Level" type="Node" unique_id=423284289]
+script = ExtResource("1_iiahc")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=616607092]
 
@@ -73,7 +77,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2128878, 1.4107684, 0)
 size = Vector3(0.2, 3.3127441, 3.4846191)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2" unique_id=1801792366]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.347771, 1.4107684, -1.3334045)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3536654, 1.4107684, -1.3334045)
 size = Vector3(0.2, 3.3127441, 0.81781006)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D2" unique_id=776407819]
@@ -90,12 +94,33 @@ size = Vector3(0.2, 3.3127441, 4.763672)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="CSGCombiner3D2" unique_id=456387331]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4266021, -1.0488129)
+gravity_scale = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCombiner3D2/RigidBody3D" unique_id=861413372]
 shape = SubResource("BoxShape3D_n7wbk")
 
 [node name="Top" type="MeshInstance3D" parent="CSGCombiner3D2/RigidBody3D" unique_id=2110937838]
 mesh = SubResource("BoxMesh_hxyb1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2/RigidBody3D/Top" unique_id=418161656]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.002090454, 0.094579816, -0.00040233135)
+size = Vector3(0.36889648, 0.07324219, 0.70703125)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2/RigidBody3D/Top" unique_id=772284453]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.002090454, 0.059753895, 0.38409007)
+size = Vector3(0.24902344, 0.034179688, 0.70703125)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D2/RigidBody3D/Top" unique_id=826571432]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.58843493, 0.073730946, 0.34087718)
+size = Vector3(0.16259766, 0.06213379, 0.16601563)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2/RigidBody3D/Top" unique_id=1415918746]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.1694771, 0)
+size = Vector3(0.17089844, 0.14453125, 0.50097656)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D2/RigidBody3D/Top" unique_id=1805250036]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.53119934, -0.03930664)
+size = Vector3(0.60595703, 0.5722046, 0.8154297)
 
 [node name="Left_Leg" type="MeshInstance3D" parent="CSGCombiner3D2/RigidBody3D" unique_id=313280917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, -0.8510742, 0)
@@ -104,3 +129,11 @@ mesh = SubResource("BoxMesh_n7wbk")
 [node name="Righ_Leg" type="MeshInstance3D" parent="CSGCombiner3D2/RigidBody3D" unique_id=2138232875]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, -0.851, 0)
 mesh = SubResource("BoxMesh_n7wbk")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1015132653]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.44125196, 1.953711, -1.7308838)
+script = ExtResource("2_sivyo")
+target_pos = Vector3(10, 10, 10)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1520748531]
+transform = Transform3D(-1, -8.7422784e-08, 7.2805065e-15, 9.372041e-10, -0.010720282, 0.99994254, -8.741775e-08, 0.99994254, 0.010720282, 0, 8.58327, 0)

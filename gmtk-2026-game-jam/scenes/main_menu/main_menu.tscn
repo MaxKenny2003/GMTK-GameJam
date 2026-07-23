@@ -18,7 +18,7 @@ anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 648.0
 
-[node name="TextureRect" type="TextureRect" parent="MenuCanvas" unique_id=143478773]
+[node name="Background" type="TextureRect" parent="MenuCanvas" unique_id=143478773]
 modulate = Color(0.27058825, 0.3137255, 0.27058825, 1)
 layout_mode = 0
 offset_right = 1154.0

@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|d:\\personalprojects\\01_games\\gmtk-gamejam\\gmtk-2026-game-jam\\scenes\\office_level\\camera3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|solutionrelative:scenes\\office_level\\camera3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|d:\\personalprojects\\01_games\\gmtk-gamejam\\gmtk-2026-game-jam\\scripts\\main_menu\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|solutionrelative:scripts\\main_menu\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\office_level\\OfficeLevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\office_level\\OfficeLevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,12 +27,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Camera3d.cs",
+              "DocumentMoniker": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scenes\\office_level\\Camera3d.cs",
+              "RelativeDocumentMoniker": "scenes\\office_level\\Camera3d.cs",
+              "ToolTip": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scenes\\office_level\\Camera3d.cs",
+              "RelativeToolTip": "scenes\\office_level\\Camera3d.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T08:18:01.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OfficeLevel.cs",
+              "DocumentMoniker": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\office_level\\OfficeLevel.cs",
+              "RelativeDocumentMoniker": "scripts\\office_level\\OfficeLevel.cs",
+              "ToolTip": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\office_level\\OfficeLevel.cs",
+              "RelativeToolTip": "scripts\\office_level\\OfficeLevel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T08:06:34.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\main_menu\\MainMenu.cs",
               "RelativeDocumentMoniker": "scripts\\main_menu\\MainMenu.cs",
               "ToolTip": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\main_menu\\MainMenu.cs",
               "RelativeToolTip": "scripts\\main_menu\\MainMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-23T07:33:46.265Z",
               "EditorCaption": ""
