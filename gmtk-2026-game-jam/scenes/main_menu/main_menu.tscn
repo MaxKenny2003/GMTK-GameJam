@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://cxsditgm4mxoq"]
 
+[ext_resource type="Script" uid="uid://bdijbepo60okd" path="res://scripts/testScript.cs" id="1_fsom3"]
+
 [node name="Main_Menu" type="Node3D" unique_id=1678854207]
+script = ExtResource("1_fsom3")
