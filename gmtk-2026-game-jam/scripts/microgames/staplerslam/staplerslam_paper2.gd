@@ -3,12 +3,12 @@ extends Node2D
 var is_stapled = false
 
 var random_y 
-var end_pos = Vector2(-300, 0)
+var end_pos = Vector2(-650, 0)
 var min_dist = 250
 var max_dist = 500
 
 var travel_time
-var min_time = 2.5
+var min_time = 3
 var max_time = 5.5
 
 # Called when the node enters the scene tree for the first time.

@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var stapler: AnimatedSprite2D = $stapler
 @onready var staplerarea: Area2D = $stapler/staplerarea
-@onready var label: Label = $Label
+@onready var win_text: Label = $Label
 
 @export var stapler_offset: Vector2 = Vector2(0,90)
 @export var StapleScene: PackedScene
@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	stapler.global_position = mouse_pos - stapler_offset
 	if staple_counter == 3:
-		label.visible = true
+		win_text.visible = true
 
 func _physics_process(_delta: float) -> void:
 	if not pending_staple:
