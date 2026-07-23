@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://enj3b2kdn8ry"]
 
-[ext_resource type="Texture2D" uid="uid://hkj7odjf433t" path="res://assets/office/staplerslam/staple.png" id="1_wag2g"]
+[ext_resource type="Texture2D" uid="uid://hkj7odjf433t" path="res://assets/2D/staple.png" id="1_wag2g"]
 
 [node name="staple" type="Node2D" unique_id=60393198]
 

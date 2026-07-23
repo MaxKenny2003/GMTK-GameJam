@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hkj7odjf433t"
-path="res://.godot/imported/staple.png-6c774fd44824e815f69e2450028123f0.ctex"
+uid="uid://d2y5uyg07gwva"
+path="res://.godot/imported/paper.png-8e794c01f3705faca17f64acc47f40e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/office/staplerslam/staple.png"
-dest_files=["res://.godot/imported/staple.png-6c774fd44824e815f69e2450028123f0.ctex"]
+source_file="res://assets/2D/paper.png"
+dest_files=["res://.godot/imported/paper.png-8e794c01f3705faca17f64acc47f40e4.ctex"]
 
 [params]
 
