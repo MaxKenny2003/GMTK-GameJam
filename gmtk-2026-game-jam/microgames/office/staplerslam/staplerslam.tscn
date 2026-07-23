@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cklr0uk6gtrgk"]
+
+[ext_resource type="PackedScene" uid="uid://dkcysksmm35r4" path="res://microgames/office/staplerslam/staplerslam_paper.tscn" id="1_ae33f"]
+[ext_resource type="Script" uid="uid://c00h4x1vg6s3n" path="res://scripts/microgames/office/staplerslam/staplerslam.gd" id="1_x73ta"]
+[ext_resource type="Texture2D" uid="uid://ctl37nnlffexa" path="res://assets/office/staplerslam/stapler.png" id="2_bg7lo"]
+[ext_resource type="PackedScene" uid="uid://enj3b2kdn8ry" path="res://microgames/office/staplerslam/staple.tscn" id="2_x73ta"]
+[ext_resource type="Script" uid="uid://bvufbk64xibng" path="res://scripts/microgames/office/staplerslam/staplerslam_paper2.gd" id="4_5gaou"]
+[ext_resource type="Script" uid="uid://f62jjoujx24t" path="res://scripts/microgames/office/staplerslam/staplerslam_paper3.gd" id="5_kdce7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg7lo"]
+atlas = ExtResource("2_bg7lo")
+region = Rect2(0, 0, 20, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1c8q"]
+atlas = ExtResource("2_bg7lo")
+region = Rect2(20, 0, 20, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0sqs7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg7lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1c8q")
+}],
+"loop": 1,
+"name": &"press",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
+size = Vector2(3, 2.5)
+
+[node name="Node2D" type="Node2D" unique_id=1806313159]
+script = ExtResource("1_x73ta")
+StapleScene = ExtResource("2_x73ta")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=74786386]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.92156863, 0.7254902, 0.4509804, 1)
+
+[node name="paper" parent="." unique_id=72314455 instance=ExtResource("1_ae33f")]
+position = Vector2(2051, 527)
+scale = Vector2(4, 4)
+
+[node name="paper2" parent="." unique_id=203868330 instance=ExtResource("1_ae33f")]
+position = Vector2(1708, 276)
+scale = Vector2(4, 4)
+script = ExtResource("4_5gaou")
+
+[node name="paper3" parent="." unique_id=2034006229 instance=ExtResource("1_ae33f")]
+position = Vector2(1363, 378)
+scale = Vector2(4, 4)
+script = ExtResource("5_kdce7")
+
+[node name="stapler" type="AnimatedSprite2D" parent="." unique_id=208657961]
+position = Vector2(582, 309)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_0sqs7")
+animation = &"press"
+frame_progress = 0.58606535
+
+[node name="staplerarea" type="Area2D" parent="stapler" unique_id=1436752268]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stapler/staplerarea" unique_id=1226812364]
+position = Vector2(0.25, 25.25)
+shape = SubResource("RectangleShape2D_q4mm8")
+
+[node name="Label" type="Label" parent="." unique_id=592553792]
+visible = false
+offset_left = 232.0
+offset_top = 239.0
+offset_right = 945.0
+offset_bottom = 376.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 100
+text = "You're Winner!"
+horizontal_alignment = 1
+vertical_alignment = 1

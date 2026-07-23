@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://enj3b2kdn8ry"]
+
+[ext_resource type="Texture2D" uid="uid://hkj7odjf433t" path="res://assets/office/staplerslam/staple.png" id="1_wag2g"]
+
+[node name="staple" type="Node2D" unique_id=60393198]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=225902106]
+texture = ExtResource("1_wag2g")

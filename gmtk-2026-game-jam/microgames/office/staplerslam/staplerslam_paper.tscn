@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dkcysksmm35r4"]
+
+[ext_resource type="Script" uid="uid://cpxplysnnrd2d" path="res://scripts/microgames/office/staplerslam/staplerslam_paper.gd" id="1_7a303"]
+[ext_resource type="Texture2D" uid="uid://d2y5uyg07gwva" path="res://assets/office/staplerslam/paper.png" id="1_x2lrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
+size = Vector2(37, 19)
+
+[node name="paper" type="Node2D" unique_id=72314455]
+script = ExtResource("1_7a303")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1223852179]
+texture = ExtResource("1_x2lrj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1243220705]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1741962907]
+position = Vector2(-18.5, -40.5)
+shape = SubResource("RectangleShape2D_q4mm8")
