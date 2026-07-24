@@ -6,7 +6,7 @@ extends Node2D
 @export var rotation_sens = 1.0
 @export var grab_radius = 150.0
 @export var rotation_offset_deg = 0.0
-@export var target_rotation_deg = 3600.0
+@export var target_rotation_deg = 1800.0
 
 @export var torque_str = 25.0
 @export var max_ang_accel = 1200.0

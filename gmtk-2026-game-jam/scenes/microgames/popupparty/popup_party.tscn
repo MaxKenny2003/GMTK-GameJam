@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dcwa1iyalum3g"]
+
+[ext_resource type="Script" uid="uid://d0raqgyi10leg" path="res://scripts/microgames/popupparty/popup_party.gd" id="1_tuikh"]
+[ext_resource type="Texture2D" uid="uid://c82r4v0rw3dls" path="res://assets/Backgrounds/popupparty.png" id="2_bkp7j"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_gy1mq"]
+[ext_resource type="PackedScene" uid="uid://lycfsg4n4b3w" path="res://scenes/microgames/popupparty/popup_window.tscn" id="4_bkp7j"]
+
+[node name="popup_party" type="Node2D" unique_id=101498177]
+script = ExtResource("1_tuikh")
+PopupScene = ExtResource("4_bkp7j")
+
+[node name="background" type="TextureRect" parent="." unique_id=1177022091]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_bkp7j")
+metadata/_edit_lock_ = true
+
+[node name="top_text" type="RichTextLabel" parent="background" unique_id=949314705]
+layout_mode = 0
+offset_left = 87.75
+offset_top = 20.0
+offset_right = 1227.7498
+offset_bottom = 182.49998
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0.73971456, 1.92523e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0.33841872, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_gy1mq")
+theme_override_font_sizes/normal_font_size = 160
+text = "KEEP CALM"
+metadata/_edit_lock_ = true
+
+[node name="bottom_text" type="RichTextLabel" parent="background" unique_id=2018729477]
+layout_mode = 0
+offset_left = 70.25
+offset_top = 115.49998
+offset_right = 1607.7498
+offset_bottom = 277.99997
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0.7294118, 0, 0.10980392, 1)
+theme_override_colors/font_outline_color = Color(0.22876573, 0.00036334505, 3.008172e-08, 1)
+theme_override_fonts/normal_font = ExtResource("3_gy1mq")
+theme_override_font_sizes/normal_font_size = 160
+text = "KEEP WORKING"
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="." unique_id=294214900]
+visible = false
+offset_left = 232.0
+offset_top = 239.0
+offset_right = 945.0
+offset_bottom = 376.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 100
+text = "You're Winner!"
+horizontal_alignment = 1
+vertical_alignment = 1

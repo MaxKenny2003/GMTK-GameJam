@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b8l30l2y6f82y" path="res://assets/2D/plug.png" id="2_weyo6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q4mm8"]
-radius = 1.5
-height = 3.0
+radius = 2.25
+height = 4.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_weyo6"]
 atlas = ExtResource("2_weyo6")
@@ -38,7 +38,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0sqs7"]
-radius = 1.75
+radius = 3.0
 height = 7.0
 
 [node name="plug_panic" type="Node2D" unique_id=395949492]

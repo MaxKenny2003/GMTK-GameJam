@@ -24,6 +24,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="GMTK2026_GameJam"
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

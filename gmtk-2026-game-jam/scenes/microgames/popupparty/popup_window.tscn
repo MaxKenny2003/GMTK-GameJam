@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://lycfsg4n4b3w"]
+
+[ext_resource type="Script" uid="uid://64iv7222f46h" path="res://scripts/microgames/popupparty/popup_window.gd" id="1_0aop4"]
+[ext_resource type="Texture2D" uid="uid://7kccyeawcfje" path="res://assets/2D/Popup_alt.png" id="2_l1tfq"]
+[ext_resource type="Texture2D" uid="uid://lt7drun3ow0e" path="res://assets/2D/popup_okay.png" id="3_f1f7t"]
+[ext_resource type="Texture2D" uid="uid://cwyopj1siai6c" path="res://assets/2D/popup_okay_pressed.png" id="4_fyjij"]
+[ext_resource type="Texture2D" uid="uid://4dy2ck4roqm8" path="res://assets/2D/popup_x.png" id="4_x3dlc"]
+[ext_resource type="Texture2D" uid="uid://dfvm5m044cnpr" path="res://assets/2D/popup_okay_hover.png" id="5_krixn"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="5_l1tfq"]
+[ext_resource type="Texture2D" uid="uid://6cb7w433ljui" path="res://assets/2D/popup_x_pressed.png" id="6_krixn"]
+[ext_resource type="Texture2D" uid="uid://dfplrcbbx1d5b" path="res://assets/2D/popup_x_hover.png" id="8_0clb6"]
+
+[node name="popup_window" type="Control" unique_id=770788365]
+custom_minimum_size = Vector2(360, 240)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -180.0
+offset_top = -120.0
+offset_right = 180.0
+offset_bottom = 120.0
+script = ExtResource("1_0aop4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2107893496]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_l1tfq")
+metadata/_edit_lock_ = true
+
+[node name="okay_button" type="TextureButton" parent="." unique_id=1269538477]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 184.0
+offset_right = 152.0
+offset_bottom = 191.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_f1f7t")
+texture_pressed = ExtResource("4_fyjij")
+texture_hover = ExtResource("5_krixn")
+metadata/_edit_lock_ = true
+
+[node name="x_button" type="TextureButton" parent="." unique_id=436132300]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 12.0
+offset_right = 327.0
+offset_bottom = 19.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_x3dlc")
+texture_pressed = ExtResource("6_krixn")
+texture_hover = ExtResource("8_0clb6")
+metadata/_edit_lock_ = true
+
+[node name="text" type="RichTextLabel" parent="." unique_id=707185374]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 99.0
+offset_right = 304.0
+offset_bottom = 129.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_l1tfq")
+theme_override_font_sizes/normal_font_size = 32
+text = "ERROR"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="okay_button" to="." method="_on_okay_button_pressed"]
+[connection signal="pressed" from="x_button" to="." method="_on_x_button_pressed"]

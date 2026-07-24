@@ -3,11 +3,16 @@ extends Node2D
 @onready var plug: AnimatedSprite2D = $plug
 @onready var plug_area: Area2D = $plug/Area2D
 @onready var win_text: Label = $Label
+@onready var snap_point: Node2D = $outlet/snap_point
+@onready var plug_center: Node2D = $plug/plug_center
 
 var start_pos = Vector2(60, 792)
 var end_pos = Vector2(1062, 792)
 @export var travel_time = 2.5
-var rise_time = 2.0
+var rise_time = 1.0
+
+var cable_height = 520.0
+var plug_height = 70.0
 
 var h_tween: Tween
 var v_tween: Tween
@@ -17,6 +22,7 @@ var max_allowed_y = 350.0
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	start_oscillation()
+	print(snap_point.global_position)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -25,6 +31,7 @@ func _process(_delta: float) -> void:
 			v_tween.kill()
 			v_tween = null
 			plug.frame = 1
+			plug.position = Vector2(snap_point.global_position.x, snap_point.global_position.y + (cable_height / 2) - (plug_height / 2))
 			win_text.visible = true
 
 func start_oscillation() -> void:
