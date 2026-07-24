@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c24xxcrdsc2ao"]
+
+[ext_resource type="Texture2D" uid="uid://dolaw2iw2d5pj" path="res://assets/2D/Fly.png" id="1_5qkr3"]
+[ext_resource type="Texture2D" uid="uid://710xggpolnmr" path="res://assets/2D/Fly-moving.png" id="2_37g4o"]
+[ext_resource type="Script" uid="uid://d0uiwsdtacie5" path="res://scripts/microgames/flyswatter/fly.gd" id="3_nbfi0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3rpa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5qkr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_37g4o")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 12.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=935132583]
+
+[node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.92156863, 0.7254902, 0.4509804, 1)
+
+[node name="Fly" type="AnimatedSprite2D" parent="." unique_id=860841669]
+position = Vector2(421, 311)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_w3rpa")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.69517934
+script = ExtResource("3_nbfi0")
