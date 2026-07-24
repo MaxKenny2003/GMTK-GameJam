@@ -4,8 +4,8 @@ var is_stapled = false
 
 var random_y 
 var end_pos = Vector2(-650, 0)
-var min_dist = 250
-var max_dist = 500
+var min_dist = 350
+var max_dist = 475
 
 var travel_time
 var min_time = 3

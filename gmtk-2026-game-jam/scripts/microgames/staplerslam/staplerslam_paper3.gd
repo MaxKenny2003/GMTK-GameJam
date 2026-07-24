@@ -4,12 +4,12 @@ var is_stapled = false
 
 var random_y 
 var end_pos = Vector2(-1000, 0)
-var min_dist = 250
-var max_dist = 500
+var min_dist = 500
+var max_dist = 650
 
 var travel_time
-var min_time = 3
-var max_time = 5.5
+var min_time = 3.5
+var max_time = 6.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
