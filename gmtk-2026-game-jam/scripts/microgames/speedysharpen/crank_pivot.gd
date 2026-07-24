@@ -8,10 +8,10 @@ extends Node2D
 @export var rotation_offset_deg = 0.0
 @export var target_rotation_deg = 3600.0
 
-@export var torque_str = 40.0
+@export var torque_str = 25.0
 @export var max_ang_accel = 1200.0
 
-@export var damping = 3.0
+@export var damping = 1.5
 @export var stop_damping = 5.0
 
 var grabbing = false

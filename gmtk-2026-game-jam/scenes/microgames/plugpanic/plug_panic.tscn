@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://dqv4jd0k4tqeq"]
+
+[ext_resource type="Texture2D" uid="uid://c6s0u2phjjlcq" path="res://assets/2D/outlet.png" id="1_akbl6"]
+[ext_resource type="Script" uid="uid://bu7khvy2d8psh" path="res://scripts/microgames/plugpanic/plug_panic.gd" id="1_weyo6"]
+[ext_resource type="Texture2D" uid="uid://b8l30l2y6f82y" path="res://assets/2D/plug.png" id="2_weyo6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q4mm8"]
+radius = 1.5
+height = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weyo6"]
+atlas = ExtResource("2_weyo6")
+region = Rect2(0, 0, 17, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yanuy"]
+atlas = ExtResource("2_weyo6")
+region = Rect2(17, 0, 17, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3xsh"]
+atlas = ExtResource("2_weyo6")
+region = Rect2(34, 0, 17, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4mm8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weyo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yanuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3xsh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0sqs7"]
+radius = 1.75
+height = 7.0
+
+[node name="plug_panic" type="Node2D" unique_id=395949492]
+script = ExtResource("1_weyo6")
+
+[node name="background" type="ColorRect" parent="." unique_id=854853111]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.9746035, 0.8393931, 0.6924085, 1)
+
+[node name="outlet" type="Sprite2D" parent="." unique_id=2130107359]
+position = Vector2(577, 207)
+scale = Vector2(4, 4)
+texture = ExtResource("1_akbl6")
+
+[node name="Area2D" type="Area2D" parent="outlet" unique_id=879572809]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outlet/Area2D" unique_id=1392341806]
+position = Vector2(0, 4.5)
+shape = SubResource("CapsuleShape2D_q4mm8")
+metadata/_edit_lock_ = true
+
+[node name="snap_point" type="Node2D" parent="outlet" unique_id=1281983853]
+position = Vector2(0, 9.75)
+metadata/_edit_lock_ = true
+
+[node name="plug" type="AnimatedSprite2D" parent="." unique_id=245260512]
+position = Vector2(83, 793)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_q4mm8")
+
+[node name="Area2D" type="Area2D" parent="plug" unique_id=2094302744]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plug/Area2D" unique_id=1363891006]
+position = Vector2(0, -58)
+shape = SubResource("CapsuleShape2D_0sqs7")
+metadata/_edit_lock_ = true
+
+[node name="plug_center" type="Node2D" parent="plug" unique_id=1147167536]
+position = Vector2(0, -56.5)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="." unique_id=314813477]
+visible = false
+offset_left = 232.0
+offset_top = 239.0
+offset_right = 945.0
+offset_bottom = 376.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 100
+text = "You're Winner!"
+horizontal_alignment = 1
+vertical_alignment = 1
