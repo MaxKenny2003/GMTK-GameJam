@@ -8,13 +8,13 @@
 [node name="report_mash" type="Node2D" unique_id=205002658]
 script = ExtResource("1_um5or")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=400951012]
+[node name="background" type="TextureRect" parent="." unique_id=400951012]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(4, 4)
 texture = ExtResource("1_76ivp")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=608949186]
+[node name="text_margin" type="MarginContainer" parent="." unique_id=608949186]
 custom_minimum_size = Vector2(1152, 648)
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,9 +28,10 @@ theme_override_constants/margin_top = 140
 theme_override_constants/margin_right = 340
 theme_override_constants/margin_bottom = 20
 
-[node name="textbody" type="RichTextLabel" parent="MarginContainer" unique_id=1752853088]
+[node name="textbody" type="RichTextLabel" parent="text_margin" unique_id=1752853088]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 1
 theme_override_fonts/normal_font = ExtResource("2_q2vhx")
 theme_override_font_sizes/normal_font_size = 18
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://og1pikxpsooi"]
+
+[ext_resource type="Script" uid="uid://df4kuckxthmw4" path="res://scripts/microgames/speedysharpen/speedy_sharpen.gd" id="1_l1gf3"]
+[ext_resource type="Texture2D" uid="uid://cxe54jx7cyxyq" path="res://assets/2D/desk.png" id="1_ofoj7"]
+[ext_resource type="Texture2D" uid="uid://bfigy5ow46f3v" path="res://assets/2D/sharpener_base.png" id="3_iewly"]
+[ext_resource type="Script" uid="uid://blpym832t8200" path="res://scripts/microgames/speedysharpen/crank_pivot.gd" id="4_koolu"]
+[ext_resource type="Texture2D" uid="uid://n5x8n4ts8w7y" path="res://assets/2D/sharpener_handle.png" id="5_7kaih"]
+
+[node name="speedy_sharpen" type="Node2D" unique_id=2118694167]
+script = ExtResource("1_l1gf3")
+
+[node name="background" type="ColorRect" parent="." unique_id=1081848132]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.65818995, 0.69132674, 0.69129086, 1)
+metadata/_edit_lock_ = true
+
+[node name="desk" type="TextureRect" parent="." unique_id=638881415]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 480.0
+offset_right = 288.0
+offset_bottom = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+size_flags_vertical = 10
+texture = ExtResource("1_ofoj7")
+metadata/_edit_lock_ = true
+
+[node name="sharpener_base" type="TextureRect" parent="." unique_id=505901270]
+offset_left = 388.0
+offset_top = 80.0
+offset_right = 488.0
+offset_bottom = 180.0
+scale = Vector2(4, 4)
+texture = ExtResource("3_iewly")
+metadata/_edit_lock_ = true
+
+[node name="crank_pivot" type="Node2D" parent="." unique_id=46341534]
+position = Vector2(588, 242)
+scale = Vector2(4, 4)
+script = ExtResource("4_koolu")
+
+[node name="handle" type="TextureRect" parent="crank_pivot" unique_id=1821467705]
+offset_left = -4.5
+offset_top = -6.25
+offset_right = 35.5
+offset_bottom = 5.75
+texture = ExtResource("5_7kaih")
+stretch_mode = 2
+flip_h = true

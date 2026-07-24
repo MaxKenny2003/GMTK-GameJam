@@ -1,7 +1,10 @@
 extends Node2D
 
-@onready var text: RichTextLabel = $MarginContainer/textbody
+@onready var text: RichTextLabel = $text_margin/textbody
 @onready var win_text: Label = $Label
+
+var max_visibility = 1.0
+@export var typing_boost = 5.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,8 +18,6 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent):
 	var chartotal = text.get_total_character_count()
-	var max_visibility = 1.0
-	var char_bonus = 3.0
 	if event is InputEventKey:
 		if event.is_pressed():
-			text.visible_ratio += (max_visibility / chartotal) * char_bonus
+			text.visible_ratio += (max_visibility / chartotal) * typing_boost

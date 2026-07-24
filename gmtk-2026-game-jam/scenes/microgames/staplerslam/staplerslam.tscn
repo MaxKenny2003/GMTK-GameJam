@@ -37,7 +37,7 @@ size = Vector2(10, 4.25)
 script = ExtResource("1_x73ta")
 StapleScene = ExtResource("2_x73ta")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=74786386]
+[node name="background" type="ColorRect" parent="." unique_id=74786386]
 custom_minimum_size = Vector2(1152, 648)
 offset_right = 1152.0
 offset_bottom = 648.0
