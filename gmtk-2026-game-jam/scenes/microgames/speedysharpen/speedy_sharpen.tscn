@@ -52,3 +52,19 @@ offset_bottom = 5.75
 texture = ExtResource("5_7kaih")
 stretch_mode = 2
 flip_h = true
+
+[node name="handle_hotspot" type="Node2D" parent="crank_pivot/handle" unique_id=92646017]
+position = Vector2(36.25, 6)
+
+[node name="Label" type="Label" parent="." unique_id=216077045]
+visible = false
+offset_left = 232.0
+offset_top = 239.0
+offset_right = 945.0
+offset_bottom = 376.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 100
+text = "You're Winner!"
+horizontal_alignment = 1
+vertical_alignment = 1
