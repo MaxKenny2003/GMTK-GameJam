@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://enj3b2kdn8ry" path="res://scenes/microgames/staplerslam/staple.tscn" id="2_x73ta"]
 [ext_resource type="Script" uid="uid://bvufbk64xibng" path="res://scripts/microgames/staplerslam/staplerslam_paper2.gd" id="4_5gaou"]
 [ext_resource type="Script" uid="uid://f62jjoujx24t" path="res://scripts/microgames/staplerslam/staplerslam_paper3.gd" id="5_kdce7"]
+[ext_resource type="PackedScene" uid="uid://bc5g30kvbx35y" path="res://scenes/ui/microgame_intro.tscn" id="7_rq30k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg7lo"]
 atlas = ExtResource("2_bg7lo")
@@ -83,3 +84,5 @@ theme_override_font_sizes/font_size = 100
 text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Control" parent="." unique_id=1111855132 instance=ExtResource("7_rq30k")]

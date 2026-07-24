@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://bc5g30kvbx35y"]
+
+[ext_resource type="Script" uid="uid://cupb4gjgru3ii" path="res://scripts/ui/microgame_intro.gd" id="1_lrdwc"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="1_scsfl"]
+[ext_resource type="Texture2D" uid="uid://c0si37mybn215" path="res://assets/2D/KeyboardTemplate.png" id="2_lrdwc"]
+[ext_resource type="Texture2D" uid="uid://dq5uju31e4ofr" path="res://assets/2D/KeyboardArrows.png" id="3_dgtxb"]
+[ext_resource type="Texture2D" uid="uid://dv7gx7tju6ej2" path="res://assets/2D/KeyboardAll.png" id="4_2wq75"]
+[ext_resource type="Texture2D" uid="uid://c6ptu2ophs7o" path="res://assets/2D/KeyboardSpace.png" id="5_cul1c"]
+[ext_resource type="Texture2D" uid="uid://c2hc8hi7w8f5q" path="res://assets/2D/MouseTemplate.png" id="6_1llvw"]
+[ext_resource type="Texture2D" uid="uid://bwx0u1rwgi184" path="res://assets/2D/MouseLeft.png" id="7_xvb17"]
+[ext_resource type="Texture2D" uid="uid://51eelfegiiis" path="res://assets/2D/MouseMoveLeft.png" id="8_l7snq"]
+
+[node name="Control" type="CanvasLayer" unique_id=1111855132]
+script = ExtResource("1_lrdwc")
+
+[node name="Control" type="Control" parent="." unique_id=807724961]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overlay" type="ColorRect" parent="Control" unique_id=396184425]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0627451, 0.0627451, 0.8784314)
+
+[node name="GameTitleBackground" type="ColorRect" parent="Control" unique_id=1789327263]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.149
+anchor_right = 1.0
+anchor_bottom = 0.30400002
+offset_top = 0.26399994
+offset_bottom = -0.17601013
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameTitle" type="Label" parent="Control/GameTitleBackground" unique_id=1861584273]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.32200003
+anchor_top = 0.15
+anchor_right = 0.67800003
+anchor_bottom = 0.85
+offset_left = 55.05597
+offset_right = -55.05603
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_scsfl")
+theme_override_font_sizes/font_size = 52
+text = "GAME TITLE"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1368091175]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.35
+anchor_right = 0.92
+anchor_bottom = 0.7
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Keyboard" type="TextureRect" parent="Control/HBoxContainer" unique_id=1912172840]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lrdwc")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="KeyboardArrows" type="TextureRect" parent="Control/HBoxContainer" unique_id=958854062]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_dgtxb")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="KeyboardFull" type="TextureRect" parent="Control/HBoxContainer" unique_id=1473284957]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_2wq75")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="KeyboardSpace" type="TextureRect" parent="Control/HBoxContainer" unique_id=1419124406]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_cul1c")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Mouse" type="TextureRect" parent="Control/HBoxContainer" unique_id=625854944]
+custom_minimum_size = Vector2(120, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("6_1llvw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MouseLeft" type="TextureRect" parent="Control/HBoxContainer" unique_id=1236041681]
+visible = false
+custom_minimum_size = Vector2(120, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("7_xvb17")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MouseMoveLeft" type="TextureRect" parent="Control/HBoxContainer" unique_id=1811086008]
+visible = false
+custom_minimum_size = Vector2(120, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("8_l7snq")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="." unique_id=2021678931]
+wait_time = 3.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

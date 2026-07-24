@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ucvovjenes45" path="res://assets/Backgrounds/reportmash.png" id="1_76ivp"]
 [ext_resource type="Script" uid="uid://14fmajk5wleo" path="res://scripts/microgames/reportmash/report_mash.gd" id="1_um5or"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="2_q2vhx"]
+[ext_resource type="PackedScene" uid="uid://bc5g30kvbx35y" path="res://scenes/ui/microgame_intro.tscn" id="4_dqrxg"]
 
 [node name="report_mash" type="Node2D" unique_id=205002658]
 script = ExtResource("1_um5or")
@@ -50,3 +51,5 @@ theme_override_font_sizes/font_size = 100
 text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Control" parent="." unique_id=1111855132 instance=ExtResource("4_dqrxg")]
