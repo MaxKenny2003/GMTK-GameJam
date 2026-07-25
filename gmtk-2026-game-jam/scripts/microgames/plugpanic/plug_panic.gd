@@ -22,7 +22,7 @@ var h_tween: Tween
 var v_tween: Tween
 var max_allowed_y = 300.0
 
-signal game_end
+signal game_end(outcome: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,7 +43,7 @@ func _process(_delta: float) -> void:
 			plug.frame = 1
 			plug.position = Vector2(snap_point.global_position.x, snap_point.global_position.y + (cable_height / 2) - (plug_height / 2))
 			results.visible = true
-			game_has_ended()
+			game_has_ended("win")
 
 func start_oscillation() -> void:
 	while true:
@@ -85,13 +85,13 @@ func _on_timer_up():
 	if v_tween:
 		v_tween.kill()
 	results.visible = true
-	game_has_ended()
+	game_has_ended("lose")
 
 func plug_missed():
 	plug.frame = 2
 	results.text = "You're Loser!"
 	results.visible = true
-	game_has_ended()
+	game_has_ended("lose")
 
-func game_has_ended():
-	emit_signal("game_end")
+func game_has_ended(result: String):
+	emit_signal("game_end", result)

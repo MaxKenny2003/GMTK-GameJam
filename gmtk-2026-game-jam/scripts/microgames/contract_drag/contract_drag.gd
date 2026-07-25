@@ -16,7 +16,7 @@ var dragging = false
 var drag_offset = Vector2.ZERO
 var type_speed = 20.0
 
-signal game_end
+signal game_end(outcome: String)
 
 func _ready() -> void:
 	timer_bar_instance = TimerScene.instantiate()
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	
 	if signature.visible_ratio >= 1.0:
 		results.visible = true
-		game_has_ended()
+		game_has_ended("win")
 
 func _input(event: InputEvent):
 	if !game_over:
@@ -57,7 +57,7 @@ func _on_timer_up():
 	game_over = true
 	results.text = "You're Loser!"
 	results.visible = true
-	game_has_ended()
+	game_has_ended("lose")
 
-func game_has_ended():
+func game_has_ended(result: String):
 	emit_signal("game_end")

@@ -21,7 +21,7 @@ var max_tilt = 140.0
 var tilt_thresh1 = max_tilt * (1.0 / 4.0)
 var tilt_thresh2 = max_tilt * (2.0 / 4.0)
 
-signal game_end
+signal game_end(outcome: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -66,13 +66,13 @@ func game_over():
 	sprite.visible = false
 	paper_particle.restart()
 	results.visible = true
-	game_has_ended()
+	game_has_ended("lose")
 
 func _on_timer_up():
 	game_is_over = true
 	results.text = "You're Winner!"
 	results.visible = true
-	game_has_ended()
+	game_has_ended("win")
 
-func game_has_ended():
-	emit_signal("game_end")
+func game_has_ended(result: String):
+	emit_signal("game_end", result)

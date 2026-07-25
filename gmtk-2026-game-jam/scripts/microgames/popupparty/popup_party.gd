@@ -8,7 +8,7 @@ extends Node2D
 var close_count = 0
 var timer_bar_instance
 
-signal game_end
+signal game_end(outcome: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,13 +40,13 @@ func _on_popup_closed() -> void:
 	if close_count >= total_popups:
 		results.visible = true
 		timer_bar_instance.stop_timers()
-		game_has_ended()
+		game_has_ended("win")
 		
 
 func _on_timer_up():
 	results.text = "You're Loser!"
 	results.visible = true
-	game_has_ended()
+	game_has_ended("lose")
 
-func game_has_ended():
-	emit_signal("game_end")
+func game_has_ended(result: String):
+	emit_signal("game_end", result)
