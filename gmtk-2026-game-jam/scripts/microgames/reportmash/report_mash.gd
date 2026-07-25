@@ -6,6 +6,7 @@ extends Node2D
 @export var TimerScene: PackedScene
 
 var timer_bar_instance
+var end = false
 
 signal game_end(outcome: String)
 
@@ -14,6 +15,7 @@ var max_visibility = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	text.visible_ratio = 0
 	timer_bar_instance = TimerScene.instantiate()
 	canvas_layer.add_child(timer_bar_instance)
@@ -21,8 +23,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if text.visible_ratio >= 1.0:
+	if text.visible_ratio >= 1.0 and !end:
 		results.visible = true
+		end = true
 		timer_bar_instance.stop_timers()
 		game_has_ended("win")
 
