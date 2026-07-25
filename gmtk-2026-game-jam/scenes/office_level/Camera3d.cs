@@ -26,7 +26,9 @@ public partial class Camera3d : Camera3D
         var tween = CreateTween();
         tween.TweenProperty(this, "global_position", target_pos, 2.0f);
         await ToSignal(tween, "finished");
-        flowController.Instance.can_move_camera = true;
+        flowController.Instance.set_camera_movement(true);
+        flowController.Instance.set_looking_at_computer(true);
+        flowController.Instance.set_can_start_game(true);
     }
 
     public override void _Process(double delta)
@@ -43,8 +45,9 @@ public partial class Camera3d : Camera3D
     private async void RotateCamera()
     { 
         var tween = CreateTween();
-        flowController.Instance.can_move_camera = false;
-        flowController.Instance.is_looking_at_computer = false;
+        flowController.Instance.set_camera_movement(false);
+        flowController.Instance.set_looking_at_computer(false);
+        flowController.Instance.set_can_start_game(false);
         tween.TweenProperty(this, "rotation", new Vector3(0, Mathf.DegToRad(0), 0), camera_move_speed)
             .SetTrans(Tween.TransitionType.Sine)
             .SetEase(Tween.EaseType.InOut);
@@ -59,7 +62,8 @@ public partial class Camera3d : Camera3D
                 .SetEase(Tween.EaseType.InOut);
 
         await ToSignal(tween2, "finished");
-        flowController.Instance.is_looking_at_computer = true;
-        flowController.Instance.can_move_camera = true;
+        flowController.Instance.set_camera_movement(true);
+        flowController.Instance.set_looking_at_computer(true);
+        flowController.Instance.set_can_start_game(true);
     }
 }
