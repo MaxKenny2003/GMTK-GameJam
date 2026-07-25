@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bijuw5wls1kr8"]
+
+[ext_resource type="Script" uid="uid://bmpm2qwabkupa" path="res://scripts/ui/microgame_timer.gd" id="1_qjf75"]
+[ext_resource type="Texture2D" uid="uid://cxlm5fg5dq2tk" path="res://assets/2D/microgame_timer.png" id="2_nvgh1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21ual"]
+atlas = ExtResource("2_nvgh1")
+region = Rect2(0, 0, 288, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqiew"]
+atlas = ExtResource("2_nvgh1")
+region = Rect2(0, 30, 288, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaxlg"]
+atlas = ExtResource("2_nvgh1")
+region = Rect2(0, 60, 288, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcpso"]
+atlas = ExtResource("2_nvgh1")
+region = Rect2(0, 90, 288, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx48k"]
+atlas = ExtResource("2_nvgh1")
+region = Rect2(0, 120, 288, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi71a"]
+atlas = ExtResource("2_nvgh1")
+region = Rect2(0, 150, 288, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00xj7"]
+atlas = ExtResource("2_nvgh1")
+region = Rect2(0, 180, 288, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xxgw"]
+atlas = ExtResource("2_nvgh1")
+region = Rect2(0, 210, 288, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0fld"]
+atlas = ExtResource("2_nvgh1")
+region = Rect2(0, 240, 288, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4mm8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21ual")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqiew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaxlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcpso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx48k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi71a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00xj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xxgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0fld")
+}],
+"loop": 1,
+"name": &"timer",
+"speed": 2.0
+}]
+
+[node name="microgame_timer" type="Control" unique_id=81521398]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_qjf75")
+
+[node name="animation_timer" type="Timer" parent="." unique_id=1133198655]
+one_shot = true
+
+[node name="level_timer" type="Timer" parent="." unique_id=595684132]
+one_shot = true
+
+[node name="time_bar" type="AnimatedSprite2D" parent="." unique_id=902424025]
+visible = false
+position = Vector2(0, -64)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_q4mm8")
+animation = &"timer"
+
+[connection signal="timeout" from="animation_timer" to="." method="_on_animation_timer_timeout"]
+[connection signal="timeout" from="level_timer" to="." method="_on_level_timer_timeout"]
