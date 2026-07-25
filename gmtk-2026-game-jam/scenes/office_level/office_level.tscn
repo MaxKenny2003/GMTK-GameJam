@@ -6,6 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://dpksnlt3jx0fo" path="res://assets/3D/Office/Computer_and_Desk.glb" id="3_ls7i3"]
 [ext_resource type="PackedScene" uid="uid://cmnh2oe1tudin" path="res://assets/3D/Office/Cubical/Full_Flat/Flat_FullSize.glb" id="4_0suxl"]
 [ext_resource type="PackedScene" uid="uid://chv7r18a3wpsr" path="res://assets/3D/Office/Cubical/Flat_Half/Flat_Half.glb" id="5_clqp0"]
+[ext_resource type="Script" uid="uid://bewmotytybvkk" path="res://scripts/office_level/GameManager.cs" id="7_clqp0"]
+[ext_resource type="PackedScene" uid="uid://dqv4jd0k4tqeq" path="res://scenes/microgames/plugpanic/plug_panic.tscn" id="8_ln0b1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ln0b1"]
+sky_top_color = Color(0.49452782, 0.69739485, 1, 1)
+
+[sub_resource type="Sky" id="Sky_12h4w"]
+sky_material = SubResource("ProceduralSkyMaterial_ln0b1")
+
+[sub_resource type="Environment" id="Environment_hxyb1"]
+background_mode = 2
+sky = SubResource("Sky_12h4w")
+fog_enabled = true
+fog_light_color = Color(0.32127765, 0.35030988, 0.39548048, 1)
+fog_density = 0.0728
+fog_sky_affect = 0.35
+fog_height_density = 500.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hxyb1"]
 size = Vector3(13.588745, 0.2, 13.630371)
@@ -13,43 +30,88 @@ size = Vector3(13.588745, 0.2, 13.630371)
 [node name="Office_Level" type="Node" unique_id=423284289]
 script = ExtResource("1_iiahc")
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=616607092]
-
-[node name="Building" parent="Ground" unique_id=403725940 instance=ExtResource("2_0suxl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2541323, 0.13886046, -2.344999)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=827626887]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95758057, -0.16216302, -2.374208)
-shape = SubResource("BoxShape3D_hxyb1")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1015132653]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.43419448, 1.9099572, -1.4554517)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.758824, 45.564983, -1.4554517)
 script = ExtResource("2_sivyo")
-target_pos = Vector3(10, 10, 0)
+target_pos = Vector3(0.037, 45.565, -1.455)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1520748531]
-transform = Transform3D(-1, -8.7422784e-08, 7.2805065e-15, 9.372041e-10, -0.010720282, 0.99994254, -8.741775e-08, 0.99994254, 0.010720282, 0, 8.58327, 0)
+transform = Transform3D(-1, -8.742278e-08, 7.233962e-15, -6.098864e-08, 0.6976288, 0.7164594, -6.2634875e-08, 0.7164594, -0.6976288, 0, 52.238293, -19.645273)
 
-[node name="Computer_and_Desk2" parent="." unique_id=224431334 instance=ExtResource("3_ls7i3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.031916022, -0.13818216, -1.4493084)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2101952818]
+environment = SubResource("Environment_hxyb1")
 
-[node name="Flat_FullSize" parent="." unique_id=632902779 instance=ExtResource("4_0suxl")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.7056423, 0.6624374, 0.11360097)
+[node name="Structure" type="Node" parent="." unique_id=75626225]
 
-[node name="Flat_FullSize3" parent="." unique_id=2035836359 instance=ExtResource("4_0suxl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037329078, 0.6624374, 1.7699937)
+[node name="Cubical" type="Node" parent="Structure" unique_id=1199573045]
 
-[node name="Flat_FullSize4" parent="." unique_id=590176433 instance=ExtResource("4_0suxl")]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 1.644, 0.662, 0.114)
+[node name="Computer_and_Desk2" parent="Structure/Cubical" unique_id=224431334 instance=ExtResource("3_ls7i3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.031916022, 43.51684, -1.4493084)
 
-[node name="Flat_FullSize5" parent="." unique_id=1228741804 instance=ExtResource("4_0suxl")]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 1.644, 0.662, -3.035)
+[node name="Flat_FullSize" parent="Structure/Cubical" unique_id=632902779 instance=ExtResource("4_0suxl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.7056423, 44.317463, 0.5879767)
 
-[node name="Flat_FullSize2" parent="." unique_id=402820219 instance=ExtResource("4_0suxl")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.7056423, 0.6624374, -3.034714)
+[node name="Flat_FullSize3" parent="Structure/Cubical" unique_id=2035836359 instance=ExtResource("4_0suxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35426438, 44.317463, 1.7699937)
 
-[node name="Flat_Half" parent="." unique_id=137293808 instance=ExtResource("5_clqp0")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.6549587, 1.2345462, -4.7358537)
+[node name="Flat_FullSize4" parent="Structure/Cubical" unique_id=590176433 instance=ExtResource("4_0suxl")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.408, 44.317028, 0.588)
 
-[node name="Flat_Half" parent="Flat_Half" unique_id=1658610196 instance=ExtResource("5_clqp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.720083, 0.034693003, 0.046572685)
+[node name="Flat_FullSize5" parent="Structure/Cubical" unique_id=1228741804 instance=ExtResource("4_0suxl")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.408, 44.317028, -3.386)
+
+[node name="Flat_FullSize2" parent="Structure/Cubical" unique_id=402820219 instance=ExtResource("4_0suxl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.7056423, 44.317463, -3.3857548)
+
+[node name="Flat_Half" parent="Structure/Cubical" unique_id=137293808 instance=ExtResource("5_clqp0")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, -1.4497756, 0.71846086, -5.4795547)
+visible = false
+
+[node name="Flat_Half2" parent="Structure/Cubical" unique_id=836851410 instance=ExtResource("5_clqp0")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 2.2715812, 0.71846086, -5.4795547)
+visible = false
+
+[node name="Node" type="Node" parent="Structure/Cubical" unique_id=1473558923]
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=2100832528]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.0024424, 48.48048, -1.3797978)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D2" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=1183927238]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.0024424, 48.48048, -4.940099)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D3" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=207952672]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.0024424, 48.48048, 1.8957667)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D4" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=1318615173]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.772704, 48.48048, -1.3797978)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D5" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=196116492]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.772704, 48.48048, -4.940099)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D6" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=274819364]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.772704, 48.48048, 1.8957667)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="Ground" type="StaticBody3D" parent="Structure" unique_id=616607092]
+
+[node name="Building" parent="Structure/Ground" unique_id=403725940 instance=ExtResource("2_0suxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2541323, 43.793888, -2.344999)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/Ground" unique_id=827626887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95758057, 43.492863, -2.374208)
+shape = SubResource("BoxShape3D_hxyb1")
+
+[node name="GameManager" type="Node" parent="." unique_id=22151173]
+script = ExtResource("7_clqp0")
+microGames = [ExtResource("8_ln0b1")]
