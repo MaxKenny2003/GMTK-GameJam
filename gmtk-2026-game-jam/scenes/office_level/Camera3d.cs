@@ -5,7 +5,11 @@ using System.Transactions;
 // Changed the tween to alter global position instead of just position and it worked - Zach
 public partial class Camera3d : Camera3D
 {
-	private Vector3 position;
+    [Export]
+    private float camera_move_speed = 1.0f;
+    [Export]
+    private float time_to_stare = 1.0f;
+    private Vector3 position;
 
 	[Export]
 	public Vector3 target_pos = new Vector3(0, 0, 0);
@@ -32,7 +36,6 @@ public partial class Camera3d : Camera3D
             if (Input.IsActionJustPressed("look_out_window"))
             {
                 RotateCamera();
-                //GD.Print("Trying to look out window");
             }
         }
     }
@@ -40,27 +43,23 @@ public partial class Camera3d : Camera3D
     private async void RotateCamera()
     { 
         var tween = CreateTween();
-        if (flowController.Instance.is_looking_at_computer)
-        {
-            flowController.Instance.can_move_camera = false;
-            flowController.Instance.is_looking_at_computer = false;
-            tween.TweenProperty(this, "rotation", new Vector3(0, Mathf.DegToRad(0), 0), 2.0f)
+        flowController.Instance.can_move_camera = false;
+        flowController.Instance.is_looking_at_computer = false;
+        tween.TweenProperty(this, "rotation", new Vector3(0, Mathf.DegToRad(0), 0), camera_move_speed)
+            .SetTrans(Tween.TransitionType.Sine)
+            .SetEase(Tween.EaseType.InOut);
+
+        await ToSignal(tween, "finished");
+
+        await ToSignal(GetTree().CreateTimer(time_to_stare), "timeout");
+
+        var tween2 = CreateTween();
+        tween2.TweenProperty(this, "rotation", new Vector3(0, Mathf.DegToRad(90), 0), camera_move_speed)
                 .SetTrans(Tween.TransitionType.Sine)
                 .SetEase(Tween.EaseType.InOut);
 
-            await ToSignal(tween, "finished");
-            flowController.Instance.can_move_camera = true;
-        }
-        else
-        {
-            flowController.Instance.can_move_camera = false;
-            flowController.Instance.is_looking_at_computer = true;
-            tween.TweenProperty(this, "rotation", new Vector3(0, Mathf.DegToRad(90), 0), 2.0f)
-                .SetTrans(Tween.TransitionType.Sine)
-                .SetEase(Tween.EaseType.InOut);
-
-            await ToSignal(tween, "finished");
-            flowController.Instance.can_move_camera = true;
-        }
+        await ToSignal(tween2, "finished");
+        flowController.Instance.is_looking_at_computer = true;
+        flowController.Instance.can_move_camera = true;
     }
 }
