@@ -8,7 +8,8 @@ extends CanvasLayer
 	preload("res://assets/2D/KeyboardTemplate.png"),
 	preload("res://assets/2D/KeyboardSpace.png"),
 	preload("res://assets/2D/KeyboardArrows.png"),
-	preload("res://assets/2D/KeyboardAll.png")
+	preload("res://assets/2D/KeyboardAll.png"),
+	preload("res://assets/2D/KeyboardLR.png")
 ]
 @onready var mouses: Array[Texture2D] = [
 	preload("res://assets/2D/MouseTemplate.png"),
