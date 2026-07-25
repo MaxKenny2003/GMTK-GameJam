@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://d0raqgyi10leg" path="res://scripts/microgames/popupparty/popup_party.gd" id="1_tuikh"]
 [ext_resource type="Texture2D" uid="uid://c82r4v0rw3dls" path="res://assets/Backgrounds/popupparty.png" id="2_bkp7j"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_gy1mq"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_gy1mq"]
 [ext_resource type="PackedScene" uid="uid://lycfsg4n4b3w" path="res://scenes/microgames/popupparty/popup_window.tscn" id="4_bkp7j"]
 
 [node name="popup_party" type="Node2D" unique_id=101498177]
 script = ExtResource("1_tuikh")
+TimerScene = ExtResource("2_gy1mq")
 PopupScene = ExtResource("4_bkp7j")
 
 [node name="background" type="TextureRect" parent="." unique_id=1177022091]
@@ -56,3 +58,5 @@ theme_override_font_sizes/font_size = 100
 text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=704174978]
