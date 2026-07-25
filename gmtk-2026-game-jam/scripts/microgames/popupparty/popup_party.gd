@@ -1,13 +1,21 @@
 extends Node2D
 
+@export var TimerScene: PackedScene
 @export var PopupScene: PackedScene
 @export var total_popups = 12
-@onready var win_text: Label = $Label
+@onready var results: Label = $Label
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 var close_count = 0
+var timer_bar_instance
+
+signal game_end
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_popups(total_popups)
+	timer_bar_instance = TimerScene.instantiate()
+	canvas_layer.add_child(timer_bar_instance)
+	timer_bar_instance.connect("time_up", Callable(self, "_on_timer_up"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -30,4 +38,15 @@ func _on_popup_closed() -> void:
 	close_count += 1
 	
 	if close_count >= total_popups:
-		win_text.visible = true
+		results.visible = true
+		timer_bar_instance.stop_timers()
+		game_has_ended()
+		
+
+func _on_timer_up():
+	results.text = "You're Loser!"
+	results.visible = true
+	game_has_ended()
+
+func game_has_ended():
+	emit_signal("game_end")

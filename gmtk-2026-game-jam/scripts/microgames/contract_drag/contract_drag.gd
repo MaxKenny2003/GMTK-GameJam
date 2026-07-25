@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 	
 	if signature.visible_ratio >= 1.0:
 		results.visible = true
+		game_has_ended()
 
 func _input(event: InputEvent):
 	if !game_over:
@@ -51,7 +52,6 @@ func _on_paper_area_area_exited(_area: Area2D) -> void:
 	game_over = true
 	timer_bar_instance.stop_timers()
 	signature_visible = true
-	game_has_ended()
 
 func _on_timer_up():
 	game_over = true
