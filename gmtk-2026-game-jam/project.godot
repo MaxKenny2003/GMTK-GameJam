@@ -28,6 +28,13 @@ project/assembly_name="GMTK2026_GameJam"
 
 fonts/dynamic_fonts/use_oversampling=false
 
+[importer_defaults]
+
+wav={
+&"edit/loop_mode": 2,
+&"edit/trim": true
+}
+
 [input]
 
 ui_left={

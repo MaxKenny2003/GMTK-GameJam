@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var buzzing: AudioStreamPlayer = $AudioStreamPlayer
+
 var speed = 180;
 var screen_size
 var dir = Vector2()
@@ -8,6 +10,8 @@ var dir = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	buzzing.play()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,3 +37,7 @@ func _on_timer_timeout():
 func choose(array):
 	array.shuffle()
 	return array.front()
+
+
+func _on_audio_stream_player_finished() -> void:
+	buzzing.play()

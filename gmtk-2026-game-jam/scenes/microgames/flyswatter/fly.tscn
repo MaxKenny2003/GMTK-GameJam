@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bqxkhewecpnk5"]
+
+[ext_resource type="Script" uid="uid://d0uiwsdtacie5" path="res://scripts/microgames/flyswatter/fly.gd" id="1_1saah"]
+[ext_resource type="Texture2D" uid="uid://dolaw2iw2d5pj" path="res://assets/2D/Fly.png" id="2_p2dqj"]
+[ext_resource type="Texture2D" uid="uid://710xggpolnmr" path="res://assets/2D/Fly-moving.png" id="3_cuh3i"]
+[ext_resource type="AudioStream" uid="uid://btdp17rp8kpa1" path="res://assets/Audio/fly_buzzing.wav" id="4_3sca0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3rpa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p2dqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cuh3i")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3rpa"]
+size = Vector2(34, 40)
+
+[node name="Fly" type="CharacterBody2D" unique_id=488059360]
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("1_1saah")
+metadata/_edit_group_ = true
+
+[node name="FlySprite" type="AnimatedSprite2D" parent="." unique_id=2086887485]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_w3rpa")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.095551886
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286864051]
+shape = SubResource("RectangleShape2D_w3rpa")
+
+[node name="Timer" type="Timer" parent="." unique_id=1051459889]
+wait_time = 0.1
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1768922856]
+stream = ExtResource("4_3sca0")
+max_polyphony = 8
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
