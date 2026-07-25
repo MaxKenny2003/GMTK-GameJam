@@ -11,7 +11,7 @@
 custom_minimum_size = Vector2(1152, 648)
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0.65818995, 0.69132674, 0.69129086, 1)
+color = Color(0.65882355, 0.6901961, 0.6901961, 1)
 metadata/_edit_lock_ = true
 
 [node name="desk" type="TextureRect" parent="." unique_id=638881415]

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dit6ddgyjluol"]
+
+[ext_resource type="PackedScene" uid="uid://pmx3kpiau56g" path="res://scenes/microgames/shredderlanding/paper.tscn" id="1_6jds8"]
+[ext_resource type="Script" uid="uid://bdl1cxd35k3ti" path="res://scripts/microgames/shredderlanding/shredder_landing.gd" id="1_by8kb"]
+[ext_resource type="Texture2D" uid="uid://djs6tpsdgs1pn" path="res://assets/2D/shredder_back.png" id="2_mxnui"]
+[ext_resource type="Texture2D" uid="uid://co66s5ulieu7l" path="res://assets/2D/shredder_front.png" id="4_yq6xh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
+size = Vector2(19, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sqs7"]
+size = Vector2(19, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73kc0"]
+size = Vector2(97, 29)
+
+[node name="shredder_landing" type="Node2D" unique_id=1927656990]
+script = ExtResource("1_by8kb")
+
+[node name="background" type="ColorRect" parent="." unique_id=2061335204]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.65882355, 0.6901961, 0.6901961, 1)
+metadata/_edit_lock_ = true
+
+[node name="shredder_back" type="Sprite2D" parent="." unique_id=498322120]
+position = Vector2(555, 506)
+scale = Vector2(4, 4)
+texture = ExtResource("2_mxnui")
+metadata/_edit_lock_ = true
+
+[node name="paper" parent="." unique_id=72314455 groups=["player"] instance=ExtResource("1_6jds8")]
+position = Vector2(561, -159)
+scale = Vector2(4, 4)
+
+[node name="shredder_front" type="Sprite2D" parent="." unique_id=2104568587]
+position = Vector2(555, 586)
+scale = Vector2(4, 4)
+texture = ExtResource("4_yq6xh")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="shredder_front" unique_id=565529423]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShapeLeft" type="CollisionShape2D" parent="shredder_front/StaticBody2D" unique_id=156724558 groups=["failzone"]]
+position = Vector2(-60.5, 0)
+shape = SubResource("RectangleShape2D_q4mm8")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShapeRight" type="CollisionShape2D" parent="shredder_front/StaticBody2D" unique_id=1439796320 groups=["failzone"]]
+position = Vector2(60.5, 0)
+shape = SubResource("RectangleShape2D_0sqs7")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="shredder_front" unique_id=1005160849]
+metadata/_edit_lock_ = true
+
+[node name="win_zone" type="CollisionShape2D" parent="shredder_front/Area2D" unique_id=628844857]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_73kc0")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="." unique_id=197884542]
+visible = false
+offset_left = 232.0
+offset_top = 239.0
+offset_right = 945.0
+offset_bottom = 376.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 100
+text = "You're Winner!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="shredder_front/Area2D" to="." method="_on_area_2d_body_entered"]
