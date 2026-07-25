@@ -1,12 +1,16 @@
 extends Node2D
 
-@onready var lose_text: Label = $Label
+@export var TimerScene: PackedScene
+
+@onready var results: Label = $Label
 @onready var paper_stack: Node2D = $paper_stack
 @onready var sprite: AnimatedSprite2D = $paper_stack/sprite
 @onready var noise = FastNoiseLite.new()
 @onready var paper_particle: CPUParticles2D = $paper_stack/paper_particle
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
-var game_end = false
+var game_is_over = false
+var timer_bar_instance
 
 var canvas_width = 1152
 var tilt = 0.0
@@ -17,14 +21,19 @@ var max_tilt = 140.0
 var tilt_thresh1 = max_tilt * (1.0 / 4.0)
 var tilt_thresh2 = max_tilt * (2.0 / 4.0)
 
+signal game_end
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	target_tilt = randf_range(-150, 150)
+	timer_bar_instance = TimerScene.instantiate()
+	canvas_layer.add_child(timer_bar_instance)
+	timer_bar_instance.connect("time_up", Callable(self, "_on_timer_up"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !game_end:
+	if !game_is_over:
 		if randf() < 0.05:
 			target_tilt = randf_range(-200, 200)
 		tilt = move_toward(tilt, target_tilt, 200 * delta)
@@ -52,7 +61,18 @@ func update_stack_frame():
 		sprite.frame = 2
 
 func game_over():
-	game_end = true
+	game_is_over = true
+	timer_bar_instance.stop_timers()
 	sprite.visible = false
 	paper_particle.restart()
-	lose_text.visible = true
+	results.visible = true
+	game_has_ended()
+
+func _on_timer_up():
+	game_is_over = true
+	results.text = "You're Winner!"
+	results.visible = true
+	game_has_ended()
+
+func game_has_ended():
+	emit_signal("game_end")

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c6s0u2phjjlcq" path="res://assets/2D/outlet.png" id="1_akbl6"]
 [ext_resource type="Script" uid="uid://bu7khvy2d8psh" path="res://scripts/microgames/plugpanic/plug_panic.gd" id="1_weyo6"]
 [ext_resource type="Texture2D" uid="uid://b8l30l2y6f82y" path="res://assets/2D/plug.png" id="2_weyo6"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_yanuy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q4mm8"]
 radius = 2.25
@@ -43,6 +44,7 @@ height = 7.0
 
 [node name="plug_panic" type="Node2D" unique_id=395949492]
 script = ExtResource("1_weyo6")
+TimerScene = ExtResource("2_yanuy")
 
 [node name="background" type="ColorRect" parent="." unique_id=854853111]
 custom_minimum_size = Vector2(1152, 648)
@@ -68,7 +70,7 @@ position = Vector2(0, 9.75)
 metadata/_edit_lock_ = true
 
 [node name="plug" type="AnimatedSprite2D" parent="." unique_id=245260512]
-position = Vector2(83, 793)
+position = Vector2(83, 705)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_q4mm8")
 
@@ -96,3 +98,5 @@ theme_override_font_sizes/font_size = 100
 text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=724570741]

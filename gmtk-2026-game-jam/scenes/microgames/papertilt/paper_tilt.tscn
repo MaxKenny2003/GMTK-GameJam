@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5blk4wsdi1vd"]
 
 [ext_resource type="Script" uid="uid://bspu0idbkwn2e" path="res://scripts/microgames/papertilt/paper_tilt.gd" id="1_dbvms"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_4qke1"]
 [ext_resource type="Texture2D" uid="uid://cudovdpwvnem7" path="res://assets/2D/paper_stack_shadow.png" id="2_eeakl"]
 [ext_resource type="Texture2D" uid="uid://bbgdmvdysn7ls" path="res://assets/2D/paper_stack.png" id="3_vgvjy"]
 [ext_resource type="Texture2D" uid="uid://bujoqcvw75cqw" path="res://assets/2D/paper_stack_hands.png" id="4_4qke1"]
@@ -51,6 +52,7 @@ animations = [{
 
 [node name="paper_tilt" type="Node2D" unique_id=1924266442]
 script = ExtResource("1_dbvms")
+TimerScene = ExtResource("2_4qke1")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1047079237]
 custom_minimum_size = Vector2(1152, 648)
@@ -105,3 +107,5 @@ theme_override_font_sizes/font_size = 100
 text = "You're Loser!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1589604636]

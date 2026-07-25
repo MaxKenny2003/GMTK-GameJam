@@ -16,6 +16,8 @@ var dragging = false
 var drag_offset = Vector2.ZERO
 var type_speed = 20.0
 
+signal game_end
+
 func _ready() -> void:
 	timer_bar_instance = TimerScene.instantiate()
 	canvas_layer.add_child(timer_bar_instance)
@@ -49,8 +51,13 @@ func _on_paper_area_area_exited(_area: Area2D) -> void:
 	game_over = true
 	timer_bar_instance.stop_timers()
 	signature_visible = true
+	game_has_ended()
 
 func _on_timer_up():
 	game_over = true
 	results.text = "You're Loser!"
 	results.visible = true
+	game_has_ended()
+
+func game_has_ended():
+	emit_signal("game_end")
