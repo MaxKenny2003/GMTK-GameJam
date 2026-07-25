@@ -38,7 +38,6 @@ func _process(delta: float) -> void:
 			game_over()
 	
 	update_stack_frame()
-	print(tilt)
 
 func update_stack_frame():
 	if -tilt_thresh1 > tilt and tilt > -tilt_thresh2:

@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://d1mugjufhjue7"]
+
+[ext_resource type="Script" uid="uid://u2l2pcps45ep" path="res://scripts/microgames/dotconnect/dot_connect.gd" id="1_2yd6m"]
+[ext_resource type="Texture2D" uid="uid://b43go6nsdvwia" path="res://assets/2D/bigsheet.png" id="2_s88hb"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_cbe0s"]
+[ext_resource type="Texture2D" uid="uid://b5u3v3yc4nwbq" path="res://assets/2D/dot.png" id="4_cbe0s"]
+[ext_resource type="Texture2D" uid="uid://dci06uxdy7ouk" path="res://assets/2D/start_dot.png" id="4_kqu88"]
+
+[node name="dot_connect" type="Node2D" unique_id=18916065]
+script = ExtResource("1_2yd6m")
+
+[node name="background" type="ColorRect" parent="." unique_id=810282751]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.92156863, 0.7254902, 0.4509804, 1)
+metadata/_edit_lock_ = true
+
+[node name="paper" type="TextureRect" parent="." unique_id=1959150283]
+offset_left = 194.0
+offset_top = 82.0
+offset_right = 388.0
+offset_bottom = 406.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_s88hb")
+metadata/_edit_lock_ = true
+
+[node name="heading" type="RichTextLabel" parent="paper" unique_id=550719969]
+layout_mode = 0
+offset_left = 43.749996
+offset_top = 20.499998
+offset_right = 1093.7499
+offset_bottom = 163.5
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_cbe0s")
+theme_override_font_sizes/normal_font_size = 160
+text = "CONTRACT"
+fit_content = true
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="body" type="RichTextLabel" parent="paper" unique_id=1842162876]
+layout_mode = 0
+offset_left = 16.25
+offset_top = 40.0
+offset_right = 1623.7498
+offset_bottom = 183.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_cbe0s")
+theme_override_font_sizes/normal_font_size = 75
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+fit_content = true
+horizontal_alignment = 3
+metadata/_edit_lock_ = true
+
+[node name="x_marks_tha_spot" type="RichTextLabel" parent="paper" unique_id=1825283948]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 281.5
+offset_right = 160.49994
+offset_bottom = 424.5
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_cbe0s")
+theme_override_font_sizes/normal_font_size = 160
+text = "X"
+fit_content = true
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="subtext" type="RichTextLabel" parent="paper" unique_id=219173791]
+layout_mode = 0
+offset_left = 15.25
+offset_top = 309.0
+offset_right = 335.25
+offset_bottom = 386.5
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_cbe0s")
+theme_override_font_sizes/normal_font_size = 64
+text = "initial"
+fit_content = true
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="numbers" type="RichTextLabel" parent="paper" unique_id=1125555059]
+layout_mode = 0
+offset_left = 40.25
+offset_top = 275.75
+offset_right = 1027.75
+offset_bottom = 590.75
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_cbe0s")
+theme_override_font_sizes/normal_font_size = 48
+text = "      
+      2		 4			   2		2		1
+
+						  4
+						 
+   1	  3      5	   1	   3	 3		4"
+fit_content = true
+
+[node name="Line2D" type="Line2D" parent="paper" unique_id=569610285]
+scale = Vector2(0.25, 0.25)
+points = PackedVector2Array(55, 1226, 724, 1226)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="first_letter" type="Node2D" parent="paper" unique_id=581201470]
+metadata/_edit_lock_ = true
+
+[node name="dot" type="Sprite2D" parent="paper/first_letter" unique_id=92960675]
+position = Vector2(43.75, 298.5)
+texture = ExtResource("4_kqu88")
+
+[node name="dot2" type="Sprite2D" parent="paper/first_letter" unique_id=2051680758]
+position = Vector2(51.5, 279.25)
+texture = ExtResource("4_cbe0s")
+metadata/_edit_lock_ = true
+
+[node name="dot3" type="Sprite2D" parent="paper/first_letter" unique_id=1695434688]
+position = Vector2(59, 298.5)
+texture = ExtResource("4_cbe0s")
+metadata/_edit_lock_ = true
+
+[node name="dot4" type="Sprite2D" parent="paper/first_letter" unique_id=1096828080]
+position = Vector2(66.75, 279.25)
+texture = ExtResource("4_cbe0s")
+metadata/_edit_lock_ = true
+
+[node name="dot5" type="Sprite2D" parent="paper/first_letter" unique_id=837837443]
+position = Vector2(74, 298.5)
+texture = ExtResource("4_cbe0s")
+metadata/_edit_lock_ = true
+
+[node name="second_letter" type="Node2D" parent="paper" unique_id=654428784]
+position = Vector2(4.75, 0)
+metadata/_edit_lock_ = true
+
+[node name="dot" type="Sprite2D" parent="paper/second_letter" unique_id=2049395914]
+position = Vector2(81.75, 298.5)
+texture = ExtResource("4_kqu88")
+metadata/_edit_lock_ = true
+
+[node name="dot2" type="Sprite2D" parent="paper/second_letter" unique_id=1875990952]
+position = Vector2(91.5, 279.25)
+texture = ExtResource("4_cbe0s")
+metadata/_edit_lock_ = true
+
+[node name="dot3" type="Sprite2D" parent="paper/second_letter" unique_id=281570373]
+position = Vector2(98, 298.5)
+texture = ExtResource("4_cbe0s")
+metadata/_edit_lock_ = true
+
+[node name="dot4" type="Sprite2D" parent="paper/second_letter" unique_id=157529655]
+position = Vector2(87.5, 291.5)
+texture = ExtResource("4_cbe0s")
+metadata/_edit_lock_ = true
+
+[node name="third_letter" type="Node2D" parent="paper" unique_id=78123386]
+position = Vector2(6.75, 0)
+metadata/_edit_lock_ = true
+
+[node name="dot" type="Sprite2D" parent="paper/third_letter" unique_id=1329480933]
+position = Vector2(124.25, 279.25)
+texture = ExtResource("4_kqu88")
+metadata/_edit_lock_ = true
+
+[node name="dot2" type="Sprite2D" parent="paper/third_letter" unique_id=941865842]
+position = Vector2(108.75, 279.25)
+texture = ExtResource("4_cbe0s")
+metadata/_edit_lock_ = true
+
+[node name="dot3" type="Sprite2D" parent="paper/third_letter" unique_id=1168484259]
+position = Vector2(108.75, 298.5)
+texture = ExtResource("4_cbe0s")
+metadata/_edit_lock_ = true
+
+[node name="dot4" type="Sprite2D" parent="paper/third_letter" unique_id=1023536067]
+position = Vector2(124.25, 298.5)
+texture = ExtResource("4_cbe0s")
+metadata/_edit_lock_ = true
