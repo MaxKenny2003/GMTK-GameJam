@@ -16,15 +16,17 @@ public partial class flowController : Node
         Instance = this;
     }
 
-    public override void _Process(double delta)
+    
+    public void set_camera_movement(bool value)
     {
-        if (can_move_camera && is_looking_at_computer)
-        {
-            can_start_game = true;
-        }
-        else
-        {
-            can_start_game = false;
-        }
+        can_move_camera = value;
+    }
+    public void set_looking_at_computer(bool value)
+    {
+        is_looking_at_computer = value;
+    }
+    public void set_can_start_game(bool value)
+    {
+        can_start_game = value;
     }
 }

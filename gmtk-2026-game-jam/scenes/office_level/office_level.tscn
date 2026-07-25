@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://chv7r18a3wpsr" path="res://assets/3D/Office/Cubical/Flat_Half/Flat_Half.glb" id="5_clqp0"]
 [ext_resource type="Script" uid="uid://bewmotytybvkk" path="res://scripts/office_level/GameManager.cs" id="7_clqp0"]
 [ext_resource type="PackedScene" uid="uid://d1mugjufhjue7" path="res://scenes/microgames/contract_drag/contract_drag.tscn" id="8_ln0b1"]
+[ext_resource type="PackedScene" uid="uid://dqv4jd0k4tqeq" path="res://scenes/microgames/plugpanic/plug_panic.tscn" id="9_a6n0r"]
+[ext_resource type="PackedScene" uid="uid://5blk4wsdi1vd" path="res://scenes/microgames/papertilt/paper_tilt.tscn" id="10_34yqb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ln0b1"]
 sky_top_color = Color(0.49452782, 0.69739485, 1, 1)
@@ -114,4 +116,4 @@ shape = SubResource("BoxShape3D_hxyb1")
 
 [node name="GameManager" type="Node" parent="." unique_id=22151173]
 script = ExtResource("7_clqp0")
-microGames = [ExtResource("8_ln0b1")]
+microGames = Array[PackedScene]([ExtResource("10_34yqb"), ExtResource("9_a6n0r"), ExtResource("8_ln0b1")])

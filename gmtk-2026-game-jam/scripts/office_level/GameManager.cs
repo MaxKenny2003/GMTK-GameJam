@@ -1,26 +1,71 @@
 using Godot;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public partial class GameManager : Node
 {
     [Export]
-    public PackedScene[] microGames = new PackedScene[0];
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
-	{
-	}
+    public Godot.Collections.Array<PackedScene> microGames = new Godot.Collections.Array<PackedScene>();
+    [Export]
+    public float end_game_delay = 2.0f;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    [Export]
+    public int minimum_before_replay = 4;
+
+    private Queue<PackedScene> waitingQueue = new Queue<PackedScene>();
+
+    private Node instance;
+
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
 	{
         if (Input.IsActionJustPressed("start_microgame") && flowController.Instance.can_start_game)
         {
-            if (microGames.Length > 0)
+            if (microGames.Count > 0)
             {
                 GD.Print("Trying to start microgame");
-                var instance = microGames[0].Instantiate<Node>();
+                flowController.Instance.set_can_start_game(false);
+                int index = select_game();
+                instance = microGames[index].Instantiate<Node>();
                 AddChild(instance);
+                instance.Connect("game_end", Callable.From(OnGameEnd));
+                add_game_to_waiting_queue(index);
             }
         }
 	}
+
+    private void add_game_to_waiting_queue(int index)
+    {
+        waitingQueue.Enqueue(microGames[index]);
+        microGames.RemoveAt(index);
+        if(microGames.Count == 0)
+        {
+            microGames.AddRange(waitingQueue);
+            waitingQueue.Clear();
+        }
+        if(waitingQueue.Count >= minimum_before_replay)
+        {
+            microGames.Add(waitingQueue.Dequeue());
+        }
+    }
+
+    private int select_game()
+    {
+        Random random = new Random();
+        int index = random.Next(0, microGames.Count);
+        return index;
+    }
+
+    private void OnGameEnd()
+    {
+        EndMicrogame();
+    }
+
+    private async void EndMicrogame()
+    {
+        await ToSignal(GetTree().CreateTimer(end_game_delay), "timeout");
+        instance.QueueFree();
+        flowController.Instance.set_can_start_game(true);
+    }
 }
