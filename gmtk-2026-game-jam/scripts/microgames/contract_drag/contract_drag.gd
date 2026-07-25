@@ -8,6 +8,8 @@ extends Node2D
 @onready var signature: RichTextLabel = $paper/bottom_stuff/signature
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 
+var timer_bar_instance
+
 var game_over = false
 var signature_visible = false
 var dragging = false
@@ -15,9 +17,9 @@ var drag_offset = Vector2.ZERO
 var type_speed = 20.0
 
 func _ready() -> void:
-	var timer = TimerScene.instantiate()
-	canvas_layer.add_child(timer)
-	timer.connect("time_up", Callable(self, "_on_timer_up"))
+	timer_bar_instance = TimerScene.instantiate()
+	canvas_layer.add_child(timer_bar_instance)
+	timer_bar_instance.connect("time_up", Callable(self, "_on_timer_up"))
 
 
 func _process(delta: float) -> void:
@@ -45,6 +47,7 @@ func _input(event: InputEvent):
 
 func _on_paper_area_area_exited(_area: Area2D) -> void:
 	game_over = true
+	timer_bar_instance.stop_timers()
 	signature_visible = true
 
 func _on_timer_up():

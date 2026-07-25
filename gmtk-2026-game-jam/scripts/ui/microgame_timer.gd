@@ -28,3 +28,10 @@ func _on_animation_timer_timeout() -> void:
 	time_bar.stop()
 	time_bar.frame = 8
 	emit_signal("time_up")
+
+func stop_timers():
+	var last_frame = time_bar.frame
+	level_timer.stop()
+	animation_timer.stop()
+	time_bar.stop()
+	time_bar.frame = last_frame
