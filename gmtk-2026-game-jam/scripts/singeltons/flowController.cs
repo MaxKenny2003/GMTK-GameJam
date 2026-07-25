@@ -8,14 +8,21 @@ public partial class flowController : Node
     public bool is_looking_at_computer = true;
     public bool can_start_game = false;
 
-
+    public int score = 0;
+    public int lives = 3;
     public static flowController Instance { get; private set; }
+
+    private Label scoreLabel;
 
     public override void _Ready()
     {
         Instance = this;
     }
 
+    public void set_score(int value)
+    {
+        score = value;
+    }
     
     public void set_camera_movement(bool value)
     {

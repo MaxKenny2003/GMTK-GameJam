@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using static System.Formats.Asn1.AsnWriter;
 
 public partial class GameManager : Node
 {
@@ -17,6 +18,8 @@ public partial class GameManager : Node
 
     private Node instance;
 
+    [Export]
+    public Label scoreLabel;
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
@@ -29,7 +32,7 @@ public partial class GameManager : Node
                 int index = select_game();
                 instance = microGames[index].Instantiate<Node>();
                 AddChild(instance);
-                instance.Connect("game_end", Callable.From(OnGameEnd));
+                instance.Connect("game_end", Callable.From<string>(OnGameEnd));
                 add_game_to_waiting_queue(index);
             }
         }
@@ -41,7 +44,10 @@ public partial class GameManager : Node
         microGames.RemoveAt(index);
         if(microGames.Count == 0)
         {
-            microGames.AddRange(waitingQueue);
+            foreach (var game in waitingQueue)
+            {
+                microGames.Add(game);
+            }
             waitingQueue.Clear();
         }
         if(waitingQueue.Count >= minimum_before_replay)
@@ -57,8 +63,24 @@ public partial class GameManager : Node
         return index;
     }
 
-    private void OnGameEnd()
+    private void OnGameEnd(string result)
     {
+        GD.Print("Game ended with result: ", result);
+        if (result == "win")
+        {
+            GD.Print("Yippie");
+            flowController.Instance.set_score(flowController.Instance.score + 1);
+
+            if (scoreLabel != null)
+            {
+                GD.Print("Adding to score");
+                scoreLabel.Text = "Score: " + flowController.Instance.score.ToString();
+            }
+        }
+        if(result == "lose")
+        {
+            flowController.Instance.lives -= 1;
+        }
         EndMicrogame();
     }
 
