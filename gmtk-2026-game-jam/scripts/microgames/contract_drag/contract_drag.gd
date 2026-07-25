@@ -60,4 +60,5 @@ func _on_timer_up():
 	game_has_ended("lose")
 
 func game_has_ended(result: String):
-	emit_signal("game_end")
+	await get_tree().create_timer(0.5).timeout
+	emit_signal("game_end", result)
