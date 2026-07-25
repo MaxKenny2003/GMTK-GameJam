@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dolaw2iw2d5pj" path="res://assets/2D/Fly.png" id="1_5qkr3"]
 [ext_resource type="Texture2D" uid="uid://710xggpolnmr" path="res://assets/2D/Fly-moving.png" id="2_37g4o"]
 [ext_resource type="Script" uid="uid://d0uiwsdtacie5" path="res://scripts/microgames/flyswatter/fly.gd" id="3_nbfi0"]
+[ext_resource type="Script" uid="uid://q0sysm7rh0ex" path="res://scripts/microgames/flyswatter/hand.gd" id="4_6yttg"]
+[ext_resource type="Texture2D" uid="uid://cd73tt7kjmlk0" path="res://assets/2D/Hands-smack.png" id="5_heu8p"]
+[ext_resource type="Texture2D" uid="uid://7iji6orhekwq" path="res://assets/2D/Hands.png" id="6_5tkqi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w3rpa"]
 animations = [{
@@ -18,6 +21,19 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3rpa"]
+size = Vector2(34, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
+size = Vector2(20, 657)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qkr3"]
+size = Vector2(1183, 23)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbxwk"]
+radius = 40.60785
+height = 155.82794
+
 [node name="Node2D" type="Node2D" unique_id=935132583]
 
 [node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
@@ -26,11 +42,147 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.92156863, 0.7254902, 0.4509804, 1)
 
-[node name="Fly" type="AnimatedSprite2D" parent="." unique_id=860841669]
-position = Vector2(421, 311)
-scale = Vector2(2.5, 2.5)
+[node name="Fly" type="CharacterBody2D" parent="." unique_id=1803323675]
+position = Vector2(416, 278)
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("3_nbfi0")
+metadata/_edit_group_ = true
+
+[node name="FlySprite" type="AnimatedSprite2D" parent="Fly" unique_id=860841669]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_w3rpa")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.69517934
+frame_progress = 0.095551886
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fly" unique_id=386660238]
+shape = SubResource("RectangleShape2D_w3rpa")
+
+[node name="Timer" type="Timer" parent="Fly" unique_id=1878322830]
+autostart = true
+
+[node name="Fly2" type="CharacterBody2D" parent="." unique_id=2102087770]
+position = Vector2(702, 230)
+collision_layer = 2
+collision_mask = 6
 script = ExtResource("3_nbfi0")
+metadata/_edit_group_ = true
+
+[node name="FlySprite" type="AnimatedSprite2D" parent="Fly2" unique_id=219494313]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_w3rpa")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.095551886
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fly2" unique_id=2121509696]
+shape = SubResource("RectangleShape2D_w3rpa")
+
+[node name="Timer" type="Timer" parent="Fly2" unique_id=2055063422]
+autostart = true
+
+[node name="Fly3" type="CharacterBody2D" parent="." unique_id=1060643161]
+position = Vector2(505, 457)
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("3_nbfi0")
+metadata/_edit_group_ = true
+
+[node name="FlySprite" type="AnimatedSprite2D" parent="Fly3" unique_id=116569674]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_w3rpa")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.095551886
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fly3" unique_id=111941577]
+shape = SubResource("RectangleShape2D_w3rpa")
+
+[node name="Timer" type="Timer" parent="Fly3" unique_id=2004987345]
+autostart = true
+
+[node name="Fly4" type="CharacterBody2D" parent="." unique_id=1844133266]
+position = Vector2(819, 378)
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("3_nbfi0")
+metadata/_edit_group_ = true
+
+[node name="FlySprite" type="AnimatedSprite2D" parent="Fly4" unique_id=2053288120]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_w3rpa")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.095551886
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fly4" unique_id=523712097]
+shape = SubResource("RectangleShape2D_w3rpa")
+
+[node name="Timer" type="Timer" parent="Fly4" unique_id=364783727]
+autostart = true
+
+[node name="Boundaries" type="Node2D" parent="." unique_id=2098317584]
+
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=17702795]
+position = Vector2(-10, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=1366804379]
+shape = SubResource("RectangleShape2D_lbxwk")
+
+[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=1887892078]
+position = Vector2(571, -10)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=2052981053]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=402047616]
+position = Vector2(1162, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1958284922]
+shape = SubResource("RectangleShape2D_lbxwk")
+
+[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=1884004542]
+position = Vector2(571, 658)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=143620475]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="Hand" type="Area2D" parent="." unique_id=2002032415]
+position = Vector2(571, 324)
+collision_mask = 7
+script = ExtResource("4_6yttg")
+
+[node name="SmackSprite" type="Sprite2D" parent="Hand" unique_id=1007623170]
+position = Vector2(-67, 79)
+rotation = -0.2617994
+scale = Vector2(3.9999998, 4.147)
+texture = ExtResource("5_heu8p")
+
+[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=2000873348]
+position = Vector2(-1, 78)
+scale = Vector2(4, 4.147)
+texture = ExtResource("6_5tkqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" unique_id=842900209]
+position = Vector2(-11, -24)
+rotation = 0.17453294
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_lbxwk")
+
+[connection signal="timeout" from="Fly/Timer" to="Fly" method="_on_timer_timeout"]
+[connection signal="timeout" from="Fly2/Timer" to="Fly2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Fly3/Timer" to="Fly3" method="_on_timer_timeout"]
+[connection signal="timeout" from="Fly4/Timer" to="Fly4" method="_on_timer_timeout"]
