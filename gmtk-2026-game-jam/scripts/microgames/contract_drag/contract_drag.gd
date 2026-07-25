@@ -15,6 +15,7 @@ var signature_visible = false
 var dragging = false
 var drag_offset = Vector2.ZERO
 var type_speed = 20.0
+var loop_end = false
 
 signal game_end(outcome: String)
 
@@ -29,8 +30,9 @@ func _process(delta: float) -> void:
 		var ratio = type_speed / signature.get_total_character_count()
 		signature.visible_ratio += ratio * delta
 	
-	if signature.visible_ratio >= 1.0:
+	if signature.visible_ratio >= 1.0 and !loop_end:
 		results.visible = true
+		loop_end = true
 		game_has_ended("win")
 
 func _input(event: InputEvent):

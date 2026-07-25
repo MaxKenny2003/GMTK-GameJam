@@ -1,7 +1,9 @@
 extends Node2D
 
+@export var TimerScene: PackedScene
 @onready var handle_hotspot: Node2D = $handle/handle_hotspot
-@onready var win_text: Label = $"../Label"
+@onready var results: Label = $"../Label"
+@onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 
 @export var rotation_sens = 1.0
 @export var grab_radius = 150.0
@@ -11,11 +13,11 @@ extends Node2D
 @export var torque_str = 25.0
 @export var max_ang_accel = 1200.0
 
-@export var damping = 1.5
+@export var damping = 3.0
 @export var stop_damping = 5.0
 
 var grabbing = false
-var won = false
+var end = false
 
 var pivot_global = Vector2.ZERO
 var progressed_rad = 0.0
@@ -26,11 +28,15 @@ var desired_angle = 0.0
 var ang_vel = 0.0
 
 var mouse_to_crank_offset_rad = 0.0
+var timer_bar_instance
+
+signal game_end(outcome: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	timer_bar_instance = TimerScene.instantiate()
+	canvas_layer.add_child(timer_bar_instance)
+	timer_bar_instance.connect("time_up", Callable(self, "_on_timer_up"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -40,7 +46,7 @@ func _process(_delta: float) -> void:
 		desired_angle = deg_to_rad(rotation_offset_deg) + (raw_mouse_ang * rotation_sens)
 
 func _physics_process(delta: float) -> void:
-	if won:
+	if end:
 		return
 		
 	if grabbing:
@@ -87,7 +93,7 @@ func try_start_grab(_mouse_pos: Vector2) -> void:
 	if mouse_global.distance_to(pivot_global) > grab_radius:
 		return
 	
-	if won:
+	if end:
 		return
 	
 	grabbing = true
@@ -114,5 +120,17 @@ func stop_grab() -> void:
 
 func _win() -> void:
 	stop_grab()
-	win_text.visible = true
-	won = true
+	results.visible = true
+	timer_bar_instance.stop_timers()
+	end = true
+	game_has_ended("win")
+
+func _on_timer_up():
+	results.text = "You're Loser!"
+	results.visible = true
+	end = true
+	game_has_ended("lose")
+
+func game_has_ended(result: String):
+	await get_tree().create_timer(0.5).timeout
+	emit_signal("game_end", result)

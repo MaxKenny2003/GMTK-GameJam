@@ -25,7 +25,7 @@ signal game_end(outcome: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	target_tilt = randf_range(-150, 150)
+	target_tilt = randf_range(-200, 200)
 	timer_bar_instance = TimerScene.instantiate()
 	canvas_layer.add_child(timer_bar_instance)
 	timer_bar_instance.connect("time_up", Callable(self, "_on_timer_up"))
@@ -35,7 +35,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !game_is_over:
 		if randf() < 0.05:
-			target_tilt = randf_range(-200, 200)
+			target_tilt = randf_range(-400, 400)
 		tilt = move_toward(tilt, target_tilt, 200 * delta)
 		if Input.is_action_pressed("ui_left"):
 			tilt -= tilt_speed * delta

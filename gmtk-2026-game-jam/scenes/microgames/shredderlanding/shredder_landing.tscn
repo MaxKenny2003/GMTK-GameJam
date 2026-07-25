@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://pmx3kpiau56g" path="res://scenes/microgames/shredderlanding/paper.tscn" id="1_6jds8"]
 [ext_resource type="Script" uid="uid://bdl1cxd35k3ti" path="res://scripts/microgames/shredderlanding/shredder_landing.gd" id="1_by8kb"]
 [ext_resource type="Texture2D" uid="uid://djs6tpsdgs1pn" path="res://assets/2D/shredder_back.png" id="2_mxnui"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_yq6xh"]
 [ext_resource type="Texture2D" uid="uid://co66s5ulieu7l" path="res://assets/2D/shredder_front.png" id="4_yq6xh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
@@ -12,10 +13,11 @@ size = Vector2(19, 31)
 size = Vector2(19, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73kc0"]
-size = Vector2(97, 29)
+size = Vector2(97, 6.5)
 
 [node name="shredder_landing" type="Node2D" unique_id=1927656990]
 script = ExtResource("1_by8kb")
+TimerScene = ExtResource("2_yq6xh")
 
 [node name="background" type="ColorRect" parent="." unique_id=2061335204]
 custom_minimum_size = Vector2(1152, 648)
@@ -57,7 +59,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="win_zone" type="CollisionShape2D" parent="shredder_front/Area2D" unique_id=628844857]
-position = Vector2(0, 1)
+position = Vector2(0, 12.25)
 shape = SubResource("RectangleShape2D_73kc0")
 metadata/_edit_lock_ = true
 
@@ -73,5 +75,7 @@ theme_override_font_sizes/font_size = 100
 text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=323091706]
 
 [connection signal="body_entered" from="shredder_front/Area2D" to="." method="_on_area_2d_body_entered"]

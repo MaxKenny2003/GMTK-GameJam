@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cxe54jx7cyxyq" path="res://assets/2D/desk.png" id="1_ofoj7"]
 [ext_resource type="Texture2D" uid="uid://bfigy5ow46f3v" path="res://assets/2D/sharpener_base.png" id="3_iewly"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="4_iewly"]
 [ext_resource type="Script" uid="uid://blpym832t8200" path="res://scripts/microgames/speedysharpen/crank_pivot.gd" id="4_koolu"]
 [ext_resource type="Texture2D" uid="uid://n5x8n4ts8w7y" path="res://assets/2D/sharpener_handle.png" id="5_7kaih"]
 
@@ -41,6 +42,7 @@ metadata/_edit_lock_ = true
 position = Vector2(588, 242)
 scale = Vector2(4, 4)
 script = ExtResource("4_koolu")
+TimerScene = ExtResource("4_iewly")
 
 [node name="handle" type="TextureRect" parent="crank_pivot" unique_id=1821467705]
 offset_left = -4.5
@@ -66,3 +68,5 @@ theme_override_font_sizes/font_size = 100
 text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=892445814]

@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-const FALL_SPEED = 200.0
-const SPEED = 300.0
-const initial_speed = 300.0
+@export var paper_success = false
+
+const FALL_SPEED = 150.0
+const SPEED = 400.0
+const initial_speed = 400.0
 
 var speed_applied = false
 
@@ -15,9 +17,10 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = FALL_SPEED
 		
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		if velocity.y > 0:
-			velocity.x = direction * SPEED
+	if !paper_success:
+		if direction:
+			if velocity.y > 0:
+				velocity.x = direction * SPEED
 	
 	if velocity.y == 0:
 		velocity.x = 0
