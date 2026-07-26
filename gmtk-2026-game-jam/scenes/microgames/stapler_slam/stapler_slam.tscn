@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://5blk4wsdi1vd"]
+[gd_scene format=3 uid="uid://dqafxwiqoou37"]
 
 [ext_resource type="Script" uid="uid://c00h4x1vg6s3n" path="res://scripts/microgames/staplerslam/staplerslam.gd" id="1_dslk4"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_4qke1"]

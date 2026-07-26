@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://og1pikxpsooi" path="res://scenes/microgames/speedy_sharpen/speedy_sharpen.tscn" id="15_g63mk"]
 [ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="15_owo31"]
 [ext_resource type="PackedScene" uid="uid://c24xxcrdsc2ao" path="res://scenes/microgames/flyswatter/flyswatter.tscn" id="15_ywwpr"]
-[ext_resource type="PackedScene" uid="uid://cklr0uk6gtrgk" path="res://scenes/microgames/stapler_slam/stapler_slam.tscn" id="16_8s0io"]
+[ext_resource type="PackedScene" uid="uid://dqafxwiqoou37" path="res://scenes/microgames/stapler_slam/stapler_slam.tscn" id="16_8s0io"]
 [ext_resource type="PackedScene" uid="uid://bggt3k2mee1jp" path="res://prefabs/utility/WhiteScreen.tscn" id="17_8s0io"]
 [ext_resource type="PackedScene" uid="uid://dqdotn5cl3hx" path="res://prefabs/utility/Toast_Remaining.tscn" id="17_pwau5"]
 
