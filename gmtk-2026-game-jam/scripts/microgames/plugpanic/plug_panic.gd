@@ -9,6 +9,9 @@ var timer_bar_instance
 @onready var snap_point: Node2D = $outlet/snap_point
 @onready var plug_center: Node2D = $plug/plug_center
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var effects: AudioStreamPlayer2D = $effects
+
+var plug_bend = preload("res://assets/Audio/plug_bend.mp3")
 
 var start_pos = Vector2(60, 705)
 var end_pos = Vector2(1062, 705)
@@ -41,6 +44,7 @@ func _process(_delta: float) -> void:
 			v_tween = null
 			timer_bar_instance.stop_timers()
 			plug.frame = 1
+			effects.play()
 			plug.position = Vector2(snap_point.global_position.x, snap_point.global_position.y + (cable_height / 2) - (plug_height / 2))
 			results.visible = true
 			game_has_ended("win")
@@ -90,6 +94,8 @@ func _on_timer_up():
 
 func plug_missed():
 	plug.frame = 2
+	effects.stream = plug_bend
+	effects.play()
 	results.text = "You're Loser!"
 	results.visible = true
 	game_has_ended("lose")

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://14fmajk5wleo" path="res://scripts/microgames/reportmash/report_mash.gd" id="1_um5or"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_dqrxg"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="2_q2vhx"]
+[ext_resource type="AudioStream" uid="uid://bm3sym4uho513" path="res://assets/Audio/key_press.mp3" id="5_ovapn"]
 
 [node name="report_mash" type="Node2D" unique_id=205002658]
 script = ExtResource("1_um5or")
@@ -55,3 +56,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=920173285]
+
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=337903226]
+stream = ExtResource("5_ovapn")
+max_polyphony = 15
+bus = &"Effects"

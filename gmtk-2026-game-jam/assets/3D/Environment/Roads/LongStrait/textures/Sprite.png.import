@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfi5a2gqtv5mu"
-path.s3tc="res://.godot/imported/Building.002.png-dd7e3e749ac0228a1360552f9cba9d25.s3tc.ctex"
+uid="uid://r3vdlt1ejiip"
+path.s3tc="res://.godot/imported/Sprite.png-ee4e8c13a7a3156a163038f88b8a1575.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/3D/Environment/Building1/textures/Building.002.png"
-dest_files=["res://.godot/imported/Building.002.png-dd7e3e749ac0228a1360552f9cba9d25.s3tc.ctex"]
+source_file="res://assets/3D/Environment/Roads/LongStrait/textures/Sprite.png"
+dest_files=["res://.godot/imported/Sprite.png-ee4e8c13a7a3156a163038f88b8a1575.s3tc.ctex"]
 
 [params]
 

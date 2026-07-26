@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxtpoge5kn44p" path="res://scripts/microgames/shredderlanding/shredder_paper.gd" id="1_ucj6d"]
 [ext_resource type="Texture2D" uid="uid://d2y5uyg07gwva" path="res://assets/2D/paper.png" id="2_twcfp"]
+[ext_resource type="AudioStream" uid="uid://86hexnadsj00" path="res://assets/Audio/paper_slide.mp3" id="3_twcfp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
 size = Vector2(80, 108)
@@ -16,3 +17,7 @@ texture = ExtResource("2_twcfp")
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_q4mm8")
 metadata/_edit_lock_ = true
+
+[node name="paper_sound" type="AudioStreamPlayer2D" parent="." unique_id=40621968]
+stream = ExtResource("3_twcfp")
+bus = &"Effects"

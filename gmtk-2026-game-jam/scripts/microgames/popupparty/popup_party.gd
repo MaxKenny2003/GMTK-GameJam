@@ -5,6 +5,7 @@ extends Node2D
 @export var total_popups = 12
 @onready var results: Label = $Label
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var effects: AudioStreamPlayer2D = $effects
 var close_count = 0
 var timer_bar_instance
 
@@ -42,7 +43,11 @@ func _on_popup_closed() -> void:
 		results.visible = true
 		timer_bar_instance.stop_timers()
 		game_has_ended("win")
-		
+
+func _input(event: InputEvent):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.is_pressed():
+			effects.play()
 
 func _on_timer_up():
 	results.text = "You're Loser!"

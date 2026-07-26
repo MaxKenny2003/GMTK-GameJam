@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmdo6gq3sxgoj" path="res://assets/2D/biggersheet.png" id="2_ryut0"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_t2x1v"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_e0wpp"]
+[ext_resource type="AudioStream" uid="uid://86hexnadsj00" path="res://assets/Audio/paper_slide.mp3" id="5_t2x1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oiw2g"]
 size = Vector2(194, 648)
@@ -156,5 +157,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=717916039]
+
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1476891795]
+stream = ExtResource("5_t2x1v")
+bus = &"Effects"
 
 [connection signal="area_exited" from="paper/paper_area" to="." method="_on_paper_area_area_exited"]

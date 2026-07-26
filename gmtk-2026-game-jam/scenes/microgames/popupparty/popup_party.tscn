@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_gy1mq"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_gy1mq"]
 [ext_resource type="PackedScene" uid="uid://lycfsg4n4b3w" path="res://scenes/microgames/popupparty/popup_window.tscn" id="4_bkp7j"]
+[ext_resource type="AudioStream" uid="uid://xuwdidgvm0og" path="res://assets/Audio/mouse_click.mp3" id="6_nfipc"]
 
 [node name="popup_party" type="Node2D" unique_id=101498177]
 script = ExtResource("1_tuikh")
@@ -60,3 +61,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=704174978]
+
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1628562563]
+stream = ExtResource("6_nfipc")
+bus = &"Effects"
