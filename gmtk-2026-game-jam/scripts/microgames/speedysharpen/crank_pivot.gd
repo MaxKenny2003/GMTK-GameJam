@@ -3,6 +3,8 @@ extends Node2D
 @export var TimerScene: PackedScene
 @onready var handle_hotspot: Node2D = $handle/handle_hotspot
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
+@onready var effects: AudioStreamPlayer2D = $"../effects"
+@onready var pencil_particle: CPUParticles2D = $"../pencil_particle"
 
 @export var rotation_sens = 1.0
 @export var grab_radius = 150.0
@@ -16,6 +18,7 @@ extends Node2D
 @export var stop_damping = 5.0
 
 var grabbing = false
+var playing = false
 var end = false
 
 var pivot_global = Vector2.ZERO
@@ -44,6 +47,7 @@ func _process(_delta: float) -> void:
 		var mouse_global = get_global_mouse_position()
 		var raw_mouse_ang = get_angle_to_mouse(mouse_global)
 		desired_angle = deg_to_rad(rotation_offset_deg) + (raw_mouse_ang * rotation_sens)
+	
 
 func _physics_process(delta: float) -> void:
 	if end:
@@ -63,17 +67,27 @@ func _physics_process(delta: float) -> void:
 		
 		ang_vel -= ang_vel * damping * delta
 		rotation += ang_vel * delta
-		
+		if !playing:
+			playing = true
+			effects.play()
+			pencil_particle.emitting = true
+		effects.pitch_scale = lerp(0.85, 1.15, clamp(ang_vel / 10.0, 0.0, 1.0))
 	else:
 		ang_vel -= ang_vel * stop_damping * delta
 		rotation += ang_vel * delta
 		
 		if abs(ang_vel) < 0.001:
 			ang_vel = 0.0
+		
+		if abs(ang_vel) < 2:
+			playing = false
+			pencil_particle.emitting = false
+			effects.stop()
 	
 	var step = abs(wrapf(rotation - prev_angle_rad, -PI, PI))
 	progressed_rad += step
 	prev_angle_rad = rotation
+	
 	
 	if progressed_rad >= deg_to_rad(target_rotation_deg):
 		_win()
@@ -120,11 +134,15 @@ func stop_grab() -> void:
 
 func _win() -> void:
 	stop_grab()
+	effects.stop()
+	pencil_particle.emitting = false
 	timer_bar_instance.stop_timers()
 	end = true
 	game_has_ended("win")
 
 func _on_timer_up():
+	effects.stop()
+	pencil_particle.emitting = false
 	end = true
 	game_has_ended("lose")
 
