@@ -34,30 +34,16 @@ public partial class Camera3d : Camera3D
 		flowController.Instance.set_camera_movement(true);
 		flowController.Instance.set_looking_at_computer(true);
 		flowController.Instance.set_can_start_game(true);
-<<<<<<< HEAD
-		flowController.Instance.set_can_move_camera(true);
-		flowController.Instance.set_move_camera(true);
-
-=======
->>>>>>> parent of 8fb5fdc (A lot of changes)
 	}
 
 	public override void _Process(double delta)
 	{
 		if(flowController.Instance.can_move_camera)
 		{
-<<<<<<< HEAD
 			flowController.Instance.set_can_start_game(false);
 			RotateCamera();
 			flowController.Instance.set_move_camera(false);
 		}
-=======
-            if (Input.IsActionJustPressed("look_out_window"))
-            {
-                RotateCamera();
-            }
-        }
->>>>>>> parent of 8fb5fdc (A lot of changes)
 
 		if(flowController.Instance.is_camera_shaking)
 		{
