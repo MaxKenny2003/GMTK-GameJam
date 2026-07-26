@@ -1,101 +1,108 @@
 [gd_scene format=3 uid="uid://5blk4wsdi1vd"]
 
-[ext_resource type="Script" uid="uid://bspu0idbkwn2e" path="res://scripts/microgames/papertilt/paper_tilt.gd" id="1_dbvms"]
+[ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_4qke1"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_4qke1"]
-[ext_resource type="Texture2D" uid="uid://cudovdpwvnem7" path="res://assets/2D/paper_stack_shadow.png" id="2_eeakl"]
-[ext_resource type="Texture2D" uid="uid://bbgdmvdysn7ls" path="res://assets/2D/paper_stack.png" id="3_vgvjy"]
-[ext_resource type="Texture2D" uid="uid://bujoqcvw75cqw" path="res://assets/2D/paper_stack_hands.png" id="4_4qke1"]
-[ext_resource type="Texture2D" uid="uid://gxy13nt5tkhe" path="res://assets/Particles/paper_particle.png" id="5_vgvjy"]
+[ext_resource type="PackedScene" uid="uid://bqxkhewecpnk5" path="res://scenes/microgames/flyswatter/fly.tscn" id="3_2soxf"]
+[ext_resource type="Texture2D" uid="uid://cd73tt7kjmlk0" path="res://assets/2D/Hands-smack.png" id="4_pj5l5"]
+[ext_resource type="Texture2D" uid="uid://7iji6orhekwq" path="res://assets/2D/Hands.png" id="5_js4lh"]
+[ext_resource type="AudioStream" path="res://assets/Audio/squish.mp3" id="6_jw87a"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2soxf"]
-atlas = ExtResource("3_vgvjy")
-region = Rect2(0, 0, 80, 90)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
+size = Vector2(20, 657)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pj5l5"]
-atlas = ExtResource("3_vgvjy")
-region = Rect2(80, 0, 80, 90)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qkr3"]
+size = Vector2(1183, 23)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_js4lh"]
-atlas = ExtResource("3_vgvjy")
-region = Rect2(160, 0, 80, 90)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbxwk"]
+radius = 40.60785
+height = 155.82794
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jw87a"]
-atlas = ExtResource("3_vgvjy")
-region = Rect2(240, 0, 80, 90)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uruub"]
-atlas = ExtResource("3_vgvjy")
-region = Rect2(320, 0, 80, 90)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_q4mm8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2soxf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pj5l5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_js4lh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jw87a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uruub")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="paper_tilt" type="Node2D" unique_id=1924266442]
-script = ExtResource("1_dbvms")
+[node name="Node2D" type="Node2D" unique_id=935132583]
+script = ExtResource("1_4qke1")
 TimerScene = ExtResource("2_4qke1")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1047079237]
+[node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
 custom_minimum_size = Vector2(1152, 648)
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.65882355, 0.6901961, 0.6901961, 1)
-metadata/_edit_lock_ = true
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.92156863, 0.7254902, 0.4509804, 1)
 
-[node name="silhouette" type="Sprite2D" parent="ColorRect" unique_id=249992841]
-position = Vector2(583, 428)
-scale = Vector2(4, 4)
-texture = ExtResource("2_eeakl")
+[node name="Fly" parent="." unique_id=488059360 instance=ExtResource("3_2soxf")]
+position = Vector2(321, 113)
 
-[node name="paper_stack" type="Node2D" parent="." unique_id=1461514264]
-position = Vector2(583, 286)
-scale = Vector2(4, 4)
+[node name="Fly2" parent="." unique_id=1749578858 instance=ExtResource("3_2soxf")]
+position = Vector2(199, 457)
 
-[node name="sprite" type="AnimatedSprite2D" parent="paper_stack" unique_id=2059645173]
-sprite_frames = SubResource("SpriteFrames_q4mm8")
-frame = 2
+[node name="Fly3" parent="." unique_id=302640434 instance=ExtResource("3_2soxf")]
+position = Vector2(864, 279)
 
-[node name="hands" type="Sprite2D" parent="paper_stack/sprite" unique_id=285546918]
-position = Vector2(0, 42.5)
-texture = ExtResource("4_4qke1")
-metadata/_edit_lock_ = true
+[node name="Fly4" parent="." unique_id=782551176 instance=ExtResource("3_2soxf")]
+position = Vector2(979, 504)
 
-[node name="paper_particle" type="CPUParticles2D" parent="paper_stack" unique_id=119602661]
-emitting = false
-amount = 35
-texture = ExtResource("5_vgvjy")
-lifetime = 3.0
-one_shot = true
-explosiveness = 1.0
-spread = 180.0
-gravity = Vector2(0, 300)
-initial_velocity_min = 20.0
-initial_velocity_max = 60.0
-angular_velocity_min = 84.71
-angular_velocity_max = 266.22
-scale_amount_min = 4.0
-scale_amount_max = 4.0
+[node name="Boundaries" type="Node2D" parent="." unique_id=2098317584]
 
-[node name="Label" type="Label" parent="." unique_id=1184457199]
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=17702795]
+position = Vector2(-10, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=1366804379]
+shape = SubResource("RectangleShape2D_lbxwk")
+
+[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=1887892078]
+position = Vector2(571, -10)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=2052981053]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=402047616]
+position = Vector2(1162, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1958284922]
+shape = SubResource("RectangleShape2D_lbxwk")
+
+[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=1884004542]
+position = Vector2(571, 658)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=143620475]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="Hand" type="Area2D" parent="." unique_id=2002032415]
+z_index = 1
+position = Vector2(571, 324)
+collision_mask = 3
+
+[node name="SmackSprite" type="Sprite2D" parent="Hand" unique_id=1007623170]
+visible = false
+position = Vector2(-67, 79)
+rotation = -0.2617994
+scale = Vector2(3.9999998, 4.147)
+texture = ExtResource("4_pj5l5")
+
+[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=2000873348]
+position = Vector2(-1, 78)
+scale = Vector2(4, 4.147)
+texture = ExtResource("5_js4lh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" unique_id=842900209]
+position = Vector2(-11, -24)
+rotation = 0.17453294
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_lbxwk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341792418]
+
+[node name="Label" type="Label" parent="." unique_id=621526098]
 visible = false
 offset_left = 232.0
 offset_top = 239.0
@@ -104,8 +111,10 @@ offset_bottom = 376.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 100
-text = "You're Loser!"
+text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1589604636]
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1764829269]
+stream = ExtResource("6_jw87a")
+bus = &"Effects"

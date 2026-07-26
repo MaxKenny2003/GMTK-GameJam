@@ -1,69 +1,108 @@
 [gd_scene format=3 uid="uid://dit6ddgyjluol"]
 
-[ext_resource type="PackedScene" uid="uid://pmx3kpiau56g" path="res://scenes/microgames/shredderlanding/paper.tscn" id="1_6jds8"]
-[ext_resource type="Script" uid="uid://bdl1cxd35k3ti" path="res://scripts/microgames/shredderlanding/shredder_landing.gd" id="1_by8kb"]
-[ext_resource type="Texture2D" uid="uid://djs6tpsdgs1pn" path="res://assets/2D/shredder_back.png" id="2_mxnui"]
+[ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_kxhm6"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_yq6xh"]
-[ext_resource type="Texture2D" uid="uid://co66s5ulieu7l" path="res://assets/2D/shredder_front.png" id="4_yq6xh"]
+[ext_resource type="PackedScene" uid="uid://bqxkhewecpnk5" path="res://scenes/microgames/flyswatter/fly.tscn" id="3_8yy3s"]
+[ext_resource type="Texture2D" uid="uid://cd73tt7kjmlk0" path="res://assets/2D/Hands-smack.png" id="4_gur01"]
+[ext_resource type="Texture2D" uid="uid://7iji6orhekwq" path="res://assets/2D/Hands.png" id="5_4xxmq"]
+[ext_resource type="AudioStream" path="res://assets/Audio/squish.mp3" id="6_rhpc1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
-size = Vector2(19, 31)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
+size = Vector2(20, 657)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sqs7"]
-size = Vector2(19, 31)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qkr3"]
+size = Vector2(1183, 23)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_73kc0"]
-size = Vector2(97, 6.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbxwk"]
+radius = 40.60785
+height = 155.82794
 
-[node name="shredder_landing" type="Node2D" unique_id=1927656990]
-script = ExtResource("1_by8kb")
+[node name="Node2D" type="Node2D" unique_id=935132583]
+script = ExtResource("1_kxhm6")
 TimerScene = ExtResource("2_yq6xh")
 
-[node name="background" type="ColorRect" parent="." unique_id=2061335204]
+[node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
 custom_minimum_size = Vector2(1152, 648)
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.65882355, 0.6901961, 0.6901961, 1)
-metadata/_edit_lock_ = true
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.92156863, 0.7254902, 0.4509804, 1)
 
-[node name="shredder_back" type="Sprite2D" parent="." unique_id=498322120]
-position = Vector2(555, 506)
-scale = Vector2(4, 4)
-texture = ExtResource("2_mxnui")
-metadata/_edit_lock_ = true
+[node name="Fly" parent="." unique_id=488059360 instance=ExtResource("3_8yy3s")]
+position = Vector2(321, 113)
 
-[node name="paper" parent="." unique_id=72314455 groups=["player"] instance=ExtResource("1_6jds8")]
-position = Vector2(561, -159)
-scale = Vector2(4, 4)
+[node name="Fly2" parent="." unique_id=1749578858 instance=ExtResource("3_8yy3s")]
+position = Vector2(199, 457)
 
-[node name="shredder_front" type="Sprite2D" parent="." unique_id=2104568587]
-position = Vector2(555, 586)
-scale = Vector2(4, 4)
-texture = ExtResource("4_yq6xh")
-metadata/_edit_lock_ = true
+[node name="Fly3" parent="." unique_id=302640434 instance=ExtResource("3_8yy3s")]
+position = Vector2(864, 279)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="shredder_front" unique_id=565529423]
-metadata/_edit_lock_ = true
+[node name="Fly4" parent="." unique_id=782551176 instance=ExtResource("3_8yy3s")]
+position = Vector2(979, 504)
 
-[node name="CollisionShapeLeft" type="CollisionShape2D" parent="shredder_front/StaticBody2D" unique_id=156724558 groups=["failzone"]]
-position = Vector2(-60.5, 0)
-shape = SubResource("RectangleShape2D_q4mm8")
-metadata/_edit_lock_ = true
+[node name="Boundaries" type="Node2D" parent="." unique_id=2098317584]
 
-[node name="CollisionShapeRight" type="CollisionShape2D" parent="shredder_front/StaticBody2D" unique_id=1439796320 groups=["failzone"]]
-position = Vector2(60.5, 0)
-shape = SubResource("RectangleShape2D_0sqs7")
-metadata/_edit_lock_ = true
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=17702795]
+position = Vector2(-10, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
 
-[node name="Area2D" type="Area2D" parent="shredder_front" unique_id=1005160849]
-metadata/_edit_lock_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=1366804379]
+shape = SubResource("RectangleShape2D_lbxwk")
 
-[node name="win_zone" type="CollisionShape2D" parent="shredder_front/Area2D" unique_id=628844857]
-position = Vector2(0, 12.25)
-shape = SubResource("RectangleShape2D_73kc0")
-metadata/_edit_lock_ = true
+[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=1887892078]
+position = Vector2(571, -10)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="." unique_id=197884542]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=2052981053]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=402047616]
+position = Vector2(1162, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1958284922]
+shape = SubResource("RectangleShape2D_lbxwk")
+
+[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=1884004542]
+position = Vector2(571, 658)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=143620475]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="Hand" type="Area2D" parent="." unique_id=2002032415]
+z_index = 1
+position = Vector2(571, 324)
+collision_mask = 3
+
+[node name="SmackSprite" type="Sprite2D" parent="Hand" unique_id=1007623170]
+visible = false
+position = Vector2(-67, 79)
+rotation = -0.2617994
+scale = Vector2(3.9999998, 4.147)
+texture = ExtResource("4_gur01")
+
+[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=2000873348]
+position = Vector2(-1, 78)
+scale = Vector2(4, 4.147)
+texture = ExtResource("5_4xxmq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" unique_id=842900209]
+position = Vector2(-11, -24)
+rotation = 0.17453294
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_lbxwk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341792418]
+
+[node name="Label" type="Label" parent="." unique_id=621526098]
 visible = false
 offset_left = 232.0
 offset_top = 239.0
@@ -76,6 +115,6 @@ text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=323091706]
-
-[connection signal="body_entered" from="shredder_front/Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1764829269]
+stream = ExtResource("6_rhpc1")
+bus = &"Effects"

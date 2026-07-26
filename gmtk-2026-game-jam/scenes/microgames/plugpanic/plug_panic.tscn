@@ -1,92 +1,108 @@
 [gd_scene format=3 uid="uid://dqv4jd0k4tqeq"]
 
-[ext_resource type="Texture2D" uid="uid://c6s0u2phjjlcq" path="res://assets/2D/outlet.png" id="1_akbl6"]
-[ext_resource type="Script" uid="uid://bu7khvy2d8psh" path="res://scripts/microgames/plugpanic/plug_panic.gd" id="1_weyo6"]
-[ext_resource type="Texture2D" uid="uid://b8l30l2y6f82y" path="res://assets/2D/plug.png" id="2_weyo6"]
+[ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_sait0"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_yanuy"]
+[ext_resource type="PackedScene" uid="uid://bqxkhewecpnk5" path="res://scenes/microgames/flyswatter/fly.tscn" id="3_gmbxt"]
+[ext_resource type="Texture2D" uid="uid://cd73tt7kjmlk0" path="res://assets/2D/Hands-smack.png" id="4_fyc80"]
+[ext_resource type="Texture2D" uid="uid://7iji6orhekwq" path="res://assets/2D/Hands.png" id="5_xgt4f"]
+[ext_resource type="AudioStream" path="res://assets/Audio/squish.mp3" id="6_26e5y"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q4mm8"]
-radius = 2.25
-height = 4.5
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
+size = Vector2(20, 657)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_weyo6"]
-atlas = ExtResource("2_weyo6")
-region = Rect2(0, 0, 17, 130)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qkr3"]
+size = Vector2(1183, 23)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yanuy"]
-atlas = ExtResource("2_weyo6")
-region = Rect2(17, 0, 17, 130)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbxwk"]
+radius = 40.60785
+height = 155.82794
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s3xsh"]
-atlas = ExtResource("2_weyo6")
-region = Rect2(34, 0, 17, 130)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_q4mm8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_weyo6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yanuy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s3xsh")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0sqs7"]
-radius = 3.0
-height = 7.0
-
-[node name="plug_panic" type="Node2D" unique_id=395949492]
-script = ExtResource("1_weyo6")
+[node name="Node2D" type="Node2D" unique_id=935132583]
+script = ExtResource("1_sait0")
 TimerScene = ExtResource("2_yanuy")
 
-[node name="background" type="ColorRect" parent="." unique_id=854853111]
+[node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
 custom_minimum_size = Vector2(1152, 648)
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.9746035, 0.8393931, 0.6924085, 1)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.92156863, 0.7254902, 0.4509804, 1)
 
-[node name="outlet" type="Sprite2D" parent="." unique_id=2130107359]
-position = Vector2(577, 207)
-scale = Vector2(4, 4)
-texture = ExtResource("1_akbl6")
+[node name="Fly" parent="." unique_id=488059360 instance=ExtResource("3_gmbxt")]
+position = Vector2(321, 113)
 
-[node name="Area2D" type="Area2D" parent="outlet" unique_id=879572809]
-metadata/_edit_lock_ = true
+[node name="Fly2" parent="." unique_id=1749578858 instance=ExtResource("3_gmbxt")]
+position = Vector2(199, 457)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="outlet/Area2D" unique_id=1392341806]
-position = Vector2(0, 4.5)
-shape = SubResource("CapsuleShape2D_q4mm8")
-metadata/_edit_lock_ = true
+[node name="Fly3" parent="." unique_id=302640434 instance=ExtResource("3_gmbxt")]
+position = Vector2(864, 279)
 
-[node name="snap_point" type="Node2D" parent="outlet" unique_id=1281983853]
-position = Vector2(0, 9.75)
-metadata/_edit_lock_ = true
+[node name="Fly4" parent="." unique_id=782551176 instance=ExtResource("3_gmbxt")]
+position = Vector2(979, 504)
 
-[node name="plug" type="AnimatedSprite2D" parent="." unique_id=245260512]
-position = Vector2(83, 705)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_q4mm8")
+[node name="Boundaries" type="Node2D" parent="." unique_id=2098317584]
 
-[node name="Area2D" type="Area2D" parent="plug" unique_id=2094302744]
-metadata/_edit_lock_ = true
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=17702795]
+position = Vector2(-10, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plug/Area2D" unique_id=1363891006]
-position = Vector2(0, -58)
-shape = SubResource("CapsuleShape2D_0sqs7")
-metadata/_edit_lock_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=1366804379]
+shape = SubResource("RectangleShape2D_lbxwk")
 
-[node name="plug_center" type="Node2D" parent="plug" unique_id=1147167536]
-position = Vector2(0, -56.5)
-metadata/_edit_lock_ = true
+[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=1887892078]
+position = Vector2(571, -10)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="." unique_id=314813477]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=2052981053]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=402047616]
+position = Vector2(1162, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1958284922]
+shape = SubResource("RectangleShape2D_lbxwk")
+
+[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=1884004542]
+position = Vector2(571, 658)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=143620475]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="Hand" type="Area2D" parent="." unique_id=2002032415]
+z_index = 1
+position = Vector2(571, 324)
+collision_mask = 3
+
+[node name="SmackSprite" type="Sprite2D" parent="Hand" unique_id=1007623170]
+visible = false
+position = Vector2(-67, 79)
+rotation = -0.2617994
+scale = Vector2(3.9999998, 4.147)
+texture = ExtResource("4_fyc80")
+
+[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=2000873348]
+position = Vector2(-1, 78)
+scale = Vector2(4, 4.147)
+texture = ExtResource("5_xgt4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" unique_id=842900209]
+position = Vector2(-11, -24)
+rotation = 0.17453294
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_lbxwk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341792418]
+
+[node name="Label" type="Label" parent="." unique_id=621526098]
 visible = false
 offset_left = 232.0
 offset_top = 239.0
@@ -99,4 +115,6 @@ text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=724570741]
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1764829269]
+stream = ExtResource("6_26e5y")
+bus = &"Effects"
