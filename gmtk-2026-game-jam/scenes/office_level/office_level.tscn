@@ -10,9 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://d1mugjufhjue7" path="res://scenes/microgames/contract_drag/contract_drag.tscn" id="8_ln0b1"]
 [ext_resource type="PackedScene" uid="uid://dqv4jd0k4tqeq" path="res://scenes/microgames/plugpanic/plug_panic.tscn" id="9_a6n0r"]
 [ext_resource type="PackedScene" uid="uid://5blk4wsdi1vd" path="res://scenes/microgames/papertilt/paper_tilt.tscn" id="10_34yqb"]
+[ext_resource type="PackedScene" uid="uid://dcwa1iyalum3g" path="res://scenes/microgames/popupparty/popup_party.tscn" id="12_ib5xb"]
+[ext_resource type="PackedScene" uid="uid://c47nk275xhjn6" path="res://scenes/microgames/reportmash/report_mash.tscn" id="13_pwau5"]
+[ext_resource type="PackedScene" uid="uid://dit6ddgyjluol" path="res://scenes/microgames/shredderlanding/shredder_landing.tscn" id="14_m7up5"]
+[ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="15_owo31"]
+[ext_resource type="PackedScene" uid="uid://cklr0uk6gtrgk" path="res://scenes/microgames/staplerslam/stapler_slam.tscn" id="16_8s0io"]
+[ext_resource type="Script" uid="uid://um627vlggsjs" path="res://scripts/office_level/Asteroid.cs" id="16_sbgol"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ln0b1"]
 sky_top_color = Color(0.49452782, 0.69739485, 1, 1)
+sky_horizon_color = Color(0.43865776, 0.5209532, 0.71979165, 1)
+sky_curve = 0.26116523
 
 [sub_resource type="Sky" id="Sky_12h4w"]
 sky_material = SubResource("ProceduralSkyMaterial_ln0b1")
@@ -22,7 +30,7 @@ background_mode = 2
 sky = SubResource("Sky_12h4w")
 fog_enabled = true
 fog_light_color = Color(0.32127765, 0.35030988, 0.39548048, 1)
-fog_density = 0.0728
+fog_density = 0.0078
 fog_sky_affect = 0.35
 fog_height_density = 500.0
 
@@ -119,7 +127,7 @@ shape = SubResource("BoxShape3D_hxyb1")
 
 [node name="GameManager" type="Node" parent="." unique_id=22151173 node_paths=PackedStringArray("scoreLabel")]
 script = ExtResource("7_clqp0")
-microGames = Array[PackedScene]([ExtResource("10_34yqb"), ExtResource("9_a6n0r"), ExtResource("8_ln0b1")])
+microGames = Array[PackedScene]([ExtResource("10_34yqb"), ExtResource("9_a6n0r"), ExtResource("8_ln0b1"), ExtResource("12_ib5xb"), ExtResource("13_pwau5"), ExtResource("14_m7up5"), ExtResource("16_8s0io")])
 scoreLabel = NodePath("../Control/Label")
 
 [node name="Control" type="Control" parent="." unique_id=2064789399]
@@ -136,3 +144,8 @@ pivot_offset = Vector2(175, 0)
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_a6n0r")
 vertical_alignment = 1
+
+[node name="Asteroid" parent="." unique_id=41033272 instance=ExtResource("15_owo31")]
+transform = Transform3D(0.7457702, 0, 0.66620326, 0, 1, 0, -0.66620326, 0, 0.7457702, -1.299, 200, -600)
+script = ExtResource("16_sbgol")
+asteroid_state_positions = Array[Vector3]([Vector3(-1.254, 20, -80)])

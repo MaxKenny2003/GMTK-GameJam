@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_6yttg"]
 [ext_resource type="PackedScene" uid="uid://bqxkhewecpnk5" path="res://scenes/microgames/flyswatter/fly.tscn" id="2_heu8p"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_nbfi0"]
 [ext_resource type="Texture2D" uid="uid://cd73tt7kjmlk0" path="res://assets/2D/Hands-smack.png" id="5_heu8p"]
 [ext_resource type="Texture2D" uid="uid://7iji6orhekwq" path="res://assets/2D/Hands.png" id="6_5tkqi"]
 
@@ -17,6 +18,7 @@ height = 155.82794
 
 [node name="Node2D" type="Node2D" unique_id=935132583]
 script = ExtResource("1_6yttg")
+TimerScene = ExtResource("2_nbfi0")
 
 [node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
 custom_minimum_size = Vector2(1152, 648)
@@ -96,3 +98,18 @@ position = Vector2(-11, -24)
 rotation = 0.17453294
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_lbxwk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341792418]
+
+[node name="Label" type="Label" parent="." unique_id=621526098]
+visible = false
+offset_left = 232.0
+offset_top = 239.0
+offset_right = 945.0
+offset_bottom = 376.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 100
+text = "You're Winner!"
+horizontal_alignment = 1
+vertical_alignment = 1

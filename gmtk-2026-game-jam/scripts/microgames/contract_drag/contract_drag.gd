@@ -20,6 +20,7 @@ var loop_end = false
 signal game_end(outcome: String)
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	timer_bar_instance = TimerScene.instantiate()
 	canvas_layer.add_child(timer_bar_instance)
 	timer_bar_instance.connect("time_up", Callable(self, "_on_timer_up"))

@@ -14,6 +14,10 @@ public partial class flowController : Node
 
     private Label scoreLabel;
 
+    public int asteroid_state = 0;
+
+    public bool is_camera_shaking = false; 
+
     public override void _Ready()
     {
         Instance = this;
