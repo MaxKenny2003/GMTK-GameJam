@@ -11,25 +11,21 @@ public partial class Camera3d : Camera3D
 	private float time_to_stare = 1.0f;
 	private Vector3 position;
 
-    [Export]
-    public float shakeStrength = 0.01f;
+	[Export]
+	public float shakeStrength = 0.01f;
 
-    [Export]
+	[Export]
 	public Vector3 target_pos = new Vector3(0, 0, 0);
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		// GD.Print("Is current? ", Current);
-<<<<<<< HEAD
-        position = Position;
-        GD.Print("Started move from ", Position, " to ", target_pos);
-        MoveCamera();
-    }
-=======
+
+		position = Position;
 		GD.Print("Started move from ", Position, " to ", target_pos);
 		MoveCamera();
 	}
->>>>>>> c7860fa590f82caf9c4e42659e68e73dac19fc53
+
 
 	private async void MoveCamera()
 	{
@@ -45,32 +41,25 @@ public partial class Camera3d : Camera3D
 	{
 		if(flowController.Instance.can_move_camera)
 		{
-<<<<<<< HEAD
-            if (Input.IsActionJustPressed("look_out_window"))
-            {
-                RotateCamera();
-            }
-        }
 
-        if(flowController.Instance.is_camera_shaking)
-        {
-            Vector3 offset = new Vector3
-                (
-                (float)(GD.Randf() * 2 - 1) * shakeStrength,
-                (float)(GD.Randf() * 2 - 1) * shakeStrength,
-                (float)(GD.Randf() * 2 - 1) * shakeStrength
-            );
-            Position = target_pos + offset;
-        }
-    }
-=======
 			if (Input.IsActionJustPressed("look_out_window"))
 			{
 				RotateCamera();
 			}
 		}
+
+		if(flowController.Instance.is_camera_shaking)
+		{
+			Vector3 offset = new Vector3
+				(
+				(float)(GD.Randf() * 2 - 1) * shakeStrength,
+				(float)(GD.Randf() * 2 - 1) * shakeStrength,
+				(float)(GD.Randf() * 2 - 1) * shakeStrength
+			);
+			Position = target_pos + offset;
+		}
 	}
->>>>>>> c7860fa590f82caf9c4e42659e68e73dac19fc53
+
 
 	private async void RotateCamera()
 	{ 

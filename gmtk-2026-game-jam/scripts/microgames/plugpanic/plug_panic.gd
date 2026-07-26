@@ -69,14 +69,15 @@ func on_space_pressed() -> void:
 	if h_tween:
 			h_tween.kill()
 			h_tween = null
+			var current_x = plug.position.x
+			var target_y = plug.position.y - max_allowed_y
+			var target = Vector2(current_x, target_y)
+			v_tween = create_tween()
+			v_tween.tween_property(plug, "global_position", target, rise_time)
+			await v_tween.finished
+			plug_missed()
 	
-	var current_x = plug.position.x
-	var target_y = plug.position.y - max_allowed_y
-	var target = Vector2(current_x, target_y)
-	v_tween = create_tween()
-	v_tween.tween_property(plug, "global_position", target, rise_time)
-	await v_tween.finished
-	plug_missed()
+
 	
 func _on_timer_up():
 	results.text = "You're Loser!"
