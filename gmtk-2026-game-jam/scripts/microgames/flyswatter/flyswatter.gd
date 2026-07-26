@@ -5,7 +5,6 @@ extends Node2D
 @onready var smack_sprite: Sprite2D = $Hand/SmackSprite
 @onready var hand_sprite: Sprite2D = $Hand/HandSprite
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
-@onready var results: Label = $Label
 @onready var squish: AudioStreamPlayer2D = $effects
 
 var score = 0
@@ -33,7 +32,6 @@ func _process(_delta: float) -> void:
 		hand.global_position = mouse_pos - hand_offset
 	
 	if score == 4 and !end:
-		results.visible = true
 		end = true
 		timer_bar_instance.stop_timers()
 		game_has_ended("win")
@@ -64,8 +62,6 @@ func check_for_fly():
 		fly.queue_free()
 
 func _on_timer_up():
-	results.text = "You're Loser!"
-	results.visible = true
 	game_has_ended("lose")
 
 func game_has_ended(result: String):

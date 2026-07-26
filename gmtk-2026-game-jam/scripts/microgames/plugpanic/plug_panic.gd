@@ -5,7 +5,6 @@ var timer_bar_instance
 
 @onready var plug: AnimatedSprite2D = $plug
 @onready var plug_area: Area2D = $plug/Area2D
-@onready var results: Label = $Label
 @onready var snap_point: Node2D = $outlet/snap_point
 @onready var plug_center: Node2D = $plug/plug_center
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
@@ -46,7 +45,6 @@ func _process(_delta: float) -> void:
 			plug.frame = 1
 			effects.play()
 			plug.position = Vector2(snap_point.global_position.x, snap_point.global_position.y + (cable_height / 2) - (plug_height / 2))
-			results.visible = true
 			game_has_ended("win")
 
 func start_oscillation() -> void:
@@ -84,21 +82,16 @@ func on_space_pressed() -> void:
 
 	
 func _on_timer_up():
-	results.text = "You're Loser!"
 	if h_tween:
 		h_tween.kill()
 	if v_tween:
 		v_tween.kill()
-	results.visible = true
 	game_has_ended("lose")
 
 func plug_missed():
 	plug.frame = 2
 	effects.stream = plug_bend
 	effects.play()
-	results.text = "You're Loser!"
-	results.visible = true
-	game_has_ended("lose")
 
 func game_has_ended(result: String):
 	await get_tree().create_timer(0.5).timeout

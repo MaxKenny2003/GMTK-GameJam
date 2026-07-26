@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var TimerScene: PackedScene
-@onready var results: Label = $Label
 @onready var win_area: Area2D = $shredder_front/Area2D
 @onready var paper: CharacterBody2D = $paper
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
@@ -23,15 +22,12 @@ func _ready() -> void:
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	results.visible = true
 	effects.play()
 	timer_bar_instance.stop_timers()
 	paper.paper_success = true
 	game_has_ended("win")
 
 func _on_timer_up():
-	results.text = "You're Loser!"
-	results.visible = true
 	game_has_ended("lose")
 
 func game_has_ended(result: String):

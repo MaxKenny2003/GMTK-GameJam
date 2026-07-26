@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var text: RichTextLabel = $text_margin/textbody
-@onready var results: Label = $Label
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @export var TimerScene: PackedScene
 @onready var effects: AudioStreamPlayer2D = $effects
@@ -12,7 +11,7 @@ var end = false
 signal game_end(outcome: String)
 
 var max_visibility = 1.0
-@export var typing_boost = 5.0
+@export var typing_boost = 7.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,7 +24,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if text.visible_ratio >= 1.0 and !end:
-		results.visible = true
 		end = true
 		timer_bar_instance.stop_timers()
 		game_has_ended("win")
@@ -40,8 +38,6 @@ func _input(event: InputEvent):
 			text.visible_ratio += (max_visibility / chartotal) * typing_boost
 
 func _on_timer_up():
-	results.text = "You're Loser!"
-	results.visible = true
 	game_has_ended("lose")
 
 func game_has_ended(result: String):

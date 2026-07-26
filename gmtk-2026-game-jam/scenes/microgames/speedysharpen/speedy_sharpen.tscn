@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://og1pikxpsooi"]
 
+[ext_resource type="Script" uid="uid://df4kuckxthmw4" path="res://scripts/microgames/speedysharpen/speedy_sharpen.gd" id="1_koolu"]
 [ext_resource type="Texture2D" uid="uid://cxe54jx7cyxyq" path="res://assets/2D/desk.png" id="1_ofoj7"]
 [ext_resource type="Texture2D" uid="uid://bfigy5ow46f3v" path="res://assets/2D/sharpener_base.png" id="3_iewly"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="4_iewly"]
@@ -7,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://n5x8n4ts8w7y" path="res://assets/2D/sharpener_handle.png" id="5_7kaih"]
 
 [node name="speedy_sharpen" type="Node2D" unique_id=2118694167]
+script = ExtResource("1_koolu")
 
 [node name="background" type="ColorRect" parent="." unique_id=1081848132]
 custom_minimum_size = Vector2(1152, 648)
