@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="15_owo31"]
 [ext_resource type="PackedScene" uid="uid://cklr0uk6gtrgk" path="res://scenes/microgames/staplerslam/stapler_slam.tscn" id="16_8s0io"]
 [ext_resource type="Script" uid="uid://um627vlggsjs" path="res://scripts/office_level/Asteroid.cs" id="16_sbgol"]
+[ext_resource type="PackedScene" uid="uid://blrqvjtdcgpm8" path="res://assets/3D/Environment/Building1/Building1.glb" id="17_pwau5"]
+[ext_resource type="PackedScene" uid="uid://b8wxvkoxvhupr" path="res://assets/3D/Environment/Roads/LongStrait/LongStraight.glb" id="18_m7up5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ln0b1"]
 sky_top_color = Color(0.49452782, 0.69739485, 1, 1)
@@ -39,6 +41,13 @@ size = Vector3(13.588745, 0.2, 13.630371)
 
 [sub_resource type="LabelSettings" id="LabelSettings_a6n0r"]
 font_size = 40
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12h4w"]
+albedo_color = Color(0.12941177, 0.49411765, 0.14117648, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hxyb1"]
+material = SubResource("StandardMaterial3D_12h4w")
+size = Vector3(500, 1, 500)
 
 [node name="Office_Level" type="Node" unique_id=423284289]
 script = ExtResource("1_iiahc")
@@ -149,3 +158,21 @@ vertical_alignment = 1
 transform = Transform3D(0.7457702, 0, 0.66620326, 0, 1, 0, -0.66620326, 0, 0.7457702, -1.299, 200, -600)
 script = ExtResource("16_sbgol")
 asteroid_state_positions = Array[Vector3]([Vector3(-1.254, 20, -80)])
+
+[node name="City" type="Node" parent="." unique_id=1804465486]
+
+[node name="Building1" parent="City" unique_id=1105242331 instance=ExtResource("17_pwau5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.254887, 4.2036037, -90.68486)
+
+[node name="Building2" parent="City" unique_id=1632768033 instance=ExtResource("17_pwau5")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 24.728733, 4.2036037, -224.73657)
+
+[node name="LongStraight" parent="City" unique_id=709211603 instance=ExtResource("18_m7up5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4963741, 0.68175507, -121.32905)
+
+[node name="LongStraight2" parent="City" unique_id=868001589 instance=ExtResource("18_m7up5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4963741, 0.68175507, -194.85454)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="City" unique_id=1681310774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.603935, 0.025632858, -276.4843)
+mesh = SubResource("BoxMesh_hxyb1")
