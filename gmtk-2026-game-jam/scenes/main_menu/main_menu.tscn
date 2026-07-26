@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://chv7r18a3wpsr" path="res://assets/3D/Office/Cubical/Flat_Half/Flat_Half.glb" id="7_rrgl4"]
 [ext_resource type="PackedScene" uid="uid://bgj2tftsx0ljg" path="res://assets/3D/Office/Building/Building.glb" id="8_dn3lk"]
 [ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="9_4ujhu"]
-[ext_resource type="Script" uid="uid://um627vlggsjs" path="res://scripts/office_level/Asteroid.cs" id="10_vnpsp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hxyb1"]
 font_size = 40
@@ -160,8 +159,6 @@ shape = SubResource("BoxShape3D_xac7c")
 
 [node name="Asteroid" parent="." unique_id=1933424566 instance=ExtResource("9_4ujhu")]
 transform = Transform3D(0.7457702, 0, 0.66620326, 0, 1, 0, -0.66620326, 0, 0.7457702, -1.299, 200, -600)
-script = ExtResource("10_vnpsp")
-asteroid_state_positions = Array[Vector3]([Vector3(-1.254, 20, -80)])
 
 [connection signal="pressed" from="MenuCanvas/Play_Button" to="." method="_on_play_button_pressed"]
 [connection signal="finished" from="title_music" to="." method="_on_title_music_finished"]

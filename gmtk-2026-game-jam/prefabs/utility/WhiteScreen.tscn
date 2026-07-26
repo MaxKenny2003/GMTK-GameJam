@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bggt3k2mee1jp"]
 
-[ext_resource type="Script" uid="uid://cuhc3turwb75p" path="res://scripts/ui/gameEndScreen.cs" id="1_hn0j6"]
+[ext_resource type="Script" uid="uid://0b66kfc5k1uq" path="res://scripts/office_level/white_screen.gd" id="1_6niu5"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="2_6niu5"]
 
 [node name="Control" type="Control" unique_id=536602553]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_hn0j6")
+script = ExtResource("1_6niu5")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1096612046]
 layout_mode = 1

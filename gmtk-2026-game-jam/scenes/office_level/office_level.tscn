@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://sflnr7lxlhpp"]
 
-[ext_resource type="Script" uid="uid://cyffo7ivvms6a" path="res://scripts/office_level/OfficeLevel.cs" id="1_iiahc"]
+[ext_resource type="Script" uid="uid://d12msvsbchtut" path="res://scripts/camera_3d.gd" id="1_a6n0r"]
 [ext_resource type="PackedScene" uid="uid://bgj2tftsx0ljg" path="res://assets/3D/Office/Building/Building.glb" id="2_0suxl"]
-[ext_resource type="Script" uid="uid://hgieabivobrd" path="res://scenes/office_level/Camera3d.cs" id="2_sivyo"]
 [ext_resource type="PackedScene" uid="uid://dpksnlt3jx0fo" path="res://assets/3D/Office/Computer_and_Desk.glb" id="3_ls7i3"]
 [ext_resource type="PackedScene" uid="uid://cmnh2oe1tudin" path="res://assets/3D/Office/Cubical/Full_Flat/Flat_FullSize.glb" id="4_0suxl"]
 [ext_resource type="PackedScene" uid="uid://chv7r18a3wpsr" path="res://assets/3D/Office/Cubical/Flat_Half/Flat_Half.glb" id="5_clqp0"]
-[ext_resource type="Script" uid="uid://bewmotytybvkk" path="res://scripts/office_level/GameManager.cs" id="7_clqp0"]
+[ext_resource type="Script" uid="uid://d1x01gxds07o" path="res://scripts/office_level/game_manager.gd" id="7_34yqb"]
 [ext_resource type="PackedScene" uid="uid://d1mugjufhjue7" path="res://scenes/microgames/contract_drag/contract_drag.tscn" id="8_ln0b1"]
 [ext_resource type="PackedScene" uid="uid://5blk4wsdi1vd" path="res://scenes/microgames/paper_tilt/paper_tilt.tscn" id="10_owo31"]
+[ext_resource type="Script" uid="uid://doww77ai74bos" path="res://scripts/asteroid.gd" id="11_34yqb"]
 [ext_resource type="PackedScene" uid="uid://dqv4jd0k4tqeq" path="res://scenes/microgames/plug_panic/plug_panic.tscn" id="11_sbgol"]
 [ext_resource type="PackedScene" uid="uid://dcwa1iyalum3g" path="res://scenes/microgames/popup_party/popup_party.tscn" id="12_8s0io"]
 [ext_resource type="PackedScene" uid="uid://c47nk275xhjn6" path="res://scenes/microgames/report_mash/report_mash.tscn" id="13_mer2n"]
@@ -17,22 +17,20 @@
 [ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="15_owo31"]
 [ext_resource type="PackedScene" uid="uid://c24xxcrdsc2ao" path="res://scenes/microgames/flyswatter/flyswatter.tscn" id="15_ywwpr"]
 [ext_resource type="PackedScene" uid="uid://cklr0uk6gtrgk" path="res://scenes/microgames/stapler_slam/stapler_slam.tscn" id="16_8s0io"]
-[ext_resource type="Script" uid="uid://um627vlggsjs" path="res://scripts/office_level/Asteroid.cs" id="16_sbgol"]
 [ext_resource type="PackedScene" uid="uid://bggt3k2mee1jp" path="res://prefabs/utility/WhiteScreen.tscn" id="17_8s0io"]
 [ext_resource type="PackedScene" uid="uid://dqdotn5cl3hx" path="res://prefabs/utility/Toast_Remaining.tscn" id="17_pwau5"]
-[ext_resource type="Script" uid="uid://l1j3d4tm5d3f" path="res://scripts/office_level/ToastRemaining.cs" id="18_m7up5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ln0b1"]
 sky_top_color = Color(0.49452782, 0.69739485, 1, 1)
 sky_horizon_color = Color(0.43865776, 0.5209532, 0.71979165, 1)
 sky_curve = 0.26116523
 
-[sub_resource type="Sky" id="Sky_12h4w"]
+[sub_resource type="Sky" id="Sky_ffy8b"]
 sky_material = SubResource("ProceduralSkyMaterial_ln0b1")
 
 [sub_resource type="Environment" id="Environment_hxyb1"]
 background_mode = 2
-sky = SubResource("Sky_12h4w")
+sky = SubResource("Sky_ffy8b")
 fog_enabled = true
 fog_light_color = Color(0.32127765, 0.35030988, 0.39548048, 1)
 fog_density = 0.0078
@@ -46,12 +44,11 @@ size = Vector3(13.588745, 0.2, 13.630371)
 font_size = 40
 
 [node name="Office_Level" type="Node" unique_id=423284289]
-script = ExtResource("1_iiahc")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1015132653]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.758824, 45.564983, -1.4554517)
-script = ExtResource("2_sivyo")
-target_pos = Vector3(0.037, 45.565, -1.455)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.72465044, 45.564983, -1.4554517)
+script = ExtResource("1_a6n0r")
+target_pos = Vector3(0.061, 45.565, -1.455)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1520748531]
 transform = Transform3D(-1, -8.742278e-08, 7.233962e-15, -6.098864e-08, 0.6976288, 0.7164594, -6.2634875e-08, 0.7164594, -0.6976288, 0, 52.238293, -19.645273)
@@ -130,11 +127,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2541323, 43.793888, -2.344
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95758057, 43.492863, -2.374208)
 shape = SubResource("BoxShape3D_hxyb1")
 
-[node name="GameManager" type="Node" parent="." unique_id=22151173 node_paths=PackedStringArray("scoreLabel")]
-script = ExtResource("7_clqp0")
-microGames = Array[PackedScene]([ExtResource("8_ln0b1"), ExtResource("15_ywwpr"), ExtResource("10_owo31"), ExtResource("11_sbgol"), ExtResource("12_8s0io"), ExtResource("13_mer2n"), ExtResource("14_samyl"), ExtResource("15_g63mk"), ExtResource("16_8s0io")])
-gameOverScreen = ExtResource("17_8s0io")
-scoreLabel = NodePath("../Control/Label")
+[node name="GameManager" type="Node" parent="." unique_id=22151173 node_paths=PackedStringArray("score_label")]
+script = ExtResource("7_34yqb")
+micro_games = Array[PackedScene]([ExtResource("8_ln0b1"), ExtResource("15_ywwpr"), ExtResource("10_owo31"), ExtResource("11_sbgol"), ExtResource("12_8s0io"), ExtResource("13_mer2n"), ExtResource("14_samyl"), ExtResource("15_g63mk"), ExtResource("16_8s0io")])
+game_over_screen = ExtResource("17_8s0io")
+score_label = NodePath("../Control/Label")
 
 [node name="Control" type="Control" parent="." unique_id=2064789399]
 layout_mode = 3
@@ -163,9 +160,8 @@ offset_top = -151.0
 offset_right = 0.5
 offset_bottom = -151.0
 grow_vertical = 0
-script = ExtResource("18_m7up5")
 
 [node name="Asteroid" parent="." unique_id=41033272 instance=ExtResource("15_owo31")]
-transform = Transform3D(0.7457702, 0, 0.66620326, 0, 1, 0, -0.66620326, 0, 0.7457702, -1.299, 200, -600)
-script = ExtResource("16_sbgol")
-asteroid_state_positions = Array[Vector3]([Vector3(-1.254, 20, -80)])
+transform = Transform3D(0.7457702, 0, 0.66620326, 0, 1, 0, -0.66620326, 0, 0.7457702, -1.299, 299.1844, -839.0167)
+script = ExtResource("11_34yqb")
+asteroid_state_positions = Array[Vector3]([Vector3(-1.299, 38.734, -84.267)])

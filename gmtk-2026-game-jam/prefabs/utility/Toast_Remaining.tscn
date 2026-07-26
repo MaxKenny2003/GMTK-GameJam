@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dqdotn5cl3hx"]
 
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="1_1kt1p"]
+[ext_resource type="Script" uid="uid://gybyk3box2kp" path="res://scripts/toast_remaining.gd" id="1_ibwye"]
 
 [node name="Control" type="Control" unique_id=1983126098]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ibwye")
 
 [node name="Label" type="Label" parent="." unique_id=2025674558]
 layout_mode = 1
