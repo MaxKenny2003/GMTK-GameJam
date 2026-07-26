@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="4_jw87a"]
 [ext_resource type="Texture2D" uid="uid://gxy13nt5tkhe" path="res://assets/Particles/paper_particle.png" id="5_vgvjy"]
 [ext_resource type="AudioStream" uid="uid://86hexnadsj00" path="res://assets/Audio/paper_slide.mp3" id="7_2soxf"]
+[ext_resource type="AudioStream" uid="uid://djiqqov0tqpex" path="res://assets/Music/microgames/song1.mp3" id="10_jw87a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2soxf"]
 atlas = ExtResource("3_vgvjy")
@@ -165,3 +166,8 @@ vertical_alignment = 1
 stream = ExtResource("7_2soxf")
 volume_db = 6.656
 bus = &"Effects"
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1810914173]
+stream = ExtResource("10_jw87a")
+autoplay = true
+bus = &"Music"
