@@ -14,7 +14,7 @@ public partial class Asteroid : Node3D
     private WorldEnvironment worldEnvironment;
 
     [Export]
-    public float total_game_time = 30.0f;
+    public float total_game_time = 270.0f;
 
     public override void _Ready()
     {
