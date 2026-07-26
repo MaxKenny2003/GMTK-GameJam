@@ -1,149 +1,106 @@
 [gd_scene format=3 uid="uid://d1mugjufhjue7"]
 
-[ext_resource type="Script" uid="uid://u2l2pcps45ep" path="res://scripts/microgames/contract_drag/contract_drag.gd" id="1_abnex"]
-[ext_resource type="Texture2D" uid="uid://dmdo6gq3sxgoj" path="res://assets/2D/biggersheet.png" id="2_ryut0"]
+[ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_kbgtu"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_t2x1v"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_e0wpp"]
 [ext_resource type="AudioStream" uid="uid://86hexnadsj00" path="res://assets/Audio/paper_slide.mp3" id="5_t2x1v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiw2g"]
-size = Vector2(194, 648)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
+size = Vector2(20, 657)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wwdo"]
-size = Vector2(1152, 127)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qkr3"]
+size = Vector2(1183, 23)
 
-[node name="contract_drag" type="Node2D" unique_id=18916065]
-script = ExtResource("1_abnex")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbxwk"]
+radius = 40.60785
+height = 155.82794
+
+[node name="Node2D" type="Node2D" unique_id=935132583]
+script = ExtResource("1_kbgtu")
 TimerScene = ExtResource("2_t2x1v")
 
-[node name="background" type="ColorRect" parent="." unique_id=810282751]
+[node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
 custom_minimum_size = Vector2(1152, 648)
 offset_right = 1152.0
 offset_bottom = 648.0
-mouse_filter = 2
 color = Color(0.92156863, 0.7254902, 0.4509804, 1)
-metadata/_edit_lock_ = true
 
-[node name="paper" type="TextureRect" parent="." unique_id=1959150283]
-offset_left = 194.0
-offset_top = 82.0
-offset_right = 388.0
-offset_bottom = 406.0
-scale = Vector2(4, 4)
-mouse_filter = 2
-texture = ExtResource("2_ryut0")
-metadata/_edit_lock_ = true
+[node name="Fly" parent="." unique_id=488059360 instance=ExtResource("3_e0wpp")]
+position = Vector2(321, 113)
 
-[node name="heading" type="RichTextLabel" parent="paper" unique_id=550719969]
-layout_mode = 0
-offset_left = 43.749996
-offset_top = 20.499998
-offset_right = 1093.7499
-offset_bottom = 163.5
-scale = Vector2(0.1, 0.1)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_e0wpp")
-theme_override_font_sizes/normal_font_size = 160
-text = "CONTRACT"
-fit_content = true
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
+[node name="Fly2" parent="." unique_id=1749578858 instance=ExtResource("3_e0wpp")]
+position = Vector2(199, 457)
 
-[node name="body" type="RichTextLabel" parent="paper" unique_id=1842162876]
-layout_mode = 0
-offset_left = 16.25
-offset_top = 40.0
-offset_right = 1623.7498
-offset_bottom = 183.0
-scale = Vector2(0.1, 0.1)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_e0wpp")
-theme_override_font_sizes/normal_font_size = 75
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
-fit_content = true
-horizontal_alignment = 3
-metadata/_edit_lock_ = true
+[node name="Fly3" parent="." unique_id=302640434 instance=ExtResource("3_e0wpp")]
+position = Vector2(864, 279)
 
-[node name="bottom_stuff" type="Control" parent="paper" unique_id=1423664834]
-anchors_preset = 0
-offset_top = 600.75
-offset_right = 194.0
-offset_bottom = 648.0
-metadata/_edit_lock_ = true
+[node name="Fly4" parent="." unique_id=782551176 instance=ExtResource("3_e0wpp")]
+position = Vector2(979, 504)
 
-[node name="x_marks_tha_spot" type="RichTextLabel" parent="paper/bottom_stuff" unique_id=1825283948]
-layout_mode = 0
-offset_left = 16.25
-offset_top = 7.0
-offset_right = 158.74994
-offset_bottom = 150.0
-scale = Vector2(0.1, 0.1)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_e0wpp")
-theme_override_font_sizes/normal_font_size = 160
-text = "X"
-fit_content = true
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
+[node name="Boundaries" type="Node2D" parent="." unique_id=2098317584]
 
-[node name="subtext" type="RichTextLabel" parent="paper/bottom_stuff" unique_id=219173791]
-layout_mode = 0
-offset_left = 13.5
-offset_top = 26.5
-offset_right = 333.5
-offset_bottom = 104.0
-scale = Vector2(0.1, 0.1)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_e0wpp")
-theme_override_font_sizes/normal_font_size = 64
-text = "initial"
-fit_content = true
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=17702795]
+position = Vector2(-10, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
 
-[node name="Line2D" type="Line2D" parent="paper/bottom_stuff" unique_id=569610285]
-position = Vector2(-1.75, -282.5)
-scale = Vector2(0.25, 0.25)
-points = PackedVector2Array(55, 1226, 724, 1226)
-width = 5.0
-default_color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=1366804379]
+shape = SubResource("RectangleShape2D_lbxwk")
 
-[node name="signature" type="RichTextLabel" parent="paper/bottom_stuff" unique_id=418498574]
-layout_mode = 0
-offset_left = 43.5
-offset_top = 8.25
-offset_right = 1158.4998
-offset_bottom = 123.25
-scale = Vector2(0.1, 0.1)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_e0wpp")
-theme_override_font_sizes/normal_font_size = 128
-text = "John Smith"
-fit_content = true
-horizontal_alignment = 1
-visible_characters = 0
-visible_ratio = 0.0
-metadata/_edit_lock_ = true
+[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=1887892078]
+position = Vector2(571, -10)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
 
-[node name="paper_area" type="Area2D" parent="paper" unique_id=69737021]
-position = Vector2(97, 324)
-metadata/_edit_lock_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=2052981053]
+shape = SubResource("RectangleShape2D_5qkr3")
 
-[node name="paper_collision" type="CollisionShape2D" parent="paper/paper_area" unique_id=305278960]
-shape = SubResource("RectangleShape2D_oiw2g")
-metadata/_edit_lock_ = true
+[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=402047616]
+position = Vector2(1162, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
 
-[node name="lose_zone" type="Area2D" parent="." unique_id=732119280]
-position = Vector2(576, 659)
-metadata/_edit_lock_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1958284922]
+shape = SubResource("RectangleShape2D_lbxwk")
 
-[node name="lose_collision" type="CollisionShape2D" parent="lose_zone" unique_id=972150721]
-position = Vector2(0, -53.5)
-shape = SubResource("RectangleShape2D_1wwdo")
-metadata/_edit_lock_ = true
+[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=1884004542]
+position = Vector2(571, 658)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1455056209]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=143620475]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="Hand" type="Area2D" parent="." unique_id=2002032415]
+z_index = 1
+position = Vector2(571, 324)
+collision_mask = 3
+
+[node name="SmackSprite" type="Sprite2D" parent="Hand" unique_id=1007623170]
+visible = false
+position = Vector2(-67, 79)
+rotation = -0.2617994
+scale = Vector2(3.9999998, 4.147)
+texture = ExtResource("4_nj2ek")
+
+[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=2000873348]
+position = Vector2(-1, 78)
+scale = Vector2(4, 4.147)
+texture = ExtResource("5_5n5mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" unique_id=842900209]
+position = Vector2(-11, -24)
+rotation = 0.17453294
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_lbxwk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341792418]
+
+[node name="Label" type="Label" parent="." unique_id=621526098]
 visible = false
 offset_left = 232.0
 offset_top = 239.0

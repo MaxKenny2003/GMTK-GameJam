@@ -6,7 +6,7 @@ using System.Transactions;
 public partial class Camera3d : Camera3D
 {
 	[Export]
-	private float camera_move_speed = 1.0f;
+	private float camera_move_speed = 0.75f;
 	[Export]
 	private float time_to_stare = 1.0f;
 	private Vector3 position;
@@ -31,19 +31,20 @@ public partial class Camera3d : Camera3D
 		var tween = CreateTween();
 		tween.TweenProperty(this, "global_position", target_pos, 2.0f);
 		await ToSignal(tween, "finished");
-		flowController.Instance.set_camera_movement(true);
 		flowController.Instance.set_looking_at_computer(true);
 		flowController.Instance.set_can_start_game(true);
+		flowController.Instance.set_can_move_camera(true);
+		flowController.Instance.set_move_camera(true);
+
 	}
 
 	public override void _Process(double delta)
 	{
-		if(flowController.Instance.can_move_camera)
+		if (flowController.Instance.move_Camera && flowController.Instance.can_move && !flowController.Instance.is_in_game)
 		{
-			if (Input.IsActionJustPressed("look_out_window"))
-			{
-				RotateCamera();
-			}
+			flowController.Instance.set_can_start_game(false);
+			RotateCamera();
+			flowController.Instance.set_move_camera(false);
 		}
 
 		if(flowController.Instance.is_camera_shaking)
@@ -61,9 +62,8 @@ public partial class Camera3d : Camera3D
 	private async void RotateCamera()
 	{ 
 		var tween = CreateTween();
-		flowController.Instance.set_camera_movement(false);
-		flowController.Instance.set_looking_at_computer(false);
-		flowController.Instance.set_can_start_game(false);
+		flowController.Instance.set_move_camera(false);
+		flowController.Instance.set_can_move_camera(false);
 		tween.TweenProperty(this, "rotation", new Vector3(0, Mathf.DegToRad(0), 0), camera_move_speed)
 			.SetTrans(Tween.TransitionType.Sine)
 			.SetEase(Tween.EaseType.InOut);
@@ -78,8 +78,8 @@ public partial class Camera3d : Camera3D
 				.SetEase(Tween.EaseType.InOut);
 
 		await ToSignal(tween2, "finished");
-		flowController.Instance.set_camera_movement(true);
 		flowController.Instance.set_looking_at_computer(true);
+		flowController.Instance.set_can_move_camera(true);
 		flowController.Instance.set_can_start_game(true);
 	}
 }
