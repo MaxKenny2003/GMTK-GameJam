@@ -4,9 +4,12 @@ using System.Diagnostics;
 
 public partial class flowController : Node
 {
-	public bool can_move_camera = false;
-    public bool is_looking_at_computer = true;
-    public bool can_start_game = false;
+    public bool is_looking_at_computer = true;  // used to tell if we can start game
+    public bool move_Camera = false;            // Ready to move camera (command) 
+    public bool can_move = false;               // Free to move next
+    public bool is_camera_shaking = false;      // Used to control camera shake
+    public bool can_start_game = false;         // Used to decide if we can start a microgame
+    public bool is_in_game = false;             // Used to tell if we are in a game
 
     public int score = 0;
     public int lives = 3;
@@ -16,26 +19,30 @@ public partial class flowController : Node
 
     public int asteroid_state = 0;
 
-    public bool is_camera_shaking = false; 
 
     public override void _Ready()
     {
         Instance = this;
-        can_move_camera = false;
+        move_Camera = false;
         is_looking_at_computer = true;
         can_start_game = false;
         is_camera_shaking = false;
         score = 0;
+        can_move = false;
+        is_in_game = false;
     }
-
+    public void set_can_move_camera(bool value)
+    {
+        can_move = value;
+    }
     public void set_score(int value)
     {
         score = value;
     }
-    
-    public void set_camera_movement(bool value)
+
+    public void set_move_camera(bool value)
     {
-        can_move_camera = value;
+        move_Camera = value;
     }
     public void set_looking_at_computer(bool value)
     {
@@ -44,6 +51,11 @@ public partial class flowController : Node
     public void set_can_start_game(bool value)
     {
         can_start_game = value;
+    }
+
+    public void set_is_in_game(bool value)
+    {
+        is_in_game = value;
     }
 
     public void endGame()
@@ -56,12 +68,14 @@ public partial class flowController : Node
 
     public void ResetState()
     {
-        can_move_camera = false;
+        move_Camera = false;
         is_looking_at_computer = true;
         can_start_game = false;
         is_camera_shaking = false;
         score = 0;
         lives = 3;
         asteroid_state = 0;
+        can_move = false;
+        is_in_game = false;
     }
 }

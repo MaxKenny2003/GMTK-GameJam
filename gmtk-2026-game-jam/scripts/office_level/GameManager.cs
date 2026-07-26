@@ -22,8 +22,8 @@ public partial class GameManager : Node
     public Label scoreLabel;
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
-	{
-        if (Input.IsActionJustPressed("start_microgame") && flowController.Instance.can_start_game)
+    {
+        if (flowController.Instance.can_start_game && !flowController.Instance.move_Camera)
         {
             if (microGames.Count > 0)
             {
@@ -34,15 +34,16 @@ public partial class GameManager : Node
                 AddChild(instance);
                 instance.Connect("game_end", Callable.From<string>(OnGameEnd));
                 add_game_to_waiting_queue(index);
+                flowController.Instance.set_is_in_game(true);
             }
         }
-	}
+    }
 
     private void add_game_to_waiting_queue(int index)
     {
         waitingQueue.Enqueue(microGames[index]);
         microGames.RemoveAt(index);
-        if(microGames.Count == 0)
+        if (microGames.Count == 0)
         {
             foreach (var game in waitingQueue)
             {
@@ -50,7 +51,7 @@ public partial class GameManager : Node
             }
             waitingQueue.Clear();
         }
-        if(waitingQueue.Count >= minimum_before_replay)
+        if (waitingQueue.Count >= minimum_before_replay)
         {
             microGames.Add(waitingQueue.Dequeue());
         }
@@ -77,7 +78,7 @@ public partial class GameManager : Node
                 scoreLabel.Text = "Score: " + flowController.Instance.score.ToString();
             }
         }
-        if(result == "lose")
+        if (result == "lose")
         {
             flowController.Instance.lives -= 1;
         }
@@ -89,5 +90,7 @@ public partial class GameManager : Node
         await ToSignal(GetTree().CreateTimer(end_game_delay), "timeout");
         instance.QueueFree();
         flowController.Instance.set_can_start_game(true);
+        flowController.Instance.set_can_move_camera(true);
+        flowController.Instance.set_is_in_game(false);
     }
 }

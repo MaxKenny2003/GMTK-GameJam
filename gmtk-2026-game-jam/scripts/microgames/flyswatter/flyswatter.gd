@@ -15,7 +15,7 @@ var fly_guts = preload("res://scenes/microgames/flyswatter/fly_guts.tscn")
 var timer_bar_instance
 
 signal game_end(outcome: String)
-
+  
 var hand_offset = Vector2(0, -20)
 
 # Called when the node enters the scene tree for the first time.
