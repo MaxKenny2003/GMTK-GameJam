@@ -1,11 +1,30 @@
 [gd_scene format=3 uid="uid://sflnr7lxlhpp"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_0suxl"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_clqp0"]
 [ext_resource type="PackedScene" uid="uid://bqxkhewecpnk5" path="res://scenes/microgames/flyswatter/fly.tscn" id="3_ln0b1"]
 [ext_resource type="Texture2D" uid="uid://cd73tt7kjmlk0" path="res://assets/2D/Hands-smack.png" id="4_t0vht"]
 [ext_resource type="Texture2D" uid="uid://7iji6orhekwq" path="res://assets/2D/Hands.png" id="5_a6n0r"]
 [ext_resource type="AudioStream" path="res://assets/Audio/squish.mp3" id="6_34yqb"]
+=======
+[ext_resource type="Script" uid="uid://cyffo7ivvms6a" path="res://scripts/office_level/OfficeLevel.cs" id="1_iiahc"]
+[ext_resource type="PackedScene" uid="uid://bgj2tftsx0ljg" path="res://assets/3D/Office/Building/Building.glb" id="2_0suxl"]
+[ext_resource type="Script" uid="uid://hgieabivobrd" path="res://scenes/office_level/Camera3d.cs" id="2_sivyo"]
+[ext_resource type="PackedScene" uid="uid://dpksnlt3jx0fo" path="res://assets/3D/Office/Computer_and_Desk.glb" id="3_ls7i3"]
+[ext_resource type="PackedScene" uid="uid://cmnh2oe1tudin" path="res://assets/3D/Office/Cubical/Full_Flat/Flat_FullSize.glb" id="4_0suxl"]
+[ext_resource type="PackedScene" uid="uid://chv7r18a3wpsr" path="res://assets/3D/Office/Cubical/Flat_Half/Flat_Half.glb" id="5_clqp0"]
+[ext_resource type="Script" uid="uid://bewmotytybvkk" path="res://scripts/office_level/GameManager.cs" id="7_clqp0"]
+[ext_resource type="PackedScene" uid="uid://d1mugjufhjue7" path="res://scenes/microgames/contract_drag/contract_drag.tscn" id="8_ln0b1"]
+[ext_resource type="PackedScene" uid="uid://dqv4jd0k4tqeq" path="res://scenes/microgames/plugpanic/plug_panic.tscn" id="9_a6n0r"]
+[ext_resource type="PackedScene" uid="uid://5blk4wsdi1vd" path="res://scenes/microgames/papertilt/paper_tilt.tscn" id="10_34yqb"]
+[ext_resource type="PackedScene" uid="uid://dcwa1iyalum3g" path="res://scenes/microgames/popupparty/popup_party.tscn" id="12_ib5xb"]
+[ext_resource type="PackedScene" uid="uid://c47nk275xhjn6" path="res://scenes/microgames/reportmash/report_mash.tscn" id="13_pwau5"]
+[ext_resource type="PackedScene" uid="uid://dit6ddgyjluol" path="res://scenes/microgames/shredderlanding/shredder_landing.tscn" id="14_m7up5"]
+[ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="15_owo31"]
+[ext_resource type="PackedScene" uid="uid://cklr0uk6gtrgk" path="res://scenes/microgames/staplerslam/stapler_slam.tscn" id="16_8s0io"]
+[ext_resource type="Script" uid="uid://um627vlggsjs" path="res://scripts/office_level/Asteroid.cs" id="16_sbgol"]
+>>>>>>> parent of 8fb5fdc (A lot of changes)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
 size = Vector2(20, 657)
@@ -27,6 +46,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.92156863, 0.7254902, 0.4509804, 1)
 
+<<<<<<< HEAD
 [node name="Fly" parent="." unique_id=488059360 instance=ExtResource("3_ln0b1")]
 position = Vector2(321, 113)
 
@@ -35,6 +55,10 @@ position = Vector2(199, 457)
 
 [node name="Fly3" parent="." unique_id=302640434 instance=ExtResource("3_ln0b1")]
 position = Vector2(864, 279)
+=======
+[node name="Office_Level" type="Node" unique_id=423284289]
+script = ExtResource("1_iiahc")
+>>>>>>> parent of 8fb5fdc (A lot of changes)
 
 [node name="Fly4" parent="." unique_id=782551176 instance=ExtResource("3_ln0b1")]
 position = Vector2(979, 504)
@@ -156,6 +180,13 @@ text = "Score: 0"
 label_settings = SubResource("LabelSettings_a6n0r")
 vertical_alignment = 1
 
+<<<<<<< HEAD
 [node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1764829269]
 stream = ExtResource("6_34yqb")
 bus = &"Effects"
+=======
+[node name="Asteroid" parent="." unique_id=41033272 instance=ExtResource("15_owo31")]
+transform = Transform3D(0.7457702, 0, 0.66620326, 0, 1, 0, -0.66620326, 0, 0.7457702, -1.299, 200, -600)
+script = ExtResource("16_sbgol")
+asteroid_state_positions = Array[Vector3]([Vector3(-1.254, 20, -80)])
+>>>>>>> parent of 8fb5fdc (A lot of changes)

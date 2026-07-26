@@ -23,7 +23,7 @@ public partial class GameManager : Node
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
-        if (flowController.Instance.can_start_game && !flowController.Instance.move_Camera)
+        if (Input.IsActionJustPressed("start_microgame") && flowController.Instance.can_start_game)
         {
             if (microGames.Count > 0)
             {
@@ -34,7 +34,6 @@ public partial class GameManager : Node
                 AddChild(instance);
                 instance.Connect("game_end", Callable.From<string>(OnGameEnd));
                 add_game_to_waiting_queue(index);
-                flowController.Instance.set_is_in_game(true);
             }
         }
 	}
@@ -90,7 +89,5 @@ public partial class GameManager : Node
         await ToSignal(GetTree().CreateTimer(end_game_delay), "timeout");
         instance.QueueFree();
         flowController.Instance.set_can_start_game(true);
-        flowController.Instance.set_can_move_camera(true);
-        flowController.Instance.set_is_in_game(false);
     }
 }
