@@ -140,15 +140,16 @@ mouse_filter = 2
 
 [node name="Label" type="RichTextLabel" parent="Control" unique_id=1932960331]
 layout_mode = 1
+offset_top = -56.0
 offset_right = 1152.0
-offset_bottom = 55.0
+offset_bottom = -1.0
 pivot_offset = Vector2(175, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("16_m7up5")
 theme_override_font_sizes/normal_font_size = 48
 text = "Score: 0"
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Control2" parent="Control" unique_id=1983126098 instance=ExtResource("17_pwau5")]
@@ -167,3 +168,6 @@ grow_vertical = 0
 transform = Transform3D(0.7457702, 0, 0.66620326, 0, 1, 0, -0.66620326, 0, 0.7457702, -1.299, 299.1844, -839.0167)
 script = ExtResource("11_34yqb")
 asteroid_state_positions = Array[Vector3]([Vector3(-1.299, 38.734, -84.267)])
+
+[node name="transition" type="AudioStreamPlayer2D" parent="." unique_id=432542856]
+bus = &"Music"

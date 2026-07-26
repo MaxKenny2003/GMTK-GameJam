@@ -2,7 +2,7 @@ extends Node3D
 
 @export var asteroid_state_positions: Array[Vector3] = []
 @export var colorRect: ColorRect
-@export var total_game_time: float = 270.0
+@export var total_game_time: float = 300.0
 
 var asteroid_state: int = 0
 var is_moving: bool = false
@@ -44,14 +44,12 @@ func move_asteroid():
 	FlowController.toast_seconds_left -= total_game_time / 5
 	FlowController.asteroid_state = asteroid_state
 	print("Asteroid state: ", asteroid_state)
-	FlowController.set_move_camera(true)
 
 	await get_tree().create_timer(total_game_time / 5).timeout
 	asteroid_state += 1
 	FlowController.toast_seconds_left -= total_game_time / 5
 	FlowController.asteroid_state = asteroid_state
 	print("Asteroid state: ", asteroid_state)
-	FlowController.set_move_camera(true)
 
 	await get_tree().create_timer(total_game_time / 5).timeout
 	asteroid_state += 1
@@ -59,7 +57,6 @@ func move_asteroid():
 	FlowController.asteroid_state = asteroid_state
 	FlowController.is_camera_shaking = true
 	print("Asteroid state: ", asteroid_state)
-	FlowController.set_move_camera(true)
 
 	await get_tree().create_timer(total_game_time / 5).timeout
 	asteroid_state += 1

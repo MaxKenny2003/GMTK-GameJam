@@ -11,7 +11,7 @@ var end = false
 signal game_end(outcome: String)
 
 var max_visibility = 1.0
-@export var typing_boost = 7.0
+@export var typing_boost = 5.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
