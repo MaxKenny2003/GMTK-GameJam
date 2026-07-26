@@ -1,19 +1,47 @@
 [gd_scene format=3 uid="uid://dkcysksmm35r4"]
 
 [ext_resource type="Script" uid="uid://cpxplysnnrd2d" path="res://scripts/microgames/staplerslam/staplerslam_paper.gd" id="1_7a303"]
-[ext_resource type="Texture2D" uid="uid://d2y5uyg07gwva" path="res://assets/2D/paper.png" id="1_x2lrj"]
+[ext_resource type="Texture2D" uid="uid://dr2wuktux77rk" path="res://assets/2D/paper_to_staple.png" id="2_4k2ut"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_0vt1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
-size = Vector2(34, 15)
+size = Vector2(30, 17)
 
 [node name="paper" type="Node2D" unique_id=72314455]
 script = ExtResource("1_7a303")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1223852179]
-texture = ExtResource("1_x2lrj")
+texture = ExtResource("2_4k2ut")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1243220705]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1741962907]
-position = Vector2(-17, -42.5)
+position = Vector2(-24, -42.5)
 shape = SubResource("RectangleShape2D_q4mm8")
+
+[node name="title" type="RichTextLabel" parent="." unique_id=667758914]
+offset_left = -5.0
+offset_top = -46.0
+offset_right = 415.00003
+offset_bottom = 24.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_0vt1v")
+theme_override_font_sizes/normal_font_size = 64
+text = "Q2 Report"
+fit_content = true
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="body" type="RichTextLabel" parent="." unique_id=873428084]
+offset_left = -37.999996
+offset_top = -30.0
+offset_right = 711.9999
+offset_bottom = 779.9999
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_0vt1v")
+theme_override_font_sizes/normal_font_size = 32
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+fit_content = true
+horizontal_alignment = 3

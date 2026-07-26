@@ -32,7 +32,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
-size = Vector2(10, 4.25)
+size = Vector2(3.5, 2.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0sqs7"]
 size = Vector2(220, 648)
@@ -73,7 +73,7 @@ frame_progress = 0.58606535
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stapler/staplerarea" unique_id=1226812364]
-position = Vector2(0.25, 26.125)
+position = Vector2(0.25, 27)
 shape = SubResource("RectangleShape2D_q4mm8")
 metadata/_edit_lock_ = true
 
@@ -99,5 +99,11 @@ bus = &"Effects"
 [node name="Area2D" type="Area2D" parent="." unique_id=1891726060]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=145039806]
-position = Vector2(1266, 324)
+position = Vector2(1339, 324)
+shape = SubResource("RectangleShape2D_0sqs7")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=723540790]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1867420288]
+position = Vector2(-181, 324)
 shape = SubResource("RectangleShape2D_0sqs7")

@@ -37,6 +37,7 @@ func _process(_delta: float) -> void:
 			end = true
 			timer_bar_instance.stop_timers()
 			game_has_ended("win")
+			
 
 func _physics_process(_delta: float) -> void:
 	if not pending_staple:
