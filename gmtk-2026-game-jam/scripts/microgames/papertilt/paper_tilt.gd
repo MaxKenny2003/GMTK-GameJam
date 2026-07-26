@@ -2,7 +2,6 @@ extends Node2D
 
 @export var TimerScene: PackedScene
 
-@onready var results: Label = $Label
 @onready var paper_stack: Node2D = $paper_stack
 @onready var sprite: AnimatedSprite2D = $paper_stack/sprite
 @onready var noise = FastNoiseLite.new()
@@ -37,7 +36,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !game_is_over:
 		if randf() < 0.05:
-			target_tilt = randf_range(-400, 400)
+			var left_or_right = randi_range(1,2)
+			if left_or_right == 1:
+				target_tilt = randf_range(-250, -100)
+			else: if left_or_right == 2:
+				target_tilt = randf_range(100, 250)
 		tilt = move_toward(tilt, target_tilt, 200 * delta)
 		if Input.is_action_pressed("ui_left"):
 			tilt -= tilt_speed * delta
@@ -68,13 +71,10 @@ func game_over():
 	sprite.visible = false
 	paper_particle.restart()
 	effects.play()
-	results.visible = true
 	game_has_ended("lose")
 
 func _on_timer_up():
 	game_is_over = true
-	results.text = "You're Winner!"
-	results.visible = true
 	game_has_ended("win")
 
 func game_has_ended(result: String):

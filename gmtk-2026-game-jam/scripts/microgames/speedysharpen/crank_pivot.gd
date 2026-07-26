@@ -2,7 +2,6 @@ extends Node2D
 
 @export var TimerScene: PackedScene
 @onready var handle_hotspot: Node2D = $handle/handle_hotspot
-@onready var results: Label = $"../Label"
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 
 @export var rotation_sens = 1.0
@@ -30,7 +29,7 @@ var ang_vel = 0.0
 var mouse_to_crank_offset_rad = 0.0
 var timer_bar_instance
 
-signal game_end(outcome: String)
+signal game_end1(outcome: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -121,17 +120,14 @@ func stop_grab() -> void:
 
 func _win() -> void:
 	stop_grab()
-	results.visible = true
 	timer_bar_instance.stop_timers()
 	end = true
 	game_has_ended("win")
 
 func _on_timer_up():
-	results.text = "You're Loser!"
-	results.visible = true
 	end = true
 	game_has_ended("lose")
 
 func game_has_ended(result: String):
 	await get_tree().create_timer(0.5).timeout
-	emit_signal("game_end", result)
+	emit_signal("game_end1", result)

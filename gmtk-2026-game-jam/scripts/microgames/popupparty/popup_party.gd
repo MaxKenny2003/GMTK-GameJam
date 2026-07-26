@@ -3,7 +3,6 @@ extends Node2D
 @export var TimerScene: PackedScene
 @export var PopupScene: PackedScene
 @export var total_popups = 12
-@onready var results: Label = $Label
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var effects: AudioStreamPlayer2D = $effects
 var close_count = 0
@@ -40,7 +39,6 @@ func _on_popup_closed() -> void:
 	close_count += 1
 	
 	if close_count >= total_popups:
-		results.visible = true
 		timer_bar_instance.stop_timers()
 		game_has_ended("win")
 
@@ -50,8 +48,6 @@ func _input(event: InputEvent):
 			effects.play()
 
 func _on_timer_up():
-	results.text = "You're Loser!"
-	results.visible = true
 	game_has_ended("lose")
 
 func game_has_ended(result: String):

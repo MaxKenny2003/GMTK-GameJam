@@ -4,7 +4,6 @@ extends Node2D
 
 @onready var paper: TextureRect = $paper
 @onready var paper_area: Area2D = $paper/paper_area
-@onready var results: Label = $Label
 @onready var signature: RichTextLabel = $paper/bottom_stuff/signature
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var effects: AudioStreamPlayer2D = $effects
@@ -34,7 +33,6 @@ func _process(delta: float) -> void:
 		signature.visible_ratio += ratio * delta
 	
 	if signature.visible_ratio >= 1.0 and !loop_end:
-		results.visible = true
 		loop_end = true
 		game_has_ended("win")
 
@@ -63,8 +61,6 @@ func _on_paper_area_area_exited(_area: Area2D) -> void:
 
 func _on_timer_up():
 	game_over = true
-	results.text = "You're Loser!"
-	results.visible = true
 	game_has_ended("lose")
 
 func game_has_ended(result: String):

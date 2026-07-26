@@ -3,7 +3,6 @@ extends Node2D
 @export var TimerScene: PackedScene
 @onready var stapler: AnimatedSprite2D = $stapler
 @onready var staplerarea: Area2D = $stapler/staplerarea
-@onready var results: Label = $Label
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var effects: AudioStreamPlayer2D = $effects
 @onready var stapler_bottom: Sprite2D = $background/stapler_bottom
@@ -35,7 +34,6 @@ func _process(_delta: float) -> void:
 		stapler.global_position = mouse_pos - stapler_offset
 		stapler_bottom.global_position = mouse_pos 
 		if staple_counter == 3:
-			results.visible = true
 			end = true
 			timer_bar_instance.stop_timers()
 			game_has_ended("win")
@@ -83,8 +81,6 @@ func _is_overlapping_now() -> bool:
 	return false
 
 func _on_timer_up():
-	results.text = "You're Loser!"
-	results.visible = true
 	end = true
 	game_has_ended("lose")
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bxtpoge5kn44p" path="res://scripts/microgames/shredderlanding/shredder_paper.gd" id="1_ucj6d"]
 [ext_resource type="Texture2D" uid="uid://d2y5uyg07gwva" path="res://assets/2D/paper.png" id="2_twcfp"]
 [ext_resource type="AudioStream" uid="uid://86hexnadsj00" path="res://assets/Audio/paper_slide.mp3" id="3_twcfp"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="4_7jeg2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
 size = Vector2(80, 108)
@@ -12,6 +13,7 @@ script = ExtResource("1_ucj6d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1223852179]
 texture = ExtResource("2_twcfp")
+metadata/_edit_lock_ = true
 
 [node name="physics_collision" type="CollisionShape2D" parent="." unique_id=1741962907]
 position = Vector2(0, 1)
@@ -21,3 +23,29 @@ metadata/_edit_lock_ = true
 [node name="paper_sound" type="AudioStreamPlayer2D" parent="." unique_id=40621968]
 stream = ExtResource("3_twcfp")
 bus = &"Effects"
+
+[node name="body" type="RichTextLabel" parent="." unique_id=516371164]
+offset_left = -37.999996
+offset_top = -31.000004
+offset_right = 711.9999
+offset_bottom = 778.9999
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_7jeg2")
+theme_override_font_sizes/normal_font_size = 32
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+fit_content = true
+horizontal_alignment = 3
+
+[node name="title" type="RichTextLabel" parent="." unique_id=1042979845]
+offset_left = -36.000004
+offset_top = -43.000004
+offset_right = 693.99994
+offset_bottom = 73.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0.43606514, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_7jeg2")
+theme_override_font_sizes/normal_font_size = 64
+text = "CONFIDENTIAL"
+fit_content = true
+horizontal_alignment = 1
