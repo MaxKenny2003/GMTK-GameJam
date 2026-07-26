@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dqafxwiqoou37"]
+[gd_scene format=3 uid="uid://ccw2qa5evph6j"]
 
 [ext_resource type="Script" uid="uid://c00h4x1vg6s3n" path="res://scripts/microgames/staplerslam/staplerslam.gd" id="1_dslk4"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_4qke1"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://ctl37nnlffexa" path="res://assets/2D/stapler.png" id="8_u4mjf"]
 [ext_resource type="AudioStream" uid="uid://bunckbjhs5lte" path="res://assets/Audio/stapler.mp3" id="9_iku5c"]
 [ext_resource type="AudioStream" uid="uid://ck0gbj0pkam6j" path="res://assets/Audio/paper_flutter.mp3" id="10_arvy2"]
-[ext_resource type="AudioStream" uid="uid://hx7uidtynn8d" path="res://assets/Music/microgames/song2.mp3" id="11_5ycex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg7lo"]
 atlas = ExtResource("8_u4mjf")
@@ -120,11 +119,6 @@ shape = SubResource("RectangleShape2D_0sqs7")
 stream = ExtResource("10_arvy2")
 max_polyphony = 3
 bus = &"Effects"
-
-[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=813939933]
-stream = ExtResource("11_5ycex")
-autoplay = true
-bus = &"Music"
 
 [connection signal="area_exited" from="right_zone" to="paper" method="_on_right_zone_area_exited"]
 [connection signal="area_exited" from="right_zone" to="paper2" method="_on_right_zone_area_exited"]

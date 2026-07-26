@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b8l30l2y6f82y" path="res://assets/2D/plug.png" id="2_weyo6"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_yanuy"]
 [ext_resource type="AudioStream" uid="uid://dpltljq8i5xny" path="res://assets/Audio/plug.mp3" id="5_s3xsh"]
+[ext_resource type="AudioStream" uid="uid://hx7uidtynn8d" path="res://assets/Music/microgames/song2.mp3" id="6_tvtlk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q4mm8"]
 radius = 2.25
@@ -106,3 +107,8 @@ vertical_alignment = 1
 stream = ExtResource("5_s3xsh")
 volume_db = 7.488
 bus = &"Effects"
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=217276001]
+stream = ExtResource("6_tvtlk")
+autoplay = true
+bus = &"Music"

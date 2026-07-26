@@ -48,7 +48,7 @@ offset_right = -55.05603
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_lm4p0")
 theme_override_font_sizes/font_size = 52
-text = "Report Mash"
+text = "Type!"
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1368091175]

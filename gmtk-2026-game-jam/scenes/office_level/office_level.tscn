@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://chv7r18a3wpsr" path="res://assets/3D/Office/Cubical/Flat_Half/Flat_Half.glb" id="5_clqp0"]
 [ext_resource type="Script" uid="uid://d1x01gxds07o" path="res://scripts/office_level/game_manager.gd" id="7_34yqb"]
 [ext_resource type="PackedScene" uid="uid://d1mugjufhjue7" path="res://scenes/microgames/contract_drag/contract_drag.tscn" id="8_ln0b1"]
-[ext_resource type="PackedScene" uid="uid://5blk4wsdi1vd" path="res://scenes/microgames/paper_tilt/paper_tilt.tscn" id="10_owo31"]
 [ext_resource type="Script" uid="uid://doww77ai74bos" path="res://scripts/asteroid.gd" id="11_34yqb"]
 [ext_resource type="PackedScene" uid="uid://dqv4jd0k4tqeq" path="res://scenes/microgames/plug_panic/plug_panic.tscn" id="11_sbgol"]
 [ext_resource type="PackedScene" uid="uid://dcwa1iyalum3g" path="res://scenes/microgames/popup_party/popup_party.tscn" id="12_8s0io"]
@@ -17,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="15_owo31"]
 [ext_resource type="PackedScene" uid="uid://c24xxcrdsc2ao" path="res://scenes/microgames/flyswatter/flyswatter.tscn" id="15_ywwpr"]
 [ext_resource type="PackedScene" uid="uid://dqafxwiqoou37" path="res://scenes/microgames/stapler_slam/stapler_slam.tscn" id="16_8s0io"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="16_m7up5"]
 [ext_resource type="PackedScene" uid="uid://bggt3k2mee1jp" path="res://prefabs/utility/WhiteScreen.tscn" id="17_8s0io"]
 [ext_resource type="PackedScene" uid="uid://dqdotn5cl3hx" path="res://prefabs/utility/Toast_Remaining.tscn" id="17_pwau5"]
 
@@ -39,9 +39,6 @@ fog_height_density = 500.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hxyb1"]
 size = Vector3(13.588745, 0.2, 13.630371)
-
-[sub_resource type="LabelSettings" id="LabelSettings_a6n0r"]
-font_size = 40
 
 [node name="Office_Level" type="Node" unique_id=423284289]
 
@@ -129,7 +126,7 @@ shape = SubResource("BoxShape3D_hxyb1")
 
 [node name="GameManager" type="Node" parent="." unique_id=22151173 node_paths=PackedStringArray("score_label")]
 script = ExtResource("7_34yqb")
-micro_games = Array[PackedScene]([ExtResource("8_ln0b1"), ExtResource("15_ywwpr"), ExtResource("10_owo31"), ExtResource("11_sbgol"), ExtResource("12_8s0io"), ExtResource("13_mer2n"), ExtResource("14_samyl"), ExtResource("15_g63mk"), ExtResource("16_8s0io")])
+micro_games = Array[PackedScene]([ExtResource("8_ln0b1"), ExtResource("15_ywwpr"), ExtResource("16_8s0io"), ExtResource("11_sbgol"), ExtResource("12_8s0io"), ExtResource("13_mer2n"), ExtResource("14_samyl"), ExtResource("15_g63mk"), ExtResource("16_8s0io")])
 game_over_screen = ExtResource("17_8s0io")
 score_label = NodePath("../Control/Label")
 
@@ -140,13 +137,17 @@ offset_right = 1151.0
 offset_bottom = 651.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Control" unique_id=1875393504]
+[node name="Label" type="RichTextLabel" parent="Control" unique_id=1932960331]
 layout_mode = 1
-offset_right = 472.0
+offset_right = 1152.0
 offset_bottom = 55.0
 pivot_offset = Vector2(175, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("16_m7up5")
+theme_override_font_sizes/normal_font_size = 48
 text = "Score: 0"
-label_settings = SubResource("LabelSettings_a6n0r")
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Control2" parent="Control" unique_id=1983126098 instance=ExtResource("17_pwau5")]

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://pmx3kpiau56g" path="res://scenes/microgames/shredder_landing/paper.tscn" id="5_7sgri"]
 [ext_resource type="Texture2D" uid="uid://co66s5ulieu7l" path="res://assets/2D/shredder_front.png" id="6_nl5yc"]
 [ext_resource type="AudioStream" uid="uid://b2ak7b71tu882" path="res://assets/Audio/shredder.mp3" id="7_25wp5"]
+[ext_resource type="AudioStream" uid="uid://cjbogpe5j0ybx" path="res://assets/Music/microgames/song6.mp3" id="8_1nbeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
 size = Vector2(19, 31)
@@ -91,5 +92,11 @@ vertical_alignment = 1
 stream = ExtResource("7_25wp5")
 volume_db = -0.48
 bus = &"Effects"
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=2027161169]
+stream = ExtResource("8_1nbeq")
+volume_db = 8.32
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="shredder_front/Area2D" to="." method="_on_area_2d_body_entered"]

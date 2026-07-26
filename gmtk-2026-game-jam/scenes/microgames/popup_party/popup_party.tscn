@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_gy1mq"]
 [ext_resource type="PackedScene" uid="uid://lycfsg4n4b3w" path="res://scenes/microgames/popup_party/popup_window.tscn" id="4_bkp7j"]
 [ext_resource type="AudioStream" uid="uid://xuwdidgvm0og" path="res://assets/Audio/mouse_click.mp3" id="6_nfipc"]
+[ext_resource type="AudioStream" uid="uid://b6okh45dnrioj" path="res://assets/Music/microgames/song5.mp3" id="7_qtos5"]
 
 [node name="popup_party" type="Node2D" unique_id=101498177]
 script = ExtResource("1_tuikh")
@@ -65,3 +66,9 @@ vertical_alignment = 1
 [node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1628562563]
 stream = ExtResource("6_nfipc")
 bus = &"Effects"
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1016163897]
+stream = ExtResource("7_qtos5")
+volume_db = 9.433
+autoplay = true
+bus = &"Music"

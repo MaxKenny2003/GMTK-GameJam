@@ -3,14 +3,15 @@
 [ext_resource type="Script" uid="uid://whpo6a41uo5c" path="res://scripts/main_menu/main_menu.gd" id="1_0ebjn"]
 [ext_resource type="PackedScene" uid="uid://sflnr7lxlhpp" path="res://scenes/office_level/office_level.tscn" id="2_0ebjn"]
 [ext_resource type="AudioStream" uid="uid://bc0yji0ytv47w" path="res://assets/Music/main_menu/title.mp3" id="2_ob46e"]
+[ext_resource type="Texture2D" uid="uid://cftixgh7hltl4" path="res://assets/2D/start.png" id="3_lqpn7"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_qel0l"]
+[ext_resource type="Texture2D" uid="uid://b8hjjd1yxdkgn" path="res://assets/2D/start_press.png" id="4_qel0l"]
 [ext_resource type="PackedScene" uid="uid://dpksnlt3jx0fo" path="res://assets/3D/Office/Computer_and_Desk.glb" id="5_lqpn7"]
+[ext_resource type="Texture2D" uid="uid://cjfpte2jrpvfj" path="res://assets/2D/start_hover.png" id="5_rrgl4"]
 [ext_resource type="PackedScene" uid="uid://cmnh2oe1tudin" path="res://assets/3D/Office/Cubical/Full_Flat/Flat_FullSize.glb" id="6_qel0l"]
 [ext_resource type="PackedScene" uid="uid://chv7r18a3wpsr" path="res://assets/3D/Office/Cubical/Flat_Half/Flat_Half.glb" id="7_rrgl4"]
 [ext_resource type="PackedScene" uid="uid://bgj2tftsx0ljg" path="res://assets/3D/Office/Building/Building.glb" id="8_dn3lk"]
 [ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="9_4ujhu"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_hxyb1"]
-font_size = 40
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1gy5"]
 sky_top_color = Color(0.49452782, 0.69739485, 1, 1)
@@ -42,38 +43,45 @@ anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 648.0
 
-[node name="Label" type="Label" parent="MenuCanvas" unique_id=2005767796]
+[node name="Label" type="RichTextLabel" parent="MenuCanvas" unique_id=526825142]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -174.0
+offset_left = -300.0
 offset_top = 66.0
-offset_right = 176.0
-offset_bottom = 121.0
+offset_right = 298.0
+offset_bottom = 166.0
 grow_horizontal = 2
 pivot_offset = Vector2(175, 0)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_qel0l")
+theme_override_font_sizes/normal_font_size = 48
 text = "Countdown to Clock Out"
-label_settings = SubResource("LabelSettings_hxyb1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Play_Button" type="Button" parent="MenuCanvas" unique_id=639109173]
+[node name="Play_Button" type="TextureButton" parent="MenuCanvas" unique_id=153383811]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -100.0
-offset_top = 215.0
-offset_right = 100.0
-offset_bottom = 255.0
+offset_left = 196.0
+offset_top = 207.0
+offset_right = 246.0
+offset_bottom = 232.0
 grow_horizontal = 2
+scale = Vector2(4, 4)
 pivot_offset = Vector2(100, 0)
-theme_override_font_sizes/font_size = 20
-text = "Play"
+texture_normal = ExtResource("3_lqpn7")
+texture_pressed = ExtResource("4_qel0l")
+texture_hover = ExtResource("5_rrgl4")
 
 [node name="title_music" type="AudioStreamPlayer2D" parent="." unique_id=561745376]
 stream = ExtResource("2_ob46e")
+volume_db = 2.611
 autoplay = true
 bus = &"Music"
 

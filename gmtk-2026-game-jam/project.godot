@@ -21,7 +21,6 @@ buses/default_bus_layout="uid://c057pwb70mk72"
 
 [autoload]
 
-Flowcontroller="*uid://by5oetoffwdh1"
 FlowController="*uid://ct3sv1e4rf5x"
 
 [display]

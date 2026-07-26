@@ -4,7 +4,7 @@ extends Node
 @export var end_game_delay: float = 2.0
 @export var minimum_before_replay: int = 4
 @export var game_over_screen: PackedScene
-@export var score_label: Label
+@export var score_label: RichTextLabel
 
 var waiting_queue: Array[PackedScene] = []
 var instance: Node

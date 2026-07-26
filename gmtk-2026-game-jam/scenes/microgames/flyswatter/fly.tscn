@@ -44,7 +44,7 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1768922856]
 stream = ExtResource("4_1saah")
-volume_db = -21.273
+volume_db = -40.182
 max_polyphony = 8
 bus = &"Effects"
 

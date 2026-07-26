@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="2_q2vhx"]
 [ext_resource type="AudioStream" uid="uid://bm3sym4uho513" path="res://assets/Audio/key_press.mp3" id="5_ovapn"]
 [ext_resource type="Texture2D" uid="uid://dr8nnfqs2h2e6" path="res://assets/2D/pointer.png" id="6_6g4fp"]
+[ext_resource type="AudioStream" uid="uid://c13qg6ll0ph1a" path="res://assets/Music/microgames/song4.mp3" id="7_wxdie"]
 
 [node name="report_mash" type="Node2D" unique_id=205002658]
 script = ExtResource("1_um5or")
@@ -67,3 +68,8 @@ bus = &"Effects"
 position = Vector2(298, 579)
 scale = Vector2(4, 4)
 texture = ExtResource("6_6g4fp")
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=778084179]
+stream = ExtResource("7_wxdie")
+autoplay = true
+bus = &"Music"

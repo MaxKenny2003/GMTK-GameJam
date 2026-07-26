@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cd73tt7kjmlk0" path="res://assets/2D/Hands-smack.png" id="5_heu8p"]
 [ext_resource type="Texture2D" uid="uid://7iji6orhekwq" path="res://assets/2D/Hands.png" id="6_5tkqi"]
 [ext_resource type="AudioStream" uid="uid://dprjbqw3om6ku" path="res://assets/Audio/squish.mp3" id="6_6yttg"]
+[ext_resource type="AudioStream" uid="uid://ce17mk74nox5k" path="res://assets/Music/microgames/song3.mp3" id="7_heu8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
 size = Vector2(20, 657)
@@ -118,3 +119,8 @@ vertical_alignment = 1
 [node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1764829269]
 stream = ExtResource("6_6yttg")
 bus = &"Effects"
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=742815821]
+stream = ExtResource("7_heu8p")
+autoplay = true
+bus = &"Music"

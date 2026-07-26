@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_t2x1v"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_e0wpp"]
 [ext_resource type="AudioStream" uid="uid://86hexnadsj00" path="res://assets/Audio/paper_slide.mp3" id="5_t2x1v"]
+[ext_resource type="AudioStream" uid="uid://c13qg6ll0ph1a" path="res://assets/Music/microgames/song4.mp3" id="6_kbgtu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oiw2g"]
 size = Vector2(194, 648)
@@ -161,5 +162,10 @@ vertical_alignment = 1
 [node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1476891795]
 stream = ExtResource("5_t2x1v")
 bus = &"Effects"
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1402720610]
+stream = ExtResource("6_kbgtu")
+autoplay = true
+bus = &"Music"
 
 [connection signal="area_exited" from="paper/paper_area" to="." method="_on_paper_area_area_exited"]
