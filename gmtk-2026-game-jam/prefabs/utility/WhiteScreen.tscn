@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bggt3k2mee1jp"]
+
+[ext_resource type="Script" uid="uid://cuhc3turwb75p" path="res://scripts/ui/gameEndScreen.cs" id="1_hn0j6"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="2_6niu5"]
+
+[node name="Control" type="Control" unique_id=536602553]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hn0j6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1096612046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="." unique_id=812881164]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -558.0
+offset_top = 152.0
+offset_right = 558.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6niu5")
+theme_override_font_sizes/font_size = 40
+text = "Maybe you should have shown up earlier"
+horizontal_alignment = 1
+vertical_alignment = 1

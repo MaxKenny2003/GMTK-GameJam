@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 public partial class flowController : Node
 {
@@ -22,6 +23,8 @@ public partial class flowController : Node
 
     public int asteroid_state = 0;
 
+    public bool gameOver = false;
+
 
     public override void _Ready()
     {
@@ -33,6 +36,7 @@ public partial class flowController : Node
         score = 0;
         can_move = false;
         is_in_game = false;
+        gameOver = false;
     }
     public void set_can_move_camera(bool value)
     {
@@ -69,8 +73,9 @@ public partial class flowController : Node
     {
         GD.Print("Game Over");
         // GetTree().ChangeSceneToFile("res://scenes/gameOver.tscn");
+        Input.MouseMode = Input.MouseModeEnum.Visible;
         ResetState();
-        GetTree().ChangeSceneToFile("res://scenes/main_menu/main_menu.tscn");
+        // GetTree().ChangeSceneToFile("res://scenes/main_menu/main_menu.tscn");
     }
 
     public void ResetState()
@@ -84,5 +89,6 @@ public partial class flowController : Node
         asteroid_state = 0;
         can_move = false;
         is_in_game = false;
+        gameOver = false;
     }
 }

@@ -40,7 +40,7 @@ public partial class Camera3d : Camera3D
 
     public override void _Process(double delta)
     {
-        if (flowController.Instance.move_Camera && flowController.Instance.can_move && !flowController.Instance.is_in_game)
+        if (flowController.Instance.move_Camera && flowController.Instance.can_move && !flowController.Instance.is_in_game && !flowController.Instance.gameOver)
         {
             flowController.Instance.set_can_start_game(false);
             RotateCamera();
