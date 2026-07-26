@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dit6ddgyjluol"]
 
-[ext_resource type="PackedScene" uid="uid://pmx3kpiau56g" path="res://scenes/microgames/shredder_landing/paper.tscn" id="1_6jds8"]
-[ext_resource type="Script" uid="uid://bdl1cxd35k3ti" path="res://scripts/microgames/shredderlanding/shredder_landing.gd" id="1_by8kb"]
-[ext_resource type="Texture2D" uid="uid://djs6tpsdgs1pn" path="res://assets/2D/shredder_back.png" id="2_mxnui"]
-[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_yq6xh"]
-[ext_resource type="Texture2D" uid="uid://cktrb8pay785m" path="res://assets/Backgrounds/shredder.png" id="3_8yy3s"]
-[ext_resource type="Texture2D" uid="uid://co66s5ulieu7l" path="res://assets/2D/shredder_front.png" id="4_yq6xh"]
-[ext_resource type="AudioStream" uid="uid://b2ak7b71tu882" path="res://assets/Audio/shredder.mp3" id="6_kxhm6"]
+[ext_resource type="Script" uid="uid://bdl1cxd35k3ti" path="res://scripts/microgames/shredderlanding/shredder_landing.gd" id="1_r5xpp"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_1nbeq"]
+[ext_resource type="Texture2D" uid="uid://cktrb8pay785m" path="res://assets/Backgrounds/shredder.png" id="3_yo0th"]
+[ext_resource type="Texture2D" uid="uid://djs6tpsdgs1pn" path="res://assets/2D/shredder_back.png" id="4_1bkjc"]
+[ext_resource type="PackedScene" uid="uid://pmx3kpiau56g" path="res://scenes/microgames/shredder_landing/paper.tscn" id="5_7sgri"]
+[ext_resource type="Texture2D" uid="uid://co66s5ulieu7l" path="res://assets/2D/shredder_front.png" id="6_nl5yc"]
+[ext_resource type="AudioStream" uid="uid://b2ak7b71tu882" path="res://assets/Audio/shredder.mp3" id="7_25wp5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
 size = Vector2(19, 31)
@@ -18,8 +18,8 @@ size = Vector2(19, 31)
 size = Vector2(97, 6.5)
 
 [node name="shredder_landing" type="Node2D" unique_id=1927656990]
-script = ExtResource("1_by8kb")
-TimerScene = ExtResource("2_yq6xh")
+script = ExtResource("1_r5xpp")
+TimerScene = ExtResource("2_1nbeq")
 
 [node name="background" type="ColorRect" parent="." unique_id=2061335204]
 custom_minimum_size = Vector2(1152, 648)
@@ -33,22 +33,22 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(4, 4)
-texture = ExtResource("3_8yy3s")
+texture = ExtResource("3_yo0th")
 
 [node name="shredder_back" type="Sprite2D" parent="." unique_id=498322120]
 position = Vector2(555, 506)
 scale = Vector2(4, 4)
-texture = ExtResource("2_mxnui")
+texture = ExtResource("4_1bkjc")
 metadata/_edit_lock_ = true
 
-[node name="paper" parent="." unique_id=72314455 groups=["player"] instance=ExtResource("1_6jds8")]
+[node name="paper" parent="." unique_id=72314455 groups=["player"] instance=ExtResource("5_7sgri")]
 position = Vector2(561, -159)
 scale = Vector2(4, 4)
 
 [node name="shredder_front" type="Sprite2D" parent="." unique_id=2104568587]
 position = Vector2(555, 586)
 scale = Vector2(4, 4)
-texture = ExtResource("4_yq6xh")
+texture = ExtResource("6_nl5yc")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="shredder_front" unique_id=565529423]
@@ -88,7 +88,7 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=323091706]
 
 [node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1340412254]
-stream = ExtResource("6_kxhm6")
+stream = ExtResource("7_25wp5")
 volume_db = -0.48
 bus = &"Effects"
 

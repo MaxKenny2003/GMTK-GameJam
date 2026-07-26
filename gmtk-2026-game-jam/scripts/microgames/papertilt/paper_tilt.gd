@@ -88,12 +88,10 @@ func update_stack_frame():
 
 func game_over():
 	game_is_over = true
-	timer_bar_instance.stop_timers()
 	sprite.visible = false
 	paper_particle.restart()
 	effects.stream = flutter
 	effects.play()
-	game_has_ended("lose")
 
 func _on_timer_up():
 	game_is_over = true
