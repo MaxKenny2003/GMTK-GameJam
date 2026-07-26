@@ -2,10 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_sait0"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_yanuy"]
-[ext_resource type="PackedScene" uid="uid://bqxkhewecpnk5" path="res://scenes/microgames/flyswatter/fly.tscn" id="3_gmbxt"]
-[ext_resource type="Texture2D" uid="uid://cd73tt7kjmlk0" path="res://assets/2D/Hands-smack.png" id="4_fyc80"]
-[ext_resource type="Texture2D" uid="uid://7iji6orhekwq" path="res://assets/2D/Hands.png" id="5_xgt4f"]
-[ext_resource type="AudioStream" path="res://assets/Audio/squish.mp3" id="6_26e5y"]
+[ext_resource type="AudioStream" uid="uid://dpltljq8i5xny" path="res://assets/Audio/plug.mp3" id="5_s3xsh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
 size = Vector2(20, 657)
@@ -115,6 +112,9 @@ text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1764829269]
-stream = ExtResource("6_26e5y")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=724570741]
+
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=607920709]
+stream = ExtResource("5_s3xsh")
+volume_db = 7.488
 bus = &"Effects"

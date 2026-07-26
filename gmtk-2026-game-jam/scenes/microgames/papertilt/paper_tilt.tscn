@@ -2,23 +2,57 @@
 
 [ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_4qke1"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_4qke1"]
-[ext_resource type="PackedScene" uid="uid://bqxkhewecpnk5" path="res://scenes/microgames/flyswatter/fly.tscn" id="3_2soxf"]
-[ext_resource type="Texture2D" uid="uid://cd73tt7kjmlk0" path="res://assets/2D/Hands-smack.png" id="4_pj5l5"]
-[ext_resource type="Texture2D" uid="uid://7iji6orhekwq" path="res://assets/2D/Hands.png" id="5_js4lh"]
-[ext_resource type="AudioStream" path="res://assets/Audio/squish.mp3" id="6_jw87a"]
+[ext_resource type="Texture2D" uid="uid://cudovdpwvnem7" path="res://assets/2D/paper_stack_shadow.png" id="2_eeakl"]
+[ext_resource type="Texture2D" uid="uid://bbgdmvdysn7ls" path="res://assets/2D/paper_stack.png" id="3_vgvjy"]
+[ext_resource type="Texture2D" uid="uid://bujoqcvw75cqw" path="res://assets/2D/paper_stack_hands.png" id="4_4qke1"]
+[ext_resource type="Texture2D" uid="uid://gxy13nt5tkhe" path="res://assets/Particles/paper_particle.png" id="5_vgvjy"]
+[ext_resource type="AudioStream" uid="uid://ck0gbj0pkam6j" path="res://assets/Audio/paper_flutter.mp3" id="7_2soxf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
-size = Vector2(20, 657)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2soxf"]
+atlas = ExtResource("3_vgvjy")
+region = Rect2(0, 0, 80, 90)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qkr3"]
-size = Vector2(1183, 23)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj5l5"]
+atlas = ExtResource("3_vgvjy")
+region = Rect2(80, 0, 80, 90)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbxwk"]
-radius = 40.60785
-height = 155.82794
+[sub_resource type="AtlasTexture" id="AtlasTexture_js4lh"]
+atlas = ExtResource("3_vgvjy")
+region = Rect2(160, 0, 80, 90)
 
-[node name="Node2D" type="Node2D" unique_id=935132583]
-script = ExtResource("1_4qke1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw87a"]
+atlas = ExtResource("3_vgvjy")
+region = Rect2(240, 0, 80, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uruub"]
+atlas = ExtResource("3_vgvjy")
+region = Rect2(320, 0, 80, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4mm8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2soxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj5l5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js4lh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw87a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uruub")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="paper_tilt" type="Node2D" unique_id=1924266442]
+script = ExtResource("1_dbvms")
 TimerScene = ExtResource("2_4qke1")
 
 [node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
@@ -115,6 +149,9 @@ text = "You're Winner!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1764829269]
-stream = ExtResource("6_jw87a")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1589604636]
+
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=260664215]
+stream = ExtResource("7_2soxf")
+volume_db = 6.656
 bus = &"Effects"

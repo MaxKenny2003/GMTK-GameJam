@@ -8,6 +8,7 @@ extends Node2D
 @onready var noise = FastNoiseLite.new()
 @onready var paper_particle: CPUParticles2D = $paper_stack/paper_particle
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var effects: AudioStreamPlayer2D = $effects
 
 var game_is_over = false
 var timer_bar_instance
@@ -66,6 +67,7 @@ func game_over():
 	timer_bar_instance.stop_timers()
 	sprite.visible = false
 	paper_particle.restart()
+	effects.play()
 	results.visible = true
 	game_has_ended("lose")
 

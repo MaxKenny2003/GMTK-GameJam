@@ -8,7 +8,7 @@ var min_dist = 500
 var max_dist = 650
 
 var travel_time
-var min_time = 4.0
+var min_time = 3.0
 var max_time = 5.5
 
 # Called when the node enters the scene tree for the first time.

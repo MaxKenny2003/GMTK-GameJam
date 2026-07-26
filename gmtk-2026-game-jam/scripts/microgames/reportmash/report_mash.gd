@@ -4,6 +4,7 @@ extends Node2D
 @onready var results: Label = $Label
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @export var TimerScene: PackedScene
+@onready var effects: AudioStreamPlayer2D = $effects
 
 var timer_bar_instance
 var end = false
@@ -32,7 +33,10 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent):
 	var chartotal = text.get_total_character_count()
 	if event is InputEventKey:
-		if event.is_pressed():
+		if event.is_pressed() and text.visible_ratio < 1.0:
+			var pitch_rand = randf_range(0.85, 1.15)
+			effects.pitch_scale = pitch_rand
+			effects.play()
 			text.visible_ratio += (max_visibility / chartotal) * typing_boost
 
 func _on_timer_up():

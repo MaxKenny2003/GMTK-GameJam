@@ -94,25 +94,66 @@ position = Vector2(-1, 78)
 scale = Vector2(4, 4.147)
 texture = ExtResource("5_a6n0r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" unique_id=842900209]
-position = Vector2(-11, -24)
-rotation = 0.17453294
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("CapsuleShape2D_lbxwk")
+[node name="Node" type="Node" parent="Structure/Cubical" unique_id=1473558923]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341792418]
+[node name="AreaLight3D" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=2100832528]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.0024424, 48.48048, -1.3797978)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
 
-[node name="Label" type="Label" parent="." unique_id=621526098]
-visible = false
-offset_left = 232.0
-offset_top = 239.0
-offset_right = 945.0
-offset_bottom = 376.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 100
-text = "You're Winner!"
-horizontal_alignment = 1
+[node name="AreaLight3D2" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=1183927238]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.0024424, 48.48048, -4.940099)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D3" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=207952672]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.0024424, 48.48048, 1.8957667)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D4" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=1318615173]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.772704, 48.48048, -1.3797978)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D5" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=196116492]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.772704, 48.48048, -4.940099)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D6" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=274819364]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.772704, 48.48048, 1.8957667)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="Ground" type="StaticBody3D" parent="Structure" unique_id=616607092]
+
+[node name="Building" parent="Structure/Ground" unique_id=403725940 instance=ExtResource("2_0suxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2541323, 43.793888, -2.344999)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/Ground" unique_id=827626887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95758057, 43.492863, -2.374208)
+shape = SubResource("BoxShape3D_hxyb1")
+
+[node name="GameManager" type="Node" parent="." unique_id=22151173 node_paths=PackedStringArray("scoreLabel")]
+script = ExtResource("7_clqp0")
+microGames = Array[PackedScene]([ExtResource("10_34yqb"), ExtResource("9_a6n0r"), ExtResource("8_ln0b1"), ExtResource("12_ib5xb"), ExtResource("13_pwau5"), ExtResource("14_m7up5"), ExtResource("16_8s0io")])
+scoreLabel = NodePath("../Control/Label")
+
+[node name="Control" type="Control" parent="." unique_id=2064789399]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 651.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=1875393504]
+layout_mode = 1
+offset_right = 472.0
+offset_bottom = 55.0
+pivot_offset = Vector2(175, 0)
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_a6n0r")
 vertical_alignment = 1
 
 [node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1764829269]
