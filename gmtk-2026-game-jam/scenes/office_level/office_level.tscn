@@ -12,10 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://dcwa1iyalum3g" path="res://scenes/microgames/popup_party/popup_party.tscn" id="12_8s0io"]
 [ext_resource type="PackedScene" uid="uid://c47nk275xhjn6" path="res://scenes/microgames/report_mash/report_mash.tscn" id="13_mer2n"]
 [ext_resource type="PackedScene" uid="uid://dit6ddgyjluol" path="res://scenes/microgames/shredder_landing/shredder_landing.tscn" id="14_samyl"]
+[ext_resource type="PackedScene" uid="uid://dqafxwiqoou37" path="res://scenes/microgames/stapler_slam/stapler_slam.tscn" id="15_8s0io"]
 [ext_resource type="PackedScene" uid="uid://og1pikxpsooi" path="res://scenes/microgames/speedy_sharpen/speedy_sharpen.tscn" id="15_g63mk"]
 [ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="15_owo31"]
 [ext_resource type="PackedScene" uid="uid://c24xxcrdsc2ao" path="res://scenes/microgames/flyswatter/flyswatter.tscn" id="15_ywwpr"]
-[ext_resource type="PackedScene" uid="uid://dqafxwiqoou37" path="res://scenes/microgames/stapler_slam/stapler_slam.tscn" id="16_8s0io"]
+[ext_resource type="PackedScene" uid="uid://byuc7k5ks07sw" path="res://scenes/microgames/paper_tilt/paper_tilt.tscn" id="16_8s0io"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="16_m7up5"]
 [ext_resource type="PackedScene" uid="uid://bggt3k2mee1jp" path="res://prefabs/utility/WhiteScreen.tscn" id="17_8s0io"]
 [ext_resource type="PackedScene" uid="uid://dqdotn5cl3hx" path="res://prefabs/utility/Toast_Remaining.tscn" id="17_pwau5"]
@@ -126,7 +127,7 @@ shape = SubResource("BoxShape3D_hxyb1")
 
 [node name="GameManager" type="Node" parent="." unique_id=22151173 node_paths=PackedStringArray("score_label")]
 script = ExtResource("7_34yqb")
-micro_games = Array[PackedScene]([ExtResource("8_ln0b1"), ExtResource("15_ywwpr"), ExtResource("16_8s0io"), ExtResource("11_sbgol"), ExtResource("12_8s0io"), ExtResource("13_mer2n"), ExtResource("14_samyl"), ExtResource("15_g63mk"), ExtResource("16_8s0io")])
+micro_games = Array[PackedScene]([ExtResource("8_ln0b1"), ExtResource("15_ywwpr"), ExtResource("16_8s0io"), ExtResource("11_sbgol"), ExtResource("12_8s0io"), ExtResource("13_mer2n"), ExtResource("14_samyl"), ExtResource("15_g63mk"), ExtResource("15_8s0io")])
 game_over_screen = ExtResource("17_8s0io")
 score_label = NodePath("../Control/Label")
 
