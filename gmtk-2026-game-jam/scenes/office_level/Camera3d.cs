@@ -40,9 +40,10 @@ public partial class Camera3d : Camera3D
 	{
 		if(flowController.Instance.can_move_camera)
 		{
-			flowController.Instance.set_can_start_game(false);
-			RotateCamera();
-			flowController.Instance.set_move_camera(false);
+			if (Input.IsActionJustPressed("look_out_window"))
+			{
+				RotateCamera();
+			}
 		}
 
 		if(flowController.Instance.is_camera_shaking)
@@ -79,10 +80,6 @@ public partial class Camera3d : Camera3D
 		await ToSignal(tween2, "finished");
 		flowController.Instance.set_camera_movement(true);
 		flowController.Instance.set_looking_at_computer(true);
-<<<<<<< HEAD
-		flowController.Instance.set_can_move_camera(true);
-=======
->>>>>>> parent of 8fb5fdc (A lot of changes)
 		flowController.Instance.set_can_start_game(true);
 	}
 }

@@ -1,107 +1,53 @@
 [gd_scene format=3 uid="uid://dcwa1iyalum3g"]
 
-[ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_nfipc"]
+[ext_resource type="Script" uid="uid://d0raqgyi10leg" path="res://scripts/microgames/popupparty/popup_party.gd" id="1_tuikh"]
+[ext_resource type="Texture2D" uid="uid://c82r4v0rw3dls" path="res://assets/Backgrounds/popupparty.png" id="2_bkp7j"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_gy1mq"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_gy1mq"]
 [ext_resource type="PackedScene" uid="uid://lycfsg4n4b3w" path="res://scenes/microgames/popupparty/popup_window.tscn" id="4_bkp7j"]
 [ext_resource type="AudioStream" uid="uid://xuwdidgvm0og" path="res://assets/Audio/mouse_click.mp3" id="6_nfipc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
-size = Vector2(20, 657)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qkr3"]
-size = Vector2(1183, 23)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbxwk"]
-radius = 40.60785
-height = 155.82794
-
-[node name="Node2D" type="Node2D" unique_id=935132583]
-script = ExtResource("1_nfipc")
+[node name="popup_party" type="Node2D" unique_id=101498177]
+script = ExtResource("1_tuikh")
 TimerScene = ExtResource("2_gy1mq")
+PopupScene = ExtResource("4_bkp7j")
 
-[node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
-custom_minimum_size = Vector2(1152, 648)
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.92156863, 0.7254902, 0.4509804, 1)
+[node name="background" type="TextureRect" parent="." unique_id=1177022091]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_bkp7j")
+metadata/_edit_lock_ = true
 
-[node name="Fly" parent="." unique_id=488059360 instance=ExtResource("3_3enk5")]
-position = Vector2(321, 113)
+[node name="top_text" type="RichTextLabel" parent="background" unique_id=949314705]
+layout_mode = 0
+offset_left = 87.75
+offset_top = 20.0
+offset_right = 1227.7498
+offset_bottom = 182.49998
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0, 0.73971456, 1.92523e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0.33841872, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_gy1mq")
+theme_override_font_sizes/normal_font_size = 160
+text = "KEEP CALM"
+metadata/_edit_lock_ = true
 
-[node name="Fly2" parent="." unique_id=1749578858 instance=ExtResource("3_3enk5")]
-position = Vector2(199, 457)
+[node name="bottom_text" type="RichTextLabel" parent="background" unique_id=2018729477]
+layout_mode = 0
+offset_left = 70.25
+offset_top = 115.49998
+offset_right = 1607.7498
+offset_bottom = 277.99997
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(0.7294118, 0, 0.10980392, 1)
+theme_override_colors/font_outline_color = Color(0.22876573, 0.00036334505, 3.008172e-08, 1)
+theme_override_fonts/normal_font = ExtResource("3_gy1mq")
+theme_override_font_sizes/normal_font_size = 160
+text = "KEEP WORKING"
+metadata/_edit_lock_ = true
 
-[node name="Fly3" parent="." unique_id=302640434 instance=ExtResource("3_3enk5")]
-position = Vector2(864, 279)
-
-[node name="Fly4" parent="." unique_id=782551176 instance=ExtResource("3_3enk5")]
-position = Vector2(979, 504)
-
-[node name="Boundaries" type="Node2D" parent="." unique_id=2098317584]
-
-[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=17702795]
-position = Vector2(-10, 324)
-collision_layer = 4
-collision_mask = 4
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=1366804379]
-shape = SubResource("RectangleShape2D_lbxwk")
-
-[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=1887892078]
-position = Vector2(571, -10)
-collision_layer = 4
-collision_mask = 4
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=2052981053]
-shape = SubResource("RectangleShape2D_5qkr3")
-
-[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=402047616]
-position = Vector2(1162, 324)
-collision_layer = 4
-collision_mask = 4
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1958284922]
-shape = SubResource("RectangleShape2D_lbxwk")
-
-[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=1884004542]
-position = Vector2(571, 658)
-collision_layer = 4
-collision_mask = 4
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=143620475]
-shape = SubResource("RectangleShape2D_5qkr3")
-
-[node name="Hand" type="Area2D" parent="." unique_id=2002032415]
-z_index = 1
-position = Vector2(571, 324)
-collision_mask = 3
-
-[node name="SmackSprite" type="Sprite2D" parent="Hand" unique_id=1007623170]
-visible = false
-position = Vector2(-67, 79)
-rotation = -0.2617994
-scale = Vector2(3.9999998, 4.147)
-texture = ExtResource("4_oktkg")
-
-[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=2000873348]
-position = Vector2(-1, 78)
-scale = Vector2(4, 4.147)
-texture = ExtResource("5_pwlfu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" unique_id=842900209]
-position = Vector2(-11, -24)
-rotation = 0.17453294
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("CapsuleShape2D_lbxwk")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341792418]
-
-[node name="Label" type="Label" parent="." unique_id=621526098]
+[node name="Label" type="Label" parent="." unique_id=294214900]
 visible = false
 offset_left = 232.0
 offset_top = 239.0
