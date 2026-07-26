@@ -24,6 +24,7 @@ public partial class Asteroid : Node3D
 
     private async void MoveAsteroid()
     {
+        flowController.Instance.toast_seconds_left = total_game_time;
         is_moving = true;
 
         var env = worldEnvironment.Environment;
@@ -41,18 +42,21 @@ public partial class Asteroid : Node3D
         flowController.Instance.set_move_camera(true);
         await ToSignal(GetTree().CreateTimer(total_game_time / 5), "timeout");
         asteroid_state++;
+        flowController.Instance.toast_seconds_left -= total_game_time / 5;
         flowController.Instance.asteroid_state = asteroid_state;
         GD.Print("Asteroid state: ", asteroid_state);
 
         flowController.Instance.set_move_camera(true);
         await ToSignal(GetTree().CreateTimer(total_game_time / 5), "timeout");
         asteroid_state++;
+        flowController.Instance.toast_seconds_left -= total_game_time / 5;
         flowController.Instance.asteroid_state = asteroid_state;
         GD.Print("Asteroid state: ", asteroid_state);
 
         flowController.Instance.set_move_camera(true);
         await ToSignal(GetTree().CreateTimer(total_game_time / 5), "timeout");
         asteroid_state++;
+        flowController.Instance.toast_seconds_left -= total_game_time / 5;
         flowController.Instance.asteroid_state = asteroid_state;
         flowController.Instance.is_camera_shaking = true;
         GD.Print("Asteroid state: ", asteroid_state);
@@ -60,6 +64,7 @@ public partial class Asteroid : Node3D
         flowController.Instance.set_move_camera(true);
         await ToSignal(GetTree().CreateTimer(total_game_time / 5), "timeout");
         asteroid_state++;
+        flowController.Instance.toast_seconds_left -= total_game_time / 5;
         flowController.Instance.asteroid_state = asteroid_state;
         GD.Print("Asteroid state: ", asteroid_state);
 

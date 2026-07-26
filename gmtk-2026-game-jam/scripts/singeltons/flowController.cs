@@ -11,6 +11,9 @@ public partial class flowController : Node
     public bool can_start_game = false;         // Used to decide if we can start a microgame
     public bool is_in_game = false;             // Used to tell if we are in a game
 
+    public bool send_toast = false;
+    public float toast_seconds_left;
+
     public int score = 0;
     public int lives = 3;
     public static flowController Instance { get; private set; }
@@ -56,6 +59,10 @@ public partial class flowController : Node
     public void set_is_in_game(bool value)
     {
         is_in_game = value;
+    }
+    public void set_send_toast(bool value)
+    {
+        send_toast = value;
     }
 
     public void endGame()
