@@ -11,6 +11,11 @@ extends Node2D
 
 var game_is_over = false
 var timer_bar_instance
+var flutter = preload("res://assets/Audio/paper_flutter.mp3")
+var crumple = preload("res://assets/Audio/crumple.mp3")
+var slip = preload("res://assets/Audio/paper_slide.mp3")
+
+var last_frame = 2
 
 var canvas_width = 1152
 var tilt = 0.0
@@ -56,12 +61,28 @@ func _process(delta: float) -> void:
 func update_stack_frame():
 	if -tilt_thresh1 > tilt and tilt > -tilt_thresh2:
 		sprite.frame = 3
+		if last_frame != 3:
+			effects.stream = slip
+			effects.play()
+		last_frame = 3
 	elif -tilt_thresh2 > tilt:
 		sprite.frame = 4
+		if last_frame != 4:
+			effects.stream = crumple
+			effects.play()
+		last_frame = 4
 	elif tilt_thresh1 < tilt and tilt < tilt_thresh2:
 		sprite.frame = 1
+		if last_frame != 1:
+			effects.stream = slip
+			effects.play()
+		last_frame = 1
 	elif tilt_thresh2 < tilt:
 		sprite.frame = 0
+		if last_frame != 0:
+			effects.stream = crumple
+			effects.play()
+		last_frame = 0
 	else:
 		sprite.frame = 2
 
@@ -70,6 +91,7 @@ func game_over():
 	timer_bar_instance.stop_timers()
 	sprite.visible = false
 	paper_particle.restart()
+	effects.stream = flutter
 	effects.play()
 	game_has_ended("lose")
 
