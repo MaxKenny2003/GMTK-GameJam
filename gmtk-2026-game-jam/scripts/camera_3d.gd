@@ -5,12 +5,19 @@ extends Camera3D
 @export var time_to_stare: float = 1.0
 @export var shakeStrength: float = 0.01
 @export var target_pos: Vector3 = Vector3(0, 0, 0)
+@export var bpm = 100.0
+@export var pulse_strength = 0.25
+@onready var game: Node = $"../GameManager"
+var spectrum = AudioEffectSpectrumAnalyzerInstance
+
+var time_passed = 0.0
 
 var position_start: Vector3
 
 func _ready():
 	# print("Is current? ", current)
 	position_start = position
+	spectrum = AudioServer.get_bus_effect_instance(0, 0) as AudioEffectSpectrumAnalyzerInstance
 	print("Started move from ", position, " to ", target_pos)
 	move_camera()
 
@@ -24,6 +31,14 @@ func move_camera():
 	FlowController.set_move_camera(true)
 
 func _process(_delta: float):
+	if game.should_be_pulsing:
+		#if spectrum:
+			#var energy = spectrum.get_magnitude_for_frequency_range(40, 120).length()
+			#apply_camera_pulse(energy)
+		time_passed += _delta
+		var beat_freq = bpm / 60.0
+		var pulse = sin(time_passed * beat_freq * TAU) * pulse_strength
+		fov = 70.0 + pulse * 10.0
 	if FlowController.move_Camera and FlowController.can_move and not FlowController.is_in_game and not FlowController.gameOver:
 		FlowController.set_can_start_game(false)
 		rotate_camera()
@@ -56,3 +71,8 @@ func rotate_camera():
 	FlowController.set_looking_at_computer(true)
 	FlowController.set_can_move_camera(true)
 	FlowController.set_can_start_game(true)
+	
+#func apply_camera_pulse(energy: float):
+	#var shake_strength = clamp(energy / 2.0, 0.0, 1.0)
+	#var offset = Vector3(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength), 0)
+	#global_position = position_start + offset

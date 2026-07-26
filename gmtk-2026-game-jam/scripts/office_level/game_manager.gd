@@ -5,6 +5,7 @@ extends Node
 @export var minimum_before_replay: int = 4
 @export var game_over_screen: PackedScene
 @export var score_label: RichTextLabel
+@export var should_be_pulsing = false
 @onready var transition: AudioStreamPlayer2D = $"../transition"
 
 var intro_trans = preload("res://assets/Music/gametransition.mp3")
@@ -39,8 +40,10 @@ func start_game(index: int):
 	add_child(instance2)
 	transition.stream = intro_trans
 	transition.play()
+	should_be_pulsing = true
 	print(path)
 	await get_tree().create_timer(2.1).timeout
+	should_be_pulsing = false
 	instance2.queue_free()
 	instance = micro_games[index].instantiate()
 	add_child(instance)
@@ -78,6 +81,7 @@ func _on_game_end(result: String):
 func end_microgame():
 	await get_tree().create_timer(end_game_delay).timeout
 	instance.queue_free()
+	should_be_pulsing = true
 	transition.play()
 	var tween = create_tween()
 	var target_pos = Vector2(0, 24)
