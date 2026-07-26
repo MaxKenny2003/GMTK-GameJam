@@ -15,6 +15,10 @@ run/main_scene="uid://cxsditgm4mxoq"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://assets/2D/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://c057pwb70mk72"
+
 [autoload]
 
 Flowcontroller="*uid://by5oetoffwdh1"

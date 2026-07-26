@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cxsditgm4mxoq"]
 
-[ext_resource type="Script" uid="uid://bbrivmh4avd71" path="res://scripts/main_menu/MainMenu.cs" id="1_fsom3"]
+[ext_resource type="Script" uid="uid://whpo6a41uo5c" path="res://scripts/main_menu/main_menu.gd" id="1_0ebjn"]
 [ext_resource type="PackedScene" uid="uid://sflnr7lxlhpp" path="res://scenes/office_level/office_level.tscn" id="2_0ebjn"]
+[ext_resource type="AudioStream" uid="uid://bc0yji0ytv47w" path="res://assets/Music/main_menu/title.mp3" id="2_ob46e"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hxyb1"]
 
@@ -9,7 +10,7 @@
 font_size = 40
 
 [node name="main_menu" type="Node" unique_id=1842284426]
-script = ExtResource("1_fsom3")
+script = ExtResource("1_0ebjn")
 NextScene = ExtResource("2_0ebjn")
 
 [node name="MenuCanvas" type="Control" parent="." unique_id=1743776916]
@@ -55,4 +56,10 @@ pivot_offset = Vector2(100, 0)
 theme_override_font_sizes/font_size = 20
 text = "Play"
 
+[node name="title_music" type="AudioStreamPlayer2D" parent="." unique_id=561745376]
+stream = ExtResource("2_ob46e")
+autoplay = true
+bus = &"Music"
+
 [connection signal="pressed" from="MenuCanvas/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="finished" from="title_music" to="." method="_on_title_music_finished"]
