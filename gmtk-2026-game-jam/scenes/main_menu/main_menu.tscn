@@ -3,11 +3,35 @@
 [ext_resource type="Script" uid="uid://whpo6a41uo5c" path="res://scripts/main_menu/main_menu.gd" id="1_0ebjn"]
 [ext_resource type="PackedScene" uid="uid://sflnr7lxlhpp" path="res://scenes/office_level/office_level.tscn" id="2_0ebjn"]
 [ext_resource type="AudioStream" uid="uid://bc0yji0ytv47w" path="res://assets/Music/main_menu/title.mp3" id="2_ob46e"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_hxyb1"]
+[ext_resource type="PackedScene" uid="uid://dpksnlt3jx0fo" path="res://assets/3D/Office/Computer_and_Desk.glb" id="5_lqpn7"]
+[ext_resource type="PackedScene" uid="uid://cmnh2oe1tudin" path="res://assets/3D/Office/Cubical/Full_Flat/Flat_FullSize.glb" id="6_qel0l"]
+[ext_resource type="PackedScene" uid="uid://chv7r18a3wpsr" path="res://assets/3D/Office/Cubical/Flat_Half/Flat_Half.glb" id="7_rrgl4"]
+[ext_resource type="PackedScene" uid="uid://bgj2tftsx0ljg" path="res://assets/3D/Office/Building/Building.glb" id="8_dn3lk"]
+[ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="9_4ujhu"]
+[ext_resource type="Script" uid="uid://um627vlggsjs" path="res://scripts/office_level/Asteroid.cs" id="10_vnpsp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hxyb1"]
 font_size = 40
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1gy5"]
+sky_top_color = Color(0.49452782, 0.69739485, 1, 1)
+sky_horizon_color = Color(0.43865776, 0.5209532, 0.71979165, 1)
+sky_curve = 0.26116523
+
+[sub_resource type="Sky" id="Sky_12h4w"]
+sky_material = SubResource("ProceduralSkyMaterial_a1gy5")
+
+[sub_resource type="Environment" id="Environment_bq5lc"]
+background_mode = 2
+sky = SubResource("Sky_12h4w")
+fog_enabled = true
+fog_light_color = Color(0.32127765, 0.35030988, 0.39548048, 1)
+fog_density = 0.0078
+fog_sky_affect = 0.35
+fog_height_density = 500.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xac7c"]
+size = Vector3(13.588745, 0.2, 13.630371)
 
 [node name="main_menu" type="Node" unique_id=1842284426]
 script = ExtResource("1_0ebjn")
@@ -18,13 +42,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 648.0
-
-[node name="Background" type="TextureRect" parent="MenuCanvas" unique_id=143478773]
-modulate = Color(0.27058825, 0.3137255, 0.27058825, 1)
-layout_mode = 0
-offset_right = 1154.0
-offset_bottom = 648.0
-texture = SubResource("CanvasTexture_hxyb1")
 
 [node name="Label" type="Label" parent="MenuCanvas" unique_id=2005767796]
 layout_mode = 1
@@ -60,6 +77,91 @@ text = "Play"
 stream = ExtResource("2_ob46e")
 autoplay = true
 bus = &"Music"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1587518983]
+transform = Transform3D(0.806387, 0, 0.59138817, 0, 1, 0, -0.59138817, 0, 0.806387, 0.20643532, 45.564983, -0.96179855)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=687370871]
+transform = Transform3D(-1, -8.742278e-08, 7.233962e-15, -6.098864e-08, 0.6976288, 0.7164594, -6.2634875e-08, 0.7164594, -0.6976288, 0, 52.238293, -19.645273)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=650037740]
+environment = SubResource("Environment_bq5lc")
+
+[node name="Structure" type="Node" parent="." unique_id=531428376]
+
+[node name="Cubical" type="Node" parent="Structure" unique_id=30995181]
+
+[node name="Computer_and_Desk2" parent="Structure/Cubical" unique_id=1557911592 instance=ExtResource("5_lqpn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.031916022, 43.51684, -1.4493084)
+
+[node name="Flat_FullSize" parent="Structure/Cubical" unique_id=632902779 instance=ExtResource("6_qel0l")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.7056423, 44.317463, 0.5879767)
+
+[node name="Flat_FullSize3" parent="Structure/Cubical" unique_id=1217632670 instance=ExtResource("6_qel0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35426438, 44.317463, 1.7699937)
+
+[node name="Flat_FullSize4" parent="Structure/Cubical" unique_id=1246929347 instance=ExtResource("6_qel0l")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.408, 44.317028, 0.588)
+
+[node name="Flat_FullSize5" parent="Structure/Cubical" unique_id=1158979224 instance=ExtResource("6_qel0l")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.408, 44.317028, -3.386)
+
+[node name="Flat_FullSize2" parent="Structure/Cubical" unique_id=744664953 instance=ExtResource("6_qel0l")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.7056423, 44.317463, -3.3857548)
+
+[node name="Flat_Half" parent="Structure/Cubical" unique_id=174021917 instance=ExtResource("7_rrgl4")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, -1.4497756, 0.71846086, -5.4795547)
+visible = false
+
+[node name="Flat_Half2" parent="Structure/Cubical" unique_id=286061063 instance=ExtResource("7_rrgl4")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 2.2715812, 0.71846086, -5.4795547)
+visible = false
+
+[node name="Node" type="Node" parent="Structure/Cubical" unique_id=1690039977]
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=412659622]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.0024424, 48.48048, -1.3797978)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D2" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=72212253]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.0024424, 48.48048, -4.940099)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D3" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=1155211993]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.0024424, 48.48048, 1.8957667)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D4" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=147294970]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.772704, 48.48048, -1.3797978)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D5" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=704043891]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.772704, 48.48048, -4.940099)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="AreaLight3D6" type="AreaLight3D" parent="Structure/Cubical/Node" unique_id=232484027]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.772704, 48.48048, 1.8957667)
+light_energy = 8.0
+area_size = Vector2(1.2597995, 1)
+
+[node name="Ground" type="StaticBody3D" parent="Structure" unique_id=1939591758]
+
+[node name="Building" parent="Structure/Ground" unique_id=403725940 instance=ExtResource("8_dn3lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2541323, 43.793888, -2.344999)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/Ground" unique_id=1890389700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95758057, 43.492863, -2.374208)
+shape = SubResource("BoxShape3D_xac7c")
+
+[node name="Asteroid" parent="." unique_id=1933424566 instance=ExtResource("9_4ujhu")]
+transform = Transform3D(0.7457702, 0, 0.66620326, 0, 1, 0, -0.66620326, 0, 0.7457702, -1.299, 200, -600)
+script = ExtResource("10_vnpsp")
+asteroid_state_positions = Array[Vector3]([Vector3(-1.254, 20, -80)])
 
 [connection signal="pressed" from="MenuCanvas/Play_Button" to="." method="_on_play_button_pressed"]
 [connection signal="finished" from="title_music" to="." method="_on_title_music_finished"]

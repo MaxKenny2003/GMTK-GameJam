@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c82r4v0rw3dls" path="res://assets/Backgrounds/popupparty.png" id="2_bkp7j"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_gy1mq"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="3_gy1mq"]
-[ext_resource type="PackedScene" uid="uid://lycfsg4n4b3w" path="res://scenes/microgames/popupparty/popup_window.tscn" id="4_bkp7j"]
+[ext_resource type="PackedScene" uid="uid://lycfsg4n4b3w" path="res://scenes/microgames/popup_party/popup_window.tscn" id="4_bkp7j"]
 [ext_resource type="AudioStream" uid="uid://xuwdidgvm0og" path="res://assets/Audio/mouse_click.mp3" id="6_nfipc"]
 
 [node name="popup_party" type="Node2D" unique_id=101498177]

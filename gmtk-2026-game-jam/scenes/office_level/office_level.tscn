@@ -8,15 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://chv7r18a3wpsr" path="res://assets/3D/Office/Cubical/Flat_Half/Flat_Half.glb" id="5_clqp0"]
 [ext_resource type="Script" uid="uid://bewmotytybvkk" path="res://scripts/office_level/GameManager.cs" id="7_clqp0"]
 [ext_resource type="PackedScene" uid="uid://d1mugjufhjue7" path="res://scenes/microgames/contract_drag/contract_drag.tscn" id="8_ln0b1"]
-[ext_resource type="PackedScene" uid="uid://dqv4jd0k4tqeq" path="res://scenes/microgames/plugpanic/plug_panic.tscn" id="9_a6n0r"]
-[ext_resource type="PackedScene" uid="uid://5blk4wsdi1vd" path="res://scenes/microgames/papertilt/paper_tilt.tscn" id="10_34yqb"]
-[ext_resource type="PackedScene" uid="uid://dcwa1iyalum3g" path="res://scenes/microgames/popupparty/popup_party.tscn" id="12_ib5xb"]
-[ext_resource type="PackedScene" uid="uid://c47nk275xhjn6" path="res://scenes/microgames/reportmash/report_mash.tscn" id="13_pwau5"]
-[ext_resource type="PackedScene" uid="uid://dit6ddgyjluol" path="res://scenes/microgames/shredderlanding/shredder_landing.tscn" id="14_m7up5"]
+[ext_resource type="PackedScene" uid="uid://5blk4wsdi1vd" path="res://scenes/microgames/paper_tilt/paper_tilt.tscn" id="10_owo31"]
+[ext_resource type="PackedScene" uid="uid://dqv4jd0k4tqeq" path="res://scenes/microgames/plug_panic/plug_panic.tscn" id="11_sbgol"]
+[ext_resource type="PackedScene" uid="uid://dcwa1iyalum3g" path="res://scenes/microgames/popup_party/popup_party.tscn" id="12_8s0io"]
+[ext_resource type="PackedScene" uid="uid://c47nk275xhjn6" path="res://scenes/microgames/report_mash/report_mash.tscn" id="13_mer2n"]
+[ext_resource type="PackedScene" uid="uid://dit6ddgyjluol" path="res://scenes/microgames/shredder_landing/shredder_landing.tscn" id="14_samyl"]
+[ext_resource type="PackedScene" uid="uid://og1pikxpsooi" path="res://scenes/microgames/speedy_sharpen/speedy_sharpen.tscn" id="15_g63mk"]
 [ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="15_owo31"]
 [ext_resource type="PackedScene" uid="uid://c24xxcrdsc2ao" path="res://scenes/microgames/flyswatter/flyswatter.tscn" id="15_ywwpr"]
-[ext_resource type="PackedScene" uid="uid://cklr0uk6gtrgk" path="res://scenes/microgames/staplerslam/stapler_slam.tscn" id="16_8s0io"]
-[ext_resource type="PackedScene" uid="uid://og1pikxpsooi" path="res://scenes/microgames/speedysharpen/speedy_sharpen.tscn" id="16_mer2n"]
+[ext_resource type="PackedScene" uid="uid://cklr0uk6gtrgk" path="res://scenes/microgames/stapler_slam/stapler_slam.tscn" id="16_8s0io"]
 [ext_resource type="Script" uid="uid://um627vlggsjs" path="res://scripts/office_level/Asteroid.cs" id="16_sbgol"]
 [ext_resource type="PackedScene" uid="uid://bggt3k2mee1jp" path="res://prefabs/utility/WhiteScreen.tscn" id="17_8s0io"]
 [ext_resource type="PackedScene" uid="uid://dqdotn5cl3hx" path="res://prefabs/utility/Toast_Remaining.tscn" id="17_pwau5"]
@@ -132,7 +132,7 @@ shape = SubResource("BoxShape3D_hxyb1")
 
 [node name="GameManager" type="Node" parent="." unique_id=22151173 node_paths=PackedStringArray("scoreLabel")]
 script = ExtResource("7_clqp0")
-microGames = Array[PackedScene]([ExtResource("10_34yqb"), ExtResource("9_a6n0r"), ExtResource("8_ln0b1"), ExtResource("12_ib5xb"), ExtResource("13_pwau5"), ExtResource("14_m7up5"), ExtResource("16_8s0io"), ExtResource("15_ywwpr"), ExtResource("16_mer2n")])
+microGames = Array[PackedScene]([ExtResource("8_ln0b1"), ExtResource("15_ywwpr"), ExtResource("10_owo31"), ExtResource("11_sbgol"), ExtResource("12_8s0io"), ExtResource("13_mer2n"), ExtResource("14_samyl"), ExtResource("15_g63mk"), ExtResource("16_8s0io")])
 gameOverScreen = ExtResource("17_8s0io")
 scoreLabel = NodePath("../Control/Label")
 
