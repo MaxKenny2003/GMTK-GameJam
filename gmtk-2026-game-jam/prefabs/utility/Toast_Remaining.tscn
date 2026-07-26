@@ -31,3 +31,6 @@ theme_override_font_sizes/font_size = 40
 text = "XX Seconds Remain"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1250883461]
+wait_time = 300.0
