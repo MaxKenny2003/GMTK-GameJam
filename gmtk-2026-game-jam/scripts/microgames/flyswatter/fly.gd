@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var buzzing: AudioStreamPlayer = $AudioStreamPlayer
 
+
 var speed = 180;
 var screen_size
 var dir = Vector2()

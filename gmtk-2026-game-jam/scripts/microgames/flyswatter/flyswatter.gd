@@ -6,6 +6,7 @@ extends Node2D
 @onready var hand_sprite: Sprite2D = $Hand/HandSprite
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var results: Label = $Label
+@onready var squish: AudioStreamPlayer2D = $effects
 
 var score = 0
 var end = false
@@ -59,6 +60,7 @@ func check_for_fly():
 		add_child(fly_hit)
 		score += 1
 		print("Smack!")
+		squish.play()
 		fly.queue_free()
 
 func _on_timer_up():

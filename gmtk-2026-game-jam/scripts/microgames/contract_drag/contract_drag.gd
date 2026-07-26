@@ -7,7 +7,9 @@ extends Node2D
 @onready var results: Label = $Label
 @onready var signature: RichTextLabel = $paper/bottom_stuff/signature
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var effects: AudioStreamPlayer2D = $effects
 
+var scribble = preload("res://assets/Audio/scribble.mp3")
 var timer_bar_instance
 
 var game_over = false
@@ -42,6 +44,7 @@ func _input(event: InputEvent):
 			if event.pressed:
 				dragging = true
 				drag_offset = paper.global_position - event.position
+				effects.play()
 			elif not event.pressed:
 				dragging = false
 		elif event is InputEventMouseMotion and dragging:
@@ -55,6 +58,8 @@ func _on_paper_area_area_exited(_area: Area2D) -> void:
 	game_over = true
 	timer_bar_instance.stop_timers()
 	signature_visible = true
+	effects.stream = scribble
+	effects.play()
 
 func _on_timer_up():
 	game_over = true

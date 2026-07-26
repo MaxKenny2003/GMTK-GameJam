@@ -5,6 +5,7 @@ extends Node2D
 @onready var staplerarea: Area2D = $stapler/staplerarea
 @onready var results: Label = $Label
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var effects: AudioStreamPlayer2D = $effects
 
 @export var stapler_offset: Vector2 = Vector2(0,90)
 @export var StapleScene: PackedScene
@@ -48,9 +49,9 @@ func _physics_process(_delta: float) -> void:
 	
 	if last_area.is_stapled == true:
 		return
-	
+
 	last_area.is_stapled = true
-	
+
 	_spawn_staple()
 
 func _input(event: InputEvent):
@@ -65,6 +66,7 @@ func _spawn_staple():
 	
 	var mouse_pos = get_global_mouse_position()
 	var staple = StapleScene.instantiate()
+	effects.play()
 	last_area.add_child(staple)
 	staple.global_position = mouse_pos
 	staple_counter += 1

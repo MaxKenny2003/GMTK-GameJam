@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d0uiwsdtacie5" path="res://scripts/microgames/flyswatter/fly.gd" id="1_1saah"]
 [ext_resource type="Texture2D" uid="uid://dolaw2iw2d5pj" path="res://assets/2D/Fly.png" id="2_p2dqj"]
 [ext_resource type="Texture2D" uid="uid://710xggpolnmr" path="res://assets/2D/Fly-moving.png" id="3_cuh3i"]
-[ext_resource type="AudioStream" uid="uid://btdp17rp8kpa1" path="res://assets/Audio/fly_buzzing.wav" id="4_3sca0"]
+[ext_resource type="AudioStream" uid="uid://dpl2kvjospgqg" path="res://assets/Audio/fly_buzz.mp3" id="4_1saah"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w3rpa"]
 animations = [{
@@ -43,8 +43,10 @@ wait_time = 0.1
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1768922856]
-stream = ExtResource("4_3sca0")
+stream = ExtResource("4_1saah")
+volume_db = -21.273
 max_polyphony = 8
+bus = &"Effects"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

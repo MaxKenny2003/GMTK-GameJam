@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cklr0uk6gtrgk"]
 
-[ext_resource type="Script" uid="uid://c00h4x1vg6s3n" path="res://scripts/microgames/staplerslam/staplerslam.gd" id="1_oh515"]
-[ext_resource type="PackedScene" uid="uid://enj3b2kdn8ry" path="res://scenes/microgames/staplerslam/staple.tscn" id="2_73tce"]
+[ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_qlr8c"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_oh515"]
 [ext_resource type="PackedScene" uid="uid://dkcysksmm35r4" path="res://scenes/microgames/staplerslam/staplerslam_paper.tscn" id="3_pwpxj"]
 [ext_resource type="Script" uid="uid://bvufbk64xibng" path="res://scripts/microgames/staplerslam/staplerslam_paper2.gd" id="4_c11vt"]
 [ext_resource type="Script" uid="uid://f62jjoujx24t" path="res://scripts/microgames/staplerslam/staplerslam_paper3.gd" id="5_cq1nu"]
 [ext_resource type="Texture2D" uid="uid://ctl37nnlffexa" path="res://assets/2D/stapler.png" id="6_etrem"]
+[ext_resource type="AudioStream" uid="uid://bunckbjhs5lte" path="res://assets/Audio/stapler.mp3" id="8_73tce"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg7lo"]
 atlas = ExtResource("6_etrem")
@@ -33,47 +33,47 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mm8"]
 size = Vector2(10, 4.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sqs7"]
+size = Vector2(220, 648)
+
 [node name="stapler_slam" type="Node2D" unique_id=1806313159]
 script = ExtResource("1_oh515")
 TimerScene = ExtResource("2_oh515")
-StapleScene = ExtResource("2_73tce")
 
-[node name="background" type="ColorRect" parent="." unique_id=74786386]
+[node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
 custom_minimum_size = Vector2(1152, 648)
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.92156863, 0.7254902, 0.4509804, 1)
 
-[node name="paper" parent="." unique_id=72314455 instance=ExtResource("3_pwpxj")]
+[node name="paper" parent="." unique_id=72314455 groups=["papers"] instance=ExtResource("3_pwpxj")]
 position = Vector2(3880, 653)
 scale = Vector2(4, 4)
 
-[node name="paper2" parent="." unique_id=203868330 instance=ExtResource("3_pwpxj")]
+[node name="paper2" parent="." unique_id=203868330 groups=["papers"] instance=ExtResource("3_pwpxj")]
 position = Vector2(3054, 206)
 scale = Vector2(4, 4)
 script = ExtResource("4_c11vt")
 
-[node name="paper3" parent="." unique_id=2034006229 instance=ExtResource("3_pwpxj")]
+[node name="paper3" parent="." unique_id=2034006229 groups=["papers"] instance=ExtResource("3_pwpxj")]
 position = Vector2(2076, 606)
 scale = Vector2(4, 4)
 script = ExtResource("5_cq1nu")
 
-[node name="stapler" type="AnimatedSprite2D" parent="." unique_id=208657961]
-position = Vector2(582, 309)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_0sqs7")
-animation = &"press"
-frame_progress = 0.58606535
+[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=2000873348]
+position = Vector2(-1, 78)
+scale = Vector2(4, 4.147)
+texture = ExtResource("5_pwpxj")
 
-[node name="staplerarea" type="Area2D" parent="stapler" unique_id=1436752268]
-metadata/_edit_lock_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" unique_id=842900209]
+position = Vector2(-11, -24)
+rotation = 0.17453294
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_lbxwk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stapler/staplerarea" unique_id=1226812364]
-position = Vector2(0.25, 26.125)
-shape = SubResource("RectangleShape2D_q4mm8")
-metadata/_edit_lock_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341792418]
 
-[node name="Label" type="Label" parent="." unique_id=592553792]
+[node name="Label" type="Label" parent="." unique_id=621526098]
 visible = false
 offset_left = 232.0
 offset_top = 239.0
@@ -87,3 +87,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1336265443]
+
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=738409971]
+stream = ExtResource("8_73tce")
+bus = &"Effects"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1891726060]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=145039806]
+position = Vector2(1266, 324)
+shape = SubResource("RectangleShape2D_0sqs7")

@@ -1,47 +1,106 @@
 [gd_scene format=3 uid="uid://c47nk275xhjn6"]
 
-[ext_resource type="Texture2D" uid="uid://ucvovjenes45" path="res://assets/Backgrounds/reportmash.png" id="1_76ivp"]
-[ext_resource type="Script" uid="uid://14fmajk5wleo" path="res://scripts/microgames/reportmash/report_mash.gd" id="1_um5or"]
+[ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_6g4fp"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_dqrxg"]
 [ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="2_q2vhx"]
+[ext_resource type="AudioStream" uid="uid://bm3sym4uho513" path="res://assets/Audio/key_press.mp3" id="5_ovapn"]
 
-[node name="report_mash" type="Node2D" unique_id=205002658]
-script = ExtResource("1_um5or")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
+size = Vector2(20, 657)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qkr3"]
+size = Vector2(1183, 23)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbxwk"]
+radius = 40.60785
+height = 155.82794
+
+[node name="Node2D" type="Node2D" unique_id=935132583]
+script = ExtResource("1_6g4fp")
 TimerScene = ExtResource("2_dqrxg")
 
-[node name="background" type="TextureRect" parent="." unique_id=400951012]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(4, 4)
-texture = ExtResource("1_76ivp")
-
-[node name="text_margin" type="MarginContainer" parent="." unique_id=608949186]
+[node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
 custom_minimum_size = Vector2(1152, 648)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
 offset_right = 1152.0
 offset_bottom = 648.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 340
-theme_override_constants/margin_top = 140
-theme_override_constants/margin_right = 340
-theme_override_constants/margin_bottom = 20
+color = Color(0.92156863, 0.7254902, 0.4509804, 1)
 
-[node name="textbody" type="RichTextLabel" parent="text_margin" unique_id=1752853088]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_constants/line_separation = 1
-theme_override_fonts/normal_font = ExtResource("2_q2vhx")
-theme_override_font_sizes/normal_font_size = 18
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
-horizontal_alignment = 3
-visible_characters = 0
-visible_characters_behavior = 1
-visible_ratio = 0.0
+[node name="Fly" parent="." unique_id=488059360 instance=ExtResource("3_6icr5")]
+position = Vector2(321, 113)
 
-[node name="Label" type="Label" parent="." unique_id=113281337]
+[node name="Fly2" parent="." unique_id=1749578858 instance=ExtResource("3_6icr5")]
+position = Vector2(199, 457)
+
+[node name="Fly3" parent="." unique_id=302640434 instance=ExtResource("3_6icr5")]
+position = Vector2(864, 279)
+
+[node name="Fly4" parent="." unique_id=782551176 instance=ExtResource("3_6icr5")]
+position = Vector2(979, 504)
+
+[node name="Boundaries" type="Node2D" parent="." unique_id=2098317584]
+
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=17702795]
+position = Vector2(-10, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=1366804379]
+shape = SubResource("RectangleShape2D_lbxwk")
+
+[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=1887892078]
+position = Vector2(571, -10)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=2052981053]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=402047616]
+position = Vector2(1162, 324)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1958284922]
+shape = SubResource("RectangleShape2D_lbxwk")
+
+[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=1884004542]
+position = Vector2(571, 658)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=143620475]
+shape = SubResource("RectangleShape2D_5qkr3")
+
+[node name="Hand" type="Area2D" parent="." unique_id=2002032415]
+z_index = 1
+position = Vector2(571, 324)
+collision_mask = 3
+
+[node name="SmackSprite" type="Sprite2D" parent="Hand" unique_id=1007623170]
+visible = false
+position = Vector2(-67, 79)
+rotation = -0.2617994
+scale = Vector2(3.9999998, 4.147)
+texture = ExtResource("4_fhne5")
+
+[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=2000873348]
+position = Vector2(-1, 78)
+scale = Vector2(4, 4.147)
+texture = ExtResource("5_gingv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" unique_id=842900209]
+position = Vector2(-11, -24)
+rotation = 0.17453294
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_lbxwk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341792418]
+
+[node name="Label" type="Label" parent="." unique_id=621526098]
 visible = false
 offset_left = 232.0
 offset_top = 239.0
@@ -55,3 +114,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=920173285]
+
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=337903226]
+stream = ExtResource("5_ovapn")
+max_polyphony = 15
+bus = &"Effects"
