@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var effects_2: AudioStreamPlayer2D = $"../effects2"
 var is_stapled = false
 
 var random_y 
@@ -10,6 +11,9 @@ var max_dist = 375
 var travel_time
 var min_time = 4.0
 var max_time = 6.0
+
+var heading_left = true
+var heading_right = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,10 +28,17 @@ func _ready() -> void:
 	await tween.finished
 	
 	if !is_stapled:
+		heading_left = false
+		heading_right = true
 		tween = create_tween()
 		tween.tween_property(self, "global_position", start_pos, travel_time)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _on_left_zone_area_exited(_area: Area2D) -> void:
+	if heading_right == true:
+		effects_2.play()
+
+
+func _on_right_zone_area_exited(_area: Area2D) -> void:
+	if heading_left == true:
+		effects_2.play()
