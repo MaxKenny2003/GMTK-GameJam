@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cklr0uk6gtrgk"]
 
 [ext_resource type="Script" uid="uid://c00h4x1vg6s3n" path="res://scripts/microgames/staplerslam/staplerslam.gd" id="1_oh515"]
-[ext_resource type="PackedScene" uid="uid://enj3b2kdn8ry" path="res://scenes/microgames/staplerslam/staple.tscn" id="2_73tce"]
+[ext_resource type="PackedScene" uid="uid://enj3b2kdn8ry" path="res://scenes/microgames/stapler_slam/staple.tscn" id="2_73tce"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_oh515"]
-[ext_resource type="PackedScene" uid="uid://dkcysksmm35r4" path="res://scenes/microgames/staplerslam/staplerslam_paper.tscn" id="3_pwpxj"]
+[ext_resource type="PackedScene" uid="uid://dkcysksmm35r4" path="res://scenes/microgames/stapler_slam/staplerslam_paper.tscn" id="3_pwpxj"]
 [ext_resource type="Texture2D" uid="uid://bq0teanis8aa4" path="res://assets/2D/stapler_bottom.png" id="4_pwpxj"]
-[ext_resource type="PackedScene" uid="uid://kilkc52u8nn4" path="res://scenes/microgames/staplerslam/staplerslam_paper2.tscn" id="6_c11vt"]
+[ext_resource type="PackedScene" uid="uid://kilkc52u8nn4" path="res://scenes/microgames/stapler_slam/staplerslam_paper2.tscn" id="6_c11vt"]
 [ext_resource type="Texture2D" uid="uid://ctl37nnlffexa" path="res://assets/2D/stapler.png" id="6_etrem"]
-[ext_resource type="PackedScene" uid="uid://b1i0agsywqc2a" path="res://scenes/microgames/staplerslam/staplerslam_paper3.tscn" id="7_cq1nu"]
+[ext_resource type="PackedScene" uid="uid://b1i0agsywqc2a" path="res://scenes/microgames/stapler_slam/staplerslam_paper3.tscn" id="7_cq1nu"]
 [ext_resource type="AudioStream" uid="uid://bunckbjhs5lte" path="res://assets/Audio/stapler.mp3" id="8_73tce"]
 [ext_resource type="AudioStream" uid="uid://ck0gbj0pkam6j" path="res://assets/Audio/paper_flutter.mp3" id="10_c11vt"]
 

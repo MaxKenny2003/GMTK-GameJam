@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dit6ddgyjluol"]
 
-[ext_resource type="PackedScene" uid="uid://pmx3kpiau56g" path="res://scenes/microgames/shredderlanding/paper.tscn" id="1_6jds8"]
+[ext_resource type="PackedScene" uid="uid://pmx3kpiau56g" path="res://scenes/microgames/shredder_landing/paper.tscn" id="1_6jds8"]
 [ext_resource type="Script" uid="uid://bdl1cxd35k3ti" path="res://scripts/microgames/shredderlanding/shredder_landing.gd" id="1_by8kb"]
 [ext_resource type="Texture2D" uid="uid://djs6tpsdgs1pn" path="res://assets/2D/shredder_back.png" id="2_mxnui"]
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_yq6xh"]

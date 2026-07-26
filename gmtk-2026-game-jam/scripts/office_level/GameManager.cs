@@ -2,6 +2,8 @@ using Godot;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using static System.Formats.Asn1.AsnWriter;
 
 public partial class GameManager : Node
@@ -24,6 +26,8 @@ public partial class GameManager : Node
     [Export]
     public Label scoreLabel;
 
+    private string sceneName;
+
     private bool has_ended = false;
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
@@ -32,14 +36,15 @@ public partial class GameManager : Node
         {
             if (microGames.Count > 0)
             {
+
                 GD.Print("Trying to start microgame");
                 flowController.Instance.set_can_start_game(false);
                 int index = select_game();
-                instance = microGames[index].Instantiate<Node>();
-                AddChild(instance);
-                instance.Connect("game_end", Callable.From<string>(OnGameEnd));
-                add_game_to_waiting_queue(index);
-                flowController.Instance.set_is_in_game(true);
+
+                var scene = microGames[index];
+                sceneName = System.IO.Path.GetFileNameWithoutExtension(scene.ResourcePath);
+                // GD.Print("Starting scene: ", sceneName);
+                startGame(index);
             }
         }
         if(flowController.Instance.gameOver && !has_ended)
@@ -48,6 +53,22 @@ public partial class GameManager : Node
             var instance = gameOverScreen.Instantiate<Node>();
             AddChild(instance);
         }
+    }
+    private async void startGame(int index)
+    {
+        string path = $"res://scenes/microgames/{sceneName}/{sceneName}_instructions.tscn";
+        var packedScene = GD.Load<PackedScene>(path);
+        var instance2 = packedScene.Instantiate<Node>();
+        AddChild(instance2);
+        GD.Print(path);
+        await ToSignal(GetTree().CreateTimer(2.0f), "timeout");
+        instance2.QueueFree();
+        instance = microGames[index].Instantiate<Node>();
+        AddChild(instance);
+
+        instance.Connect("game_end", Callable.From<string>(OnGameEnd));
+        add_game_to_waiting_queue(index);
+        flowController.Instance.set_is_in_game(true);
     }
 
     private void add_game_to_waiting_queue(int index)

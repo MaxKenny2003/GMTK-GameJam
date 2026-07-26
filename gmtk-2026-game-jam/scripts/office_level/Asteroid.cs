@@ -15,7 +15,7 @@ public partial class Asteroid : Node3D
     private Godot.Environment reset;
 
     [Export]
-    public float total_game_time = 10.0f;
+    public float total_game_time = 270.0f;
 
     public override void _Ready()
     {
