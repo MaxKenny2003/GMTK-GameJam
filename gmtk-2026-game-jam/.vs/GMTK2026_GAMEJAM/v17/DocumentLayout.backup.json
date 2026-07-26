@@ -4,15 +4,21 @@
   "Documents": [
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|d:\\personalprojects\\01_games\\gmtk-gamejam\\gmtk-2026-game-jam\\scripts\\office_level\\asteroid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|solutionrelative:scripts\\office_level\\asteroid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 =======
+=======
+>>>>>>> parent of 8fb5fdc (A lot of changes)
       "AbsoluteMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|d:\\personalprojects\\01_games\\gmtk-gamejam\\gmtk-2026-game-jam\\scenes\\office_level\\camera3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45D7F6F0-9E8F-4AC3-AC95-ACCD8FB87A87}|GMTK2026_GameJam.csproj|solutionrelative:scenes\\office_level\\camera3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\office_level\\Asteroid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\office_level\\Asteroid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+<<<<<<< HEAD
+>>>>>>> parent of 8fb5fdc (A lot of changes)
+=======
 >>>>>>> parent of 8fb5fdc (A lot of changes)
     },
     {
@@ -32,7 +38,11 @@
         {
           "DockedWidth": 200,
 <<<<<<< HEAD
+<<<<<<< HEAD
           "SelectedChildIndex": 0,
+=======
+          "SelectedChildIndex": 3,
+>>>>>>> parent of 8fb5fdc (A lot of changes)
 =======
           "SelectedChildIndex": 3,
 >>>>>>> parent of 8fb5fdc (A lot of changes)
@@ -46,7 +56,11 @@
               "ToolTip": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\office_level\\Asteroid.cs",
               "RelativeToolTip": "scripts\\office_level\\Asteroid.cs",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAoAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAABsAAAAAAAAAAAAowDcAAAA5AAAAAAAAAA==",
+>>>>>>> parent of 8fb5fdc (A lot of changes)
 =======
               "ViewState": "AgIAABsAAAAAAAAAAAAowDcAAAA5AAAAAAAAAA==",
 >>>>>>> parent of 8fb5fdc (A lot of changes)
@@ -57,7 +71,11 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "DocumentIndex": 1,
+=======
+              "DocumentIndex": 2,
+>>>>>>> parent of 8fb5fdc (A lot of changes)
 =======
               "DocumentIndex": 2,
 >>>>>>> parent of 8fb5fdc (A lot of changes)
@@ -67,7 +85,11 @@
               "ToolTip": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\office_level\\GameManager.cs",
               "RelativeToolTip": "scripts\\office_level\\GameManager.cs",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAF0AAAAIAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAE0AAAAAAAAAAAAIwA8AAAAAAAAAAAAAAA==",
+>>>>>>> parent of 8fb5fdc (A lot of changes)
 =======
               "ViewState": "AgIAAE0AAAAAAAAAAAAIwA8AAAAAAAAAAAAAAA==",
 >>>>>>> parent of 8fb5fdc (A lot of changes)
@@ -84,7 +106,11 @@
               "ToolTip": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\singeltons\\flowController.cs",
               "RelativeToolTip": "scripts\\singeltons\\flowController.cs",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "ViewState": "AgIAAB4AAAAAAAAAAAAowDcAAAAeAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAArAAAAAAAAAA==",
+>>>>>>> parent of 8fb5fdc (A lot of changes)
 =======
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAArAAAAAAAAAA==",
 >>>>>>> parent of 8fb5fdc (A lot of changes)
@@ -101,7 +127,11 @@
               "ToolTip": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scenes\\office_level\\Camera3d.cs",
               "RelativeToolTip": "scenes\\office_level\\Camera3d.cs",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "ViewState": "AgIAADIAAAAAAAAAAAAwwCwAAAAzAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAADIAAAAAAAAAAAAwwCIAAAA5AAAAAAAAAA==",
+>>>>>>> parent of 8fb5fdc (A lot of changes)
 =======
               "ViewState": "AgIAADIAAAAAAAAAAAAwwCIAAAA5AAAAAAAAAA==",
 >>>>>>> parent of 8fb5fdc (A lot of changes)
