@@ -36,7 +36,15 @@
               "RelativeDocumentMoniker": "scripts\\office_level\\Asteroid.cs",
               "ToolTip": "D:\\PersonalProjects\\01_Games\\GMTK-GameJam\\gmtk-2026-game-jam\\scripts\\office_level\\Asteroid.cs",
               "RelativeToolTip": "scripts\\office_level\\Asteroid.cs",
+<<<<<<< HEAD
+<<<<<<< HEAD
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
+=======
               "ViewState": "AgIAAB4AAAAAAAAAAAAowA0AAAAuAAAAAAAAAA==",
+>>>>>>> parent of 8fb5fdc (A lot of changes)
+=======
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowA0AAAAuAAAAAAAAAA==",
+>>>>>>> parent of 8fb5fdc (A lot of changes)
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-25T23:49:16.224Z",
               "EditorCaption": ""
@@ -51,8 +59,7 @@
               "RelativeToolTip": "scripts\\office_level\\GameManager.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAwwFAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-25T20:43:34.586Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-25T20:43:34.586Z"
             },
             {
               "$type": "Document",
@@ -64,8 +71,7 @@
               "RelativeToolTip": "scripts\\singeltons\\flowController.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAwwD8AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-25T20:07:27.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-25T20:07:27.445Z"
             },
             {
               "$type": "Document",
@@ -77,8 +83,7 @@
               "RelativeToolTip": "scenes\\office_level\\Camera3d.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAgwFIAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-25T19:05:03.137Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-25T19:05:03.137Z"
             }
           ]
         }
