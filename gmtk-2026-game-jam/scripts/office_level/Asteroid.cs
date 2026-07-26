@@ -62,5 +62,6 @@ public partial class Asteroid : Node3D
         GD.Print("Asteroid state: ", asteroid_state);
 
         await ToSignal(tween, "finished");
+        flowController.Instance.endGame();
     }
 }

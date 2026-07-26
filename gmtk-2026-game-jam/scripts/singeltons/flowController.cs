@@ -21,6 +21,11 @@ public partial class flowController : Node
     public override void _Ready()
     {
         Instance = this;
+        can_move_camera = false;
+        is_looking_at_computer = true;
+        can_start_game = false;
+        is_camera_shaking = false;
+        score = 0;
     }
 
     public void set_score(int value)
@@ -39,5 +44,24 @@ public partial class flowController : Node
     public void set_can_start_game(bool value)
     {
         can_start_game = value;
+    }
+
+    public void endGame()
+    {
+        GD.Print("Game Over");
+        // GetTree().ChangeSceneToFile("res://scenes/gameOver.tscn");
+        ResetState();
+        GetTree().ChangeSceneToFile("res://scenes/main_menu/main_menu.tscn");
+    }
+
+    public void ResetState()
+    {
+        can_move_camera = false;
+        is_looking_at_computer = true;
+        can_start_game = false;
+        is_camera_shaking = false;
+        score = 0;
+        lives = 3;
+        asteroid_state = 0;
     }
 }

@@ -20,16 +20,11 @@ public partial class Camera3d : Camera3D
 	public override void _Ready()
 	{
 		// GD.Print("Is current? ", Current);
-<<<<<<< HEAD
         position = Position;
         GD.Print("Started move from ", Position, " to ", target_pos);
         MoveCamera();
-    }
-=======
-		GD.Print("Started move from ", Position, " to ", target_pos);
-		MoveCamera();
+
 	}
->>>>>>> c7860fa590f82caf9c4e42659e68e73dac19fc53
 
 	private async void MoveCamera()
 	{
@@ -45,7 +40,6 @@ public partial class Camera3d : Camera3D
 	{
 		if(flowController.Instance.can_move_camera)
 		{
-<<<<<<< HEAD
             if (Input.IsActionJustPressed("look_out_window"))
             {
                 RotateCamera();
@@ -63,14 +57,6 @@ public partial class Camera3d : Camera3D
             Position = target_pos + offset;
         }
     }
-=======
-			if (Input.IsActionJustPressed("look_out_window"))
-			{
-				RotateCamera();
-			}
-		}
-	}
->>>>>>> c7860fa590f82caf9c4e42659e68e73dac19fc53
 
 	private async void RotateCamera()
 	{ 
