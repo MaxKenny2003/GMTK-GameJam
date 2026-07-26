@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://og1pikxpsooi"]
 
-[ext_resource type="Script" uid="uid://df4kuckxthmw4" path="res://scripts/microgames/speedysharpen/speedy_sharpen.gd" id="1_koolu"]
-[ext_resource type="Texture2D" uid="uid://cxe54jx7cyxyq" path="res://assets/2D/desk.png" id="1_ofoj7"]
-[ext_resource type="Texture2D" uid="uid://b4vckjpoldyks" path="res://assets/Particles/pencil_particle.png" id="2_xksbl"]
-[ext_resource type="Texture2D" uid="uid://bfigy5ow46f3v" path="res://assets/2D/sharpener_base.png" id="3_iewly"]
-[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="4_iewly"]
-[ext_resource type="Script" uid="uid://blpym832t8200" path="res://scripts/microgames/speedysharpen/crank_pivot.gd" id="4_koolu"]
-[ext_resource type="Texture2D" uid="uid://n5x8n4ts8w7y" path="res://assets/2D/sharpener_handle.png" id="5_7kaih"]
-[ext_resource type="AudioStream" uid="uid://dlh0kl1awxk0y" path="res://assets/Audio/pencil_sharpener.mp3" id="7_7kaih"]
+[ext_resource type="Script" uid="uid://df4kuckxthmw4" path="res://scripts/microgames/speedysharpen/speedy_sharpen.gd" id="1_4ev7i"]
+[ext_resource type="Texture2D" uid="uid://b4vckjpoldyks" path="res://assets/Particles/pencil_particle.png" id="2_lgcu5"]
+[ext_resource type="Texture2D" uid="uid://cxe54jx7cyxyq" path="res://assets/2D/desk.png" id="3_l6cvs"]
+[ext_resource type="Texture2D" uid="uid://bfigy5ow46f3v" path="res://assets/2D/sharpener_base.png" id="4_h7r06"]
+[ext_resource type="Script" uid="uid://blpym832t8200" path="res://scripts/microgames/speedysharpen/crank_pivot.gd" id="5_5f244"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="6_pg3gd"]
+[ext_resource type="Texture2D" uid="uid://n5x8n4ts8w7y" path="res://assets/2D/sharpener_handle.png" id="7_fkyi1"]
+[ext_resource type="AudioStream" uid="uid://dlh0kl1awxk0y" path="res://assets/Audio/pencil_sharpener.mp3" id="8_xofh3"]
 
 [node name="speedy_sharpen" type="Node2D" unique_id=2118694167]
-script = ExtResource("1_koolu")
+script = ExtResource("1_4ev7i")
 
 [node name="background" type="ColorRect" parent="." unique_id=1081848132]
 custom_minimum_size = Vector2(1152, 648)
@@ -22,7 +22,7 @@ metadata/_edit_lock_ = true
 [node name="pencil_particle" type="CPUParticles2D" parent="." unique_id=1919340153]
 position = Vector2(588, 142)
 amount = 30
-texture = ExtResource("2_xksbl")
+texture = ExtResource("2_lgcu5")
 lifetime = 2.0999999999999996
 spread = 180.0
 initial_velocity_min = 280.5
@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
 size_flags_vertical = 10
-texture = ExtResource("1_ofoj7")
+texture = ExtResource("3_l6cvs")
 metadata/_edit_lock_ = true
 
 [node name="sharpener_base" type="TextureRect" parent="." unique_id=505901270]
@@ -52,21 +52,21 @@ offset_top = 80.0
 offset_right = 488.0
 offset_bottom = 180.0
 scale = Vector2(4, 4)
-texture = ExtResource("3_iewly")
+texture = ExtResource("4_h7r06")
 metadata/_edit_lock_ = true
 
 [node name="crank_pivot" type="Node2D" parent="." unique_id=46341534]
 position = Vector2(588, 242)
 scale = Vector2(4, 4)
-script = ExtResource("4_koolu")
-TimerScene = ExtResource("4_iewly")
+script = ExtResource("5_5f244")
+TimerScene = ExtResource("6_pg3gd")
 
 [node name="handle" type="TextureRect" parent="crank_pivot" unique_id=1821467705]
 offset_left = -4.5
 offset_top = -6.25
 offset_right = 35.5
 offset_bottom = 5.75
-texture = ExtResource("5_7kaih")
+texture = ExtResource("7_fkyi1")
 stretch_mode = 2
 flip_h = true
 
@@ -89,7 +89,7 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=892445814]
 
 [node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=668726456]
-stream = ExtResource("7_7kaih")
+stream = ExtResource("8_xofh3")
 volume_db = -0.93
 bus = &"Effects"
 metadata/_edit_lock_ = true

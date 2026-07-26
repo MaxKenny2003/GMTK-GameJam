@@ -1,22 +1,22 @@
-[gd_scene format=3 uid="uid://cklr0uk6gtrgk"]
+[gd_scene format=3 uid="uid://5blk4wsdi1vd"]
 
-[ext_resource type="Script" uid="uid://c00h4x1vg6s3n" path="res://scripts/microgames/staplerslam/staplerslam.gd" id="1_oh515"]
-[ext_resource type="PackedScene" uid="uid://enj3b2kdn8ry" path="res://scenes/microgames/stapler_slam/staple.tscn" id="2_73tce"]
-[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_oh515"]
-[ext_resource type="PackedScene" uid="uid://dkcysksmm35r4" path="res://scenes/microgames/stapler_slam/staplerslam_paper.tscn" id="3_pwpxj"]
-[ext_resource type="Texture2D" uid="uid://bq0teanis8aa4" path="res://assets/2D/stapler_bottom.png" id="4_pwpxj"]
-[ext_resource type="PackedScene" uid="uid://kilkc52u8nn4" path="res://scenes/microgames/stapler_slam/staplerslam_paper2.tscn" id="6_c11vt"]
-[ext_resource type="Texture2D" uid="uid://ctl37nnlffexa" path="res://assets/2D/stapler.png" id="6_etrem"]
-[ext_resource type="PackedScene" uid="uid://b1i0agsywqc2a" path="res://scenes/microgames/stapler_slam/staplerslam_paper3.tscn" id="7_cq1nu"]
-[ext_resource type="AudioStream" uid="uid://bunckbjhs5lte" path="res://assets/Audio/stapler.mp3" id="8_73tce"]
-[ext_resource type="AudioStream" uid="uid://ck0gbj0pkam6j" path="res://assets/Audio/paper_flutter.mp3" id="10_c11vt"]
+[ext_resource type="Script" uid="uid://c00h4x1vg6s3n" path="res://scripts/microgames/staplerslam/staplerslam.gd" id="1_dslk4"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_4qke1"]
+[ext_resource type="PackedScene" uid="uid://enj3b2kdn8ry" path="res://scenes/microgames/stapler_slam/staple.tscn" id="3_nsu07"]
+[ext_resource type="Texture2D" uid="uid://bq0teanis8aa4" path="res://assets/2D/stapler_bottom.png" id="4_6iccs"]
+[ext_resource type="PackedScene" uid="uid://dkcysksmm35r4" path="res://scenes/microgames/stapler_slam/staplerslam_paper.tscn" id="5_5bsnt"]
+[ext_resource type="PackedScene" uid="uid://kilkc52u8nn4" path="res://scenes/microgames/stapler_slam/staplerslam_paper2.tscn" id="6_45keu"]
+[ext_resource type="PackedScene" uid="uid://b1i0agsywqc2a" path="res://scenes/microgames/stapler_slam/staplerslam_paper3.tscn" id="7_05dad"]
+[ext_resource type="Texture2D" uid="uid://ctl37nnlffexa" path="res://assets/2D/stapler.png" id="8_u4mjf"]
+[ext_resource type="AudioStream" uid="uid://bunckbjhs5lte" path="res://assets/Audio/stapler.mp3" id="9_iku5c"]
+[ext_resource type="AudioStream" uid="uid://ck0gbj0pkam6j" path="res://assets/Audio/paper_flutter.mp3" id="10_arvy2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg7lo"]
-atlas = ExtResource("6_etrem")
+atlas = ExtResource("8_u4mjf")
 region = Rect2(0, 0, 20, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1c8q"]
-atlas = ExtResource("6_etrem")
+atlas = ExtResource("8_u4mjf")
 region = Rect2(20, 0, 20, 60)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0sqs7"]
@@ -40,9 +40,9 @@ size = Vector2(3.5, 2.5)
 size = Vector2(220, 648)
 
 [node name="stapler_slam" type="Node2D" unique_id=1806313159]
-script = ExtResource("1_oh515")
-TimerScene = ExtResource("2_oh515")
-StapleScene = ExtResource("2_73tce")
+script = ExtResource("1_dslk4")
+TimerScene = ExtResource("2_4qke1")
+StapleScene = ExtResource("3_nsu07")
 
 [node name="background" type="ColorRect" parent="." unique_id=74786386]
 custom_minimum_size = Vector2(1152, 648)
@@ -53,17 +53,17 @@ color = Color(0.92156863, 0.7254902, 0.4509804, 1)
 [node name="stapler_bottom" type="Sprite2D" parent="background" unique_id=389662078]
 position = Vector2(582, 394)
 scale = Vector2(4, 4)
-texture = ExtResource("4_pwpxj")
+texture = ExtResource("4_6iccs")
 
-[node name="paper" parent="." unique_id=72314455 instance=ExtResource("3_pwpxj")]
+[node name="paper" parent="." unique_id=72314455 instance=ExtResource("5_5bsnt")]
 position = Vector2(3880, 653)
 scale = Vector2(4, 4)
 
-[node name="paper2" parent="." unique_id=1986588487 instance=ExtResource("6_c11vt")]
+[node name="paper2" parent="." unique_id=1986588487 instance=ExtResource("6_45keu")]
 position = Vector2(3060, 213)
 scale = Vector2(4, 4)
 
-[node name="paper3" parent="." unique_id=1852520959 instance=ExtResource("7_cq1nu")]
+[node name="paper3" parent="." unique_id=1852520959 instance=ExtResource("7_05dad")]
 position = Vector2(2078, 609)
 scale = Vector2(4, 4)
 
@@ -98,7 +98,7 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1336265443]
 
 [node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=738409971]
-stream = ExtResource("8_73tce")
+stream = ExtResource("9_iku5c")
 bus = &"Effects"
 
 [node name="right_zone" type="Area2D" parent="." unique_id=1891726060]
@@ -116,7 +116,7 @@ position = Vector2(-181, 324)
 shape = SubResource("RectangleShape2D_0sqs7")
 
 [node name="effects2" type="AudioStreamPlayer2D" parent="." unique_id=1966516059]
-stream = ExtResource("10_c11vt")
+stream = ExtResource("10_arvy2")
 max_polyphony = 3
 bus = &"Effects"
 

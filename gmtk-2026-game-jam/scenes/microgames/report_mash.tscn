@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bwj0qbqmr6kdf"]
+
+[ext_resource type="Script" uid="uid://14fmajk5wleo" path="res://scripts/microgames/reportmash/report_mash.gd" id="1_excrd"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_v6u5f"]
+[ext_resource type="Texture2D" uid="uid://ucvovjenes45" path="res://assets/Backgrounds/reportmash.png" id="3_l05av"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="4_e3dpo"]
+[ext_resource type="AudioStream" uid="uid://bm3sym4uho513" path="res://assets/Audio/key_press.mp3" id="5_amd3y"]
+[ext_resource type="Texture2D" uid="uid://dr8nnfqs2h2e6" path="res://assets/2D/pointer.png" id="6_bgma3"]
+
+[node name="report_mash" type="Node2D" unique_id=205002658]
+script = ExtResource("1_excrd")
+TimerScene = ExtResource("2_v6u5f")
+
+[node name="background" type="TextureRect" parent="." unique_id=400951012]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4, 4)
+texture = ExtResource("3_l05av")
+
+[node name="text_margin" type="MarginContainer" parent="." unique_id=608949186]
+custom_minimum_size = Vector2(1152, 648)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 340
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 340
+theme_override_constants/margin_bottom = 20
+
+[node name="textbody" type="RichTextLabel" parent="text_margin" unique_id=1752853088]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 1
+theme_override_fonts/normal_font = ExtResource("4_e3dpo")
+theme_override_font_sizes/normal_font_size = 18
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum."
+horizontal_alignment = 3
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+
+[node name="Label" type="Label" parent="." unique_id=113281337]
+visible = false
+offset_left = 232.0
+offset_top = 239.0
+offset_right = 945.0
+offset_bottom = 376.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 100
+text = "You're Winner!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=920173285]
+
+[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=337903226]
+stream = ExtResource("5_amd3y")
+max_polyphony = 15
+bus = &"Effects"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1299020022]
+position = Vector2(298, 579)
+scale = Vector2(4, 4)
+texture = ExtResource("6_bgma3")

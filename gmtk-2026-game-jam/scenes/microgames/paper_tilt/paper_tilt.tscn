@@ -1,34 +1,34 @@
-[gd_scene format=3 uid="uid://5blk4wsdi1vd"]
+[gd_scene format=3 uid="uid://byuc7k5ks07sw"]
 
-[ext_resource type="Script" uid="uid://bspu0idbkwn2e" path="res://scripts/microgames/papertilt/paper_tilt.gd" id="1_dbvms"]
-[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_4qke1"]
-[ext_resource type="Texture2D" uid="uid://cudovdpwvnem7" path="res://assets/2D/paper_stack_shadow.png" id="2_eeakl"]
-[ext_resource type="Texture2D" uid="uid://i3fnyx8dqg6j" path="res://assets/Backgrounds/paper_tilt.png" id="3_js4lh"]
-[ext_resource type="Texture2D" uid="uid://bbgdmvdysn7ls" path="res://assets/2D/paper_stack.png" id="3_vgvjy"]
-[ext_resource type="Texture2D" uid="uid://bujoqcvw75cqw" path="res://assets/2D/paper_stack_hands.png" id="4_4qke1"]
-[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="4_jw87a"]
-[ext_resource type="Texture2D" uid="uid://gxy13nt5tkhe" path="res://assets/Particles/paper_particle.png" id="5_vgvjy"]
-[ext_resource type="AudioStream" uid="uid://86hexnadsj00" path="res://assets/Audio/paper_slide.mp3" id="7_2soxf"]
-[ext_resource type="AudioStream" uid="uid://djiqqov0tqpex" path="res://assets/Music/microgames/song1.mp3" id="10_jw87a"]
+[ext_resource type="Script" uid="uid://bspu0idbkwn2e" path="res://scripts/microgames/papertilt/paper_tilt.gd" id="1_om6km"]
+[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_emegi"]
+[ext_resource type="Texture2D" uid="uid://i3fnyx8dqg6j" path="res://assets/Backgrounds/paper_tilt.png" id="3_eywws"]
+[ext_resource type="FontFile" uid="uid://bm3qiosuy6an7" path="res://fonts/PixelatedEleganceRegular-ovawB.ttf" id="4_mprha"]
+[ext_resource type="Texture2D" uid="uid://cudovdpwvnem7" path="res://assets/2D/paper_stack_shadow.png" id="5_nt8m3"]
+[ext_resource type="Texture2D" uid="uid://bbgdmvdysn7ls" path="res://assets/2D/paper_stack.png" id="6_ulg8s"]
+[ext_resource type="Texture2D" uid="uid://bujoqcvw75cqw" path="res://assets/2D/paper_stack_hands.png" id="7_wa6pv"]
+[ext_resource type="Texture2D" uid="uid://gxy13nt5tkhe" path="res://assets/Particles/paper_particle.png" id="8_vlm1y"]
+[ext_resource type="AudioStream" uid="uid://86hexnadsj00" path="res://assets/Audio/paper_slide.mp3" id="9_4n02a"]
+[ext_resource type="AudioStream" uid="uid://djiqqov0tqpex" path="res://assets/Music/microgames/song1.mp3" id="10_hdxa5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2soxf"]
-atlas = ExtResource("3_vgvjy")
+atlas = ExtResource("6_ulg8s")
 region = Rect2(0, 0, 80, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pj5l5"]
-atlas = ExtResource("3_vgvjy")
+atlas = ExtResource("6_ulg8s")
 region = Rect2(80, 0, 80, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_js4lh"]
-atlas = ExtResource("3_vgvjy")
+atlas = ExtResource("6_ulg8s")
 region = Rect2(160, 0, 80, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jw87a"]
-atlas = ExtResource("3_vgvjy")
+atlas = ExtResource("6_ulg8s")
 region = Rect2(240, 0, 80, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uruub"]
-atlas = ExtResource("3_vgvjy")
+atlas = ExtResource("6_ulg8s")
 region = Rect2(320, 0, 80, 90)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q4mm8"]
@@ -55,8 +55,8 @@ animations = [{
 }]
 
 [node name="paper_tilt" type="Node2D" unique_id=1924266442]
-script = ExtResource("1_dbvms")
-TimerScene = ExtResource("2_4qke1")
+script = ExtResource("1_om6km")
+TimerScene = ExtResource("2_emegi")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1047079237]
 custom_minimum_size = Vector2(1152, 648)
@@ -70,7 +70,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(4, 4)
-texture = ExtResource("3_js4lh")
+texture = ExtResource("3_eywws")
 
 [node name="poster1" type="RichTextLabel" parent="ColorRect/TextureRect" unique_id=245672060]
 layout_mode = 0
@@ -80,7 +80,7 @@ offset_right = 380.25
 offset_bottom = 415.49994
 scale = Vector2(0.1, 0.1)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_jw87a")
+theme_override_fonts/normal_font = ExtResource("4_mprha")
 theme_override_font_sizes/normal_font_size = 80
 text = "GET BACK TO WORK"
 fit_content = true
@@ -96,7 +96,7 @@ offset_right = 568.5
 offset_bottom = 400.49994
 scale = Vector2(0.1, 0.1)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_jw87a")
+theme_override_fonts/normal_font = ExtResource("4_mprha")
 theme_override_font_sizes/normal_font_size = 36
 text = "SMILE!
 
@@ -116,7 +116,7 @@ metadata/_edit_lock_ = true
 [node name="silhouette" type="Sprite2D" parent="ColorRect" unique_id=249992841]
 position = Vector2(583, 428)
 scale = Vector2(4, 4)
-texture = ExtResource("2_eeakl")
+texture = ExtResource("5_nt8m3")
 
 [node name="paper_stack" type="Node2D" parent="." unique_id=1461514264]
 position = Vector2(583, 286)
@@ -128,13 +128,13 @@ frame = 2
 
 [node name="hands" type="Sprite2D" parent="paper_stack/sprite" unique_id=285546918]
 position = Vector2(0, 42.5)
-texture = ExtResource("4_4qke1")
+texture = ExtResource("7_wa6pv")
 metadata/_edit_lock_ = true
 
 [node name="paper_particle" type="CPUParticles2D" parent="paper_stack" unique_id=119602661]
 emitting = false
 amount = 35
-texture = ExtResource("5_vgvjy")
+texture = ExtResource("8_vlm1y")
 lifetime = 3.0
 one_shot = true
 explosiveness = 1.0
@@ -163,11 +163,11 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1589604636]
 
 [node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=260664215]
-stream = ExtResource("7_2soxf")
+stream = ExtResource("9_4n02a")
 volume_db = 6.656
 bus = &"Effects"
 
 [node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1810914173]
-stream = ExtResource("10_jw87a")
+stream = ExtResource("10_hdxa5")
 autoplay = true
 bus = &"Music"
