@@ -61,6 +61,7 @@ public partial class Camera3d : Camera3D
 
     private async void RotateCamera()
     {
+        flowController.Instance.set_send_toast(true);
         var tween = CreateTween();
         flowController.Instance.set_move_camera(false);
         flowController.Instance.set_can_move_camera(false);

@@ -14,8 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://c47nk275xhjn6" path="res://scenes/microgames/reportmash/report_mash.tscn" id="13_pwau5"]
 [ext_resource type="PackedScene" uid="uid://dit6ddgyjluol" path="res://scenes/microgames/shredderlanding/shredder_landing.tscn" id="14_m7up5"]
 [ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="15_owo31"]
+[ext_resource type="PackedScene" uid="uid://c24xxcrdsc2ao" path="res://scenes/microgames/flyswatter/flyswatter.tscn" id="15_ywwpr"]
 [ext_resource type="PackedScene" uid="uid://cklr0uk6gtrgk" path="res://scenes/microgames/staplerslam/stapler_slam.tscn" id="16_8s0io"]
+[ext_resource type="PackedScene" uid="uid://og1pikxpsooi" path="res://scenes/microgames/speedysharpen/speedy_sharpen.tscn" id="16_mer2n"]
 [ext_resource type="Script" uid="uid://um627vlggsjs" path="res://scripts/office_level/Asteroid.cs" id="16_sbgol"]
+[ext_resource type="PackedScene" uid="uid://dqdotn5cl3hx" path="res://prefabs/utility/Toast_Remaining.tscn" id="17_pwau5"]
+[ext_resource type="Script" uid="uid://l1j3d4tm5d3f" path="res://scripts/office_level/ToastRemaining.cs" id="18_m7up5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ln0b1"]
 sky_top_color = Color(0.49452782, 0.69739485, 1, 1)
@@ -127,7 +131,7 @@ shape = SubResource("BoxShape3D_hxyb1")
 
 [node name="GameManager" type="Node" parent="." unique_id=22151173 node_paths=PackedStringArray("scoreLabel")]
 script = ExtResource("7_clqp0")
-microGames = Array[PackedScene]([ExtResource("10_34yqb"), ExtResource("9_a6n0r"), ExtResource("8_ln0b1"), ExtResource("12_ib5xb"), ExtResource("13_pwau5"), ExtResource("14_m7up5"), ExtResource("16_8s0io")])
+microGames = Array[PackedScene]([ExtResource("10_34yqb"), ExtResource("9_a6n0r"), ExtResource("8_ln0b1"), ExtResource("12_ib5xb"), ExtResource("13_pwau5"), ExtResource("14_m7up5"), ExtResource("16_8s0io"), ExtResource("15_ywwpr"), ExtResource("16_mer2n")])
 scoreLabel = NodePath("../Control/Label")
 
 [node name="Control" type="Control" parent="." unique_id=2064789399]
@@ -145,6 +149,19 @@ pivot_offset = Vector2(175, 0)
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_a6n0r")
 vertical_alignment = 1
+
+[node name="Control2" parent="Control" unique_id=1983126098 instance=ExtResource("17_pwau5")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 0.5
+offset_top = -151.0
+offset_right = 0.5
+offset_bottom = -151.0
+grow_vertical = 0
+script = ExtResource("18_m7up5")
 
 [node name="Asteroid" parent="." unique_id=41033272 instance=ExtResource("15_owo31")]
 transform = Transform3D(0.7457702, 0, 0.66620326, 0, 1, 0, -0.66620326, 0, 0.7457702, -1.299, 200, -600)
