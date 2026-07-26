@@ -21,6 +21,7 @@ metadata/_edit_lock_ = true
 
 [node name="pencil_particle" type="CPUParticles2D" parent="." unique_id=1919340153]
 position = Vector2(588, 142)
+emitting = false
 amount = 30
 texture = ExtResource("2_lgcu5")
 lifetime = 2.0999999999999996

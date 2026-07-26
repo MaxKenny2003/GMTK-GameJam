@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_1nbeq"]
 [ext_resource type="Texture2D" uid="uid://cktrb8pay785m" path="res://assets/Backgrounds/shredder.png" id="3_yo0th"]
 [ext_resource type="Texture2D" uid="uid://djs6tpsdgs1pn" path="res://assets/2D/shredder_back.png" id="4_1bkjc"]
-[ext_resource type="PackedScene" path="res://scenes/microgames/shredderlanding/paper.tscn" id="5_7sgri"]
+[ext_resource type="PackedScene" uid="uid://pmx3kpiau56g" path="res://scenes/microgames/shredder_landing/paper.tscn" id="5_7sgri"]
 [ext_resource type="Texture2D" uid="uid://co66s5ulieu7l" path="res://assets/2D/shredder_front.png" id="6_nl5yc"]
 [ext_resource type="AudioStream" uid="uid://b2ak7b71tu882" path="res://assets/Audio/shredder.mp3" id="7_25wp5"]
 
