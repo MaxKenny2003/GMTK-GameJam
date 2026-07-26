@@ -6,6 +6,7 @@ extends Node2D
 @onready var results: Label = $Label
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var effects: AudioStreamPlayer2D = $effects
+@onready var stapler_bottom: Sprite2D = $background/stapler_bottom
 
 @export var stapler_offset: Vector2 = Vector2(0,90)
 @export var StapleScene: PackedScene
@@ -32,11 +33,13 @@ func _process(_delta: float) -> void:
 	if !end:
 		var mouse_pos = get_global_mouse_position()
 		stapler.global_position = mouse_pos - stapler_offset
+		stapler_bottom.global_position = mouse_pos 
 		if staple_counter == 3:
 			results.visible = true
 			end = true
 			timer_bar_instance.stop_timers()
 			game_has_ended("win")
+			
 
 func _physics_process(_delta: float) -> void:
 	if not pending_staple:
@@ -67,9 +70,11 @@ func _spawn_staple():
 	var mouse_pos = get_global_mouse_position()
 	var staple = StapleScene.instantiate()
 	effects.play()
+	stapler.frame = 1
 	last_area.add_child(staple)
 	staple.global_position = mouse_pos
 	staple_counter += 1
+	return_frame()
 
 func _is_overlapping_now() -> bool:
 	for area in staplerarea.get_overlapping_areas():
@@ -86,3 +91,7 @@ func _on_timer_up():
 func game_has_ended(result: String):
 	await get_tree().create_timer(0.5).timeout
 	emit_signal("game_end", result)
+
+func return_frame():
+	await get_tree().create_timer(0.2).timeout
+	stapler.frame = 0
