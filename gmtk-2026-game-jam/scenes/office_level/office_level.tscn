@@ -1,98 +1,88 @@
 [gd_scene format=3 uid="uid://sflnr7lxlhpp"]
 
-[ext_resource type="Script" uid="uid://cxcjqggxe8aa6" path="res://scripts/microgames/flyswatter/flyswatter.gd" id="1_0suxl"]
-[ext_resource type="PackedScene" uid="uid://bijuw5wls1kr8" path="res://scenes/ui/microgame_timer.tscn" id="2_clqp0"]
-[ext_resource type="PackedScene" uid="uid://bqxkhewecpnk5" path="res://scenes/microgames/flyswatter/fly.tscn" id="3_ln0b1"]
-[ext_resource type="Texture2D" uid="uid://cd73tt7kjmlk0" path="res://assets/2D/Hands-smack.png" id="4_t0vht"]
-[ext_resource type="Texture2D" uid="uid://7iji6orhekwq" path="res://assets/2D/Hands.png" id="5_a6n0r"]
-[ext_resource type="AudioStream" path="res://assets/Audio/squish.mp3" id="6_34yqb"]
+[ext_resource type="Script" uid="uid://cyffo7ivvms6a" path="res://scripts/office_level/OfficeLevel.cs" id="1_iiahc"]
+[ext_resource type="PackedScene" uid="uid://bgj2tftsx0ljg" path="res://assets/3D/Office/Building/Building.glb" id="2_0suxl"]
+[ext_resource type="Script" uid="uid://hgieabivobrd" path="res://scenes/office_level/Camera3d.cs" id="2_sivyo"]
+[ext_resource type="PackedScene" uid="uid://dpksnlt3jx0fo" path="res://assets/3D/Office/Computer_and_Desk.glb" id="3_ls7i3"]
+[ext_resource type="PackedScene" uid="uid://cmnh2oe1tudin" path="res://assets/3D/Office/Cubical/Full_Flat/Flat_FullSize.glb" id="4_0suxl"]
+[ext_resource type="PackedScene" uid="uid://chv7r18a3wpsr" path="res://assets/3D/Office/Cubical/Flat_Half/Flat_Half.glb" id="5_clqp0"]
+[ext_resource type="Script" uid="uid://bewmotytybvkk" path="res://scripts/office_level/GameManager.cs" id="7_clqp0"]
+[ext_resource type="PackedScene" uid="uid://d1mugjufhjue7" path="res://scenes/microgames/contract_drag/contract_drag.tscn" id="8_ln0b1"]
+[ext_resource type="PackedScene" uid="uid://dqv4jd0k4tqeq" path="res://scenes/microgames/plugpanic/plug_panic.tscn" id="9_a6n0r"]
+[ext_resource type="PackedScene" uid="uid://5blk4wsdi1vd" path="res://scenes/microgames/papertilt/paper_tilt.tscn" id="10_34yqb"]
+[ext_resource type="PackedScene" uid="uid://dcwa1iyalum3g" path="res://scenes/microgames/popupparty/popup_party.tscn" id="12_ib5xb"]
+[ext_resource type="PackedScene" uid="uid://c47nk275xhjn6" path="res://scenes/microgames/reportmash/report_mash.tscn" id="13_pwau5"]
+[ext_resource type="PackedScene" uid="uid://dit6ddgyjluol" path="res://scenes/microgames/shredderlanding/shredder_landing.tscn" id="14_m7up5"]
+[ext_resource type="PackedScene" uid="uid://djgmo5t02gjgi" path="res://assets/3D/Environment/Asteroid/Asteroid.glb" id="15_owo31"]
+[ext_resource type="PackedScene" uid="uid://cklr0uk6gtrgk" path="res://scenes/microgames/staplerslam/stapler_slam.tscn" id="16_8s0io"]
+[ext_resource type="Script" uid="uid://um627vlggsjs" path="res://scripts/office_level/Asteroid.cs" id="16_sbgol"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbxwk"]
-size = Vector2(20, 657)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ln0b1"]
+sky_top_color = Color(0.49452782, 0.69739485, 1, 1)
+sky_horizon_color = Color(0.43865776, 0.5209532, 0.71979165, 1)
+sky_curve = 0.26116523
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qkr3"]
-size = Vector2(1183, 23)
+[sub_resource type="Sky" id="Sky_12h4w"]
+sky_material = SubResource("ProceduralSkyMaterial_ln0b1")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbxwk"]
-radius = 40.60785
-height = 155.82794
+[sub_resource type="Environment" id="Environment_hxyb1"]
+background_mode = 2
+sky = SubResource("Sky_12h4w")
+fog_enabled = true
+fog_light_color = Color(0.32127765, 0.35030988, 0.39548048, 1)
+fog_density = 0.0078
+fog_sky_affect = 0.35
+fog_height_density = 500.0
 
-[node name="Node2D" type="Node2D" unique_id=935132583]
-script = ExtResource("1_0suxl")
-TimerScene = ExtResource("2_clqp0")
+[sub_resource type="BoxShape3D" id="BoxShape3D_hxyb1"]
+size = Vector3(13.588745, 0.2, 13.630371)
 
-[node name="Desk" type="ColorRect" parent="." unique_id=1373794316]
-custom_minimum_size = Vector2(1152, 648)
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.92156863, 0.7254902, 0.4509804, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_a6n0r"]
+font_size = 40
 
-[node name="Fly" parent="." unique_id=488059360 instance=ExtResource("3_ln0b1")]
-position = Vector2(321, 113)
+[node name="Office_Level" type="Node" unique_id=423284289]
+script = ExtResource("1_iiahc")
 
-[node name="Fly2" parent="." unique_id=1749578858 instance=ExtResource("3_ln0b1")]
-position = Vector2(199, 457)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1015132653]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.758824, 45.564983, -1.4554517)
+script = ExtResource("2_sivyo")
+target_pos = Vector3(0.037, 45.565, -1.455)
 
-[node name="Fly3" parent="." unique_id=302640434 instance=ExtResource("3_ln0b1")]
-position = Vector2(864, 279)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1520748531]
+transform = Transform3D(-1, -8.742278e-08, 7.233962e-15, -6.098864e-08, 0.6976288, 0.7164594, -6.2634875e-08, 0.7164594, -0.6976288, 0, 52.238293, -19.645273)
 
-[node name="Fly4" parent="." unique_id=782551176 instance=ExtResource("3_ln0b1")]
-position = Vector2(979, 504)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2101952818]
+environment = SubResource("Environment_hxyb1")
 
-[node name="Boundaries" type="Node2D" parent="." unique_id=2098317584]
+[node name="Structure" type="Node" parent="." unique_id=75626225]
 
-[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=17702795]
-position = Vector2(-10, 324)
-collision_layer = 4
-collision_mask = 4
-metadata/_edit_group_ = true
+[node name="Cubical" type="Node" parent="Structure" unique_id=1199573045]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=1366804379]
-shape = SubResource("RectangleShape2D_lbxwk")
+[node name="Computer_and_Desk2" parent="Structure/Cubical" unique_id=224431334 instance=ExtResource("3_ls7i3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.031916022, 43.51684, -1.4493084)
 
-[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=1887892078]
-position = Vector2(571, -10)
-collision_layer = 4
-collision_mask = 4
-metadata/_edit_group_ = true
+[node name="Flat_FullSize" parent="Structure/Cubical" unique_id=632902779 instance=ExtResource("4_0suxl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.7056423, 44.317463, 0.5879767)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=2052981053]
-shape = SubResource("RectangleShape2D_5qkr3")
+[node name="Flat_FullSize3" parent="Structure/Cubical" unique_id=2035836359 instance=ExtResource("4_0suxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35426438, 44.317463, 1.7699937)
 
-[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=402047616]
-position = Vector2(1162, 324)
-collision_layer = 4
-collision_mask = 4
-metadata/_edit_group_ = true
+[node name="Flat_FullSize4" parent="Structure/Cubical" unique_id=590176433 instance=ExtResource("4_0suxl")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.408, 44.317028, 0.588)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1958284922]
-shape = SubResource("RectangleShape2D_lbxwk")
+[node name="Flat_FullSize5" parent="Structure/Cubical" unique_id=1228741804 instance=ExtResource("4_0suxl")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.408, 44.317028, -3.386)
 
-[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=1884004542]
-position = Vector2(571, 658)
-collision_layer = 4
-collision_mask = 4
-metadata/_edit_group_ = true
+[node name="Flat_FullSize2" parent="Structure/Cubical" unique_id=402820219 instance=ExtResource("4_0suxl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.7056423, 44.317463, -3.3857548)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=143620475]
-shape = SubResource("RectangleShape2D_5qkr3")
-
-[node name="Hand" type="Area2D" parent="." unique_id=2002032415]
-z_index = 1
-position = Vector2(571, 324)
-collision_mask = 3
-
-[node name="SmackSprite" type="Sprite2D" parent="Hand" unique_id=1007623170]
+[node name="Flat_Half" parent="Structure/Cubical" unique_id=137293808 instance=ExtResource("5_clqp0")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, -1.4497756, 0.71846086, -5.4795547)
 visible = false
-position = Vector2(-67, 79)
-rotation = -0.2617994
-scale = Vector2(3.9999998, 4.147)
-texture = ExtResource("4_t0vht")
 
-[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=2000873348]
-position = Vector2(-1, 78)
-scale = Vector2(4, 4.147)
-texture = ExtResource("5_a6n0r")
+[node name="Flat_Half2" parent="Structure/Cubical" unique_id=836851410 instance=ExtResource("5_clqp0")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 2.2715812, 0.71846086, -5.4795547)
+visible = false
 
 [node name="Node" type="Node" parent="Structure/Cubical" unique_id=1473558923]
 
@@ -156,6 +146,7 @@ text = "Score: 0"
 label_settings = SubResource("LabelSettings_a6n0r")
 vertical_alignment = 1
 
-[node name="effects" type="AudioStreamPlayer2D" parent="." unique_id=1764829269]
-stream = ExtResource("6_34yqb")
-bus = &"Effects"
+[node name="Asteroid" parent="." unique_id=41033272 instance=ExtResource("15_owo31")]
+transform = Transform3D(0.7457702, 0, 0.66620326, 0, 1, 0, -0.66620326, 0, 0.7457702, -1.299, 200, -600)
+script = ExtResource("16_sbgol")
+asteroid_state_positions = Array[Vector3]([Vector3(-1.254, 20, -80)])
