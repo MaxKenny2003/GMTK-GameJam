@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cklr0uk6gtrgk" path="res://scenes/microgames/staplerslam/stapler_slam.tscn" id="16_8s0io"]
 [ext_resource type="PackedScene" uid="uid://og1pikxpsooi" path="res://scenes/microgames/speedysharpen/speedy_sharpen.tscn" id="16_mer2n"]
 [ext_resource type="Script" uid="uid://um627vlggsjs" path="res://scripts/office_level/Asteroid.cs" id="16_sbgol"]
+[ext_resource type="PackedScene" uid="uid://bggt3k2mee1jp" path="res://prefabs/utility/WhiteScreen.tscn" id="17_8s0io"]
 [ext_resource type="PackedScene" uid="uid://dqdotn5cl3hx" path="res://prefabs/utility/Toast_Remaining.tscn" id="17_pwau5"]
 [ext_resource type="Script" uid="uid://l1j3d4tm5d3f" path="res://scripts/office_level/ToastRemaining.cs" id="18_m7up5"]
 
@@ -132,6 +133,7 @@ shape = SubResource("BoxShape3D_hxyb1")
 [node name="GameManager" type="Node" parent="." unique_id=22151173 node_paths=PackedStringArray("scoreLabel")]
 script = ExtResource("7_clqp0")
 microGames = Array[PackedScene]([ExtResource("10_34yqb"), ExtResource("9_a6n0r"), ExtResource("8_ln0b1"), ExtResource("12_ib5xb"), ExtResource("13_pwau5"), ExtResource("14_m7up5"), ExtResource("16_8s0io"), ExtResource("15_ywwpr"), ExtResource("16_mer2n")])
+gameOverScreen = ExtResource("17_8s0io")
 scoreLabel = NodePath("../Control/Label")
 
 [node name="Control" type="Control" parent="." unique_id=2064789399]

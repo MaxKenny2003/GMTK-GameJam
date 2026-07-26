@@ -12,13 +12,22 @@ public partial class Asteroid : Node3D
     [Export]
     public ColorRect colorRect;
     private WorldEnvironment worldEnvironment;
+    private Godot.Environment reset;
 
     [Export]
-    public float total_game_time = 30.0f;
+    public float total_game_time = 10.0f;
 
     public override void _Ready()
     {
         worldEnvironment = GetNode<WorldEnvironment>("../WorldEnvironment");
+
+        // Deep-duplicate so we get a genuinely separate copy of the environment/sky/material
+        var originalEnv = (Godot.Environment)worldEnvironment.Environment.Duplicate(true);
+        var originalSky = (Sky)originalEnv.Sky.Duplicate(true);
+        originalEnv.Sky = originalSky;
+
+        reset = originalEnv; // store this as the true original snapshot (change type to Environment, not WorldEnvironment)
+
         MoveAsteroid();
     }
 
@@ -27,9 +36,12 @@ public partial class Asteroid : Node3D
         flowController.Instance.toast_seconds_left = total_game_time;
         is_moving = true;
 
-        var env = worldEnvironment.Environment;
-        var sky = env.Sky;
-        var skyMaterial = (ProceduralSkyMaterial)sky.SkyMaterial;
+        var env = (Godot.Environment)worldEnvironment.Environment.Duplicate(true);
+        var sky = (Sky)env.Sky.Duplicate(true);
+        var skyMaterial = (ProceduralSkyMaterial)sky.SkyMaterial.Duplicate(true);
+        sky.SkyMaterial = skyMaterial;
+        env.Sky = sky;
+        worldEnvironment.Environment = env; // assign the fresh duplicated copy so we're not editing the shared original
 
         var tween = CreateTween();
         tween.TweenProperty(this, "global_position", asteroid_state_positions[asteroid_state], total_game_time)
@@ -68,7 +80,10 @@ public partial class Asteroid : Node3D
         flowController.Instance.asteroid_state = asteroid_state;
         GD.Print("Asteroid state: ", asteroid_state);
 
+        flowController.Instance.gameOver = true; // set this FIRST, immediately
+        flowController.Instance.set_can_start_game(false);
         await ToSignal(tween, "finished");
         flowController.Instance.endGame();
+        worldEnvironment.Environment = reset; // now reset holds a truly untouched original copy
     }
 }

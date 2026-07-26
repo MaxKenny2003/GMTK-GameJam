@@ -19,11 +19,16 @@ public partial class GameManager : Node
     private Node instance;
 
     [Export]
+    public PackedScene gameOverScreen;
+
+    [Export]
     public Label scoreLabel;
+
+    private bool has_ended = false;
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-        if (flowController.Instance.can_start_game && !flowController.Instance.move_Camera)
+        if (flowController.Instance.can_start_game && !flowController.Instance.move_Camera && !flowController.Instance.gameOver)
         {
             if (microGames.Count > 0)
             {
@@ -36,6 +41,12 @@ public partial class GameManager : Node
                 add_game_to_waiting_queue(index);
                 flowController.Instance.set_is_in_game(true);
             }
+        }
+        if(flowController.Instance.gameOver && !has_ended)
+        {
+            has_ended = true;
+            var instance = gameOverScreen.Instantiate<Node>();
+            AddChild(instance);
         }
     }
 
